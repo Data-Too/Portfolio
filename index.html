@@ -238,13 +238,14 @@
             color: #2d7d46;
         }
 
-        /* ===== ZONE D'APERÇU IFRAME ===== */
+        /* ===== ZONE D'APERÇU ===== */
         .preview-area {
             margin-top: 2rem;
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid #e8e8e8;
             background: #ffffff;
+            min-height: 100px;
         }
 
         .preview-area iframe {
@@ -268,6 +269,58 @@
             font-size: 1.8rem;
             color: #c0a86a;
             margin-bottom: 8px;
+        }
+
+        /* ===== CONTENEUR DE TÉLÉCHARGEMENT ===== */
+        .download-container {
+            padding: 2rem;
+            text-align: center;
+            background: #fafafa;
+        }
+
+        .download-container i {
+            font-size: 3rem;
+            color: #2d7d46;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .download-container p {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .download-container .file-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+        }
+
+        .download-btn {
+            background: #c0a86a;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .download-btn:hover {
+            background: #a88d4a;
+            transform: scale(1.02);
+        }
+
+        .download-btn i {
+            display: inline;
+            font-size: 0.9rem;
+            color: white;
+            margin-right: 6px;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -322,6 +375,9 @@
             .sidebar nav a {
                 font-size: 0.8rem;
             }
+            .preview-area iframe {
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -357,7 +413,6 @@
             <!-- ===== PROJET 1 : VIDÉO DÉMO ===== -->
             <div class="project-card">
                 <div class="thumb">
-                    <!-- Code ScreenPal avec la vidéo Consolidation IFRS -->
                     <div class="sp-embed-player" data-id="cO1T3mnuWhl" data-aspect-ratio="1.777778" data-padding-top="56.250000%" style="position:relative;width:100%;padding-top:56.250000%;height:0;">
                         <script src="https://go.screenpal.com/player/appearance/cO1T3mnuWhl"></script>
                         <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cO1T3mnuWhl?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe>
@@ -446,13 +501,20 @@
 
         </div>
 
-        <!-- ===== ZONE D'APERÇU IFRAME ===== -->
+        <!-- ===== ZONE D'APERÇU ===== -->
         <div class="preview-area" id="previewArea">
             <div class="preview-placeholder" id="placeholderMsg">
                 <i class="fas fa-file-signature"></i>
                 Clique sur un document Excel ou PDF pour l'apercevoir
             </div>
-            <iframe id="docIframe" style="display:none; height:300px;" src=""></iframe>
+            <div class="download-container" id="downloadContainer" style="display:none;">
+                <i class="fas fa-file-excel"></i>
+                <div class="file-name" id="fileNameDisplay">Fichier Excel</div>
+                <p>Les fichiers Excel ne peuvent pas être visualisés directement dans le navigateur.</p>
+                <a class="download-btn" id="downloadLink" href="#" download>
+                    <i class="fas fa-download"></i> Télécharger le fichier
+                </a>
+            </div>
         </div>
 
         <!-- FOOTER -->
@@ -465,19 +527,25 @@
 
     <script>
         function previewDoc(type) {
-            const iframe = document.getElementById('docIframe');
             const placeholder = document.getElementById('placeholderMsg');
+            const downloadContainer = document.getElementById('downloadContainer');
+            const downloadLink = document.getElementById('downloadLink');
+            const fileNameDisplay = document.getElementById('fileNameDisplay');
+            const iframe = document.getElementById('docIframe');
+
+            // Si l'iframe existe, on le cache
+            if (iframe) iframe.style.display = 'none';
 
             // 🔁 MAP DES FICHIERS - CORRIGÉ AVEC LE BON DOSSIER "documents"
             const fileMap = {
-                'cohort': 'assets/documents/cohort-analysis exp.xlsx',
+                'cohort': 'assets/documents/cohort-analysis-exp.xlsx',
                 'dettes': 'assets/documents/Modelisation_dettes.xlsx'
             };
 
             const fileUrl = fileMap[type];
 
             if (!fileUrl) {
-                iframe.style.display = 'none';
+                downloadContainer.style.display = 'none';
                 placeholder.style.display = 'block';
                 placeholder.innerHTML = `
                     <i class="fas fa-exclamation-triangle" style="color:#d9534f;"></i>
@@ -487,29 +555,16 @@
                 return;
             }
 
-            iframe.style.display = 'block';
+            // Cacher le placeholder, afficher le conteneur de téléchargement
             placeholder.style.display = 'none';
+            downloadContainer.style.display = 'block';
 
-            const isPdf = fileUrl.endsWith('.pdf') || fileUrl.includes('.pdf');
-            const isExcel = fileUrl.endsWith('.xls') || fileUrl.endsWith('.xlsx') || fileUrl.includes('.xls');
+            // Définir le nom du fichier
+            const fileName = fileUrl.split('/').pop();
+            fileNameDisplay.textContent = fileName;
 
-            try {
-                if (isPdf) {
-                    iframe.src = fileUrl;
-                } else if (isExcel) {
-                    iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`;
-                } else {
-                    iframe.src = fileUrl;
-                }
-            } catch (error) {
-                iframe.style.display = 'none';
-                placeholder.style.display = 'block';
-                placeholder.innerHTML = `
-                    <i class="fas fa-exclamation-circle" style="color:#d9534f;"></i>
-                    Erreur de chargement
-                    <br><small style="color:#aaa;">${error.message}</small>
-                `;
-            }
+            // Définir le lien de téléchargement
+            downloadLink.href = fileUrl;
         }
     </script>
 
