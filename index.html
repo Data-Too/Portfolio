@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data-Too · Portfolio IFRS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Data-Too · IFRS Portfolio</title>
     <style>
-        /* ========================================
-                   RESET & POLICES
-                ======================================== */
+        /* =============================================
+                   POLICES & RESET
+                ============================================= */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -15,153 +17,245 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f2f4f8;
+            color: #1a2634;
             padding: 40px 20px;
+            line-height: 1.6;
         }
 
+        /* =============================================
+                   CONTENEUR PRINCIPAL
+                ============================================= */
         .container {
-            max-width: 1100px;
+            max-width: 1120px;
             margin: 0 auto;
             background: #ffffff;
+            border-radius: 32px;
             padding: 50px 55px;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f1f5f9;
+            box-shadow: 0 30px 70px -18px rgba(0, 20, 40, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.08);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* ========================================
-                   TYPOGRAPHIE
-                ======================================== */
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #0f172a;
+        /* =============================================
+                   EN-TÊTE AVEC TOUCHE D'OR
+                ============================================= */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 8px;
         }
 
         .badge {
-            display: inline-block;
-            background: #eef2ff;
-            color: #4f46e5;
-            font-size: 0.75rem;
+            background: #1e2a3a;
+            color: #c9a84c;
+            font-size: 0.7rem;
             font-weight: 600;
-            padding: 4px 16px;
-            border-radius: 20px;
-            letter-spacing: 0.3px;
-            margin-bottom: 24px;
-            border: 1px solid #e0e7ff;
+            letter-spacing: 1.2px;
+            padding: 6px 18px;
+            border-radius: 40px;
+            text-transform: uppercase;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+        }
+
+        .badge-year {
+            color: #8a9aa8;
+            font-size: 0.75rem;
+            font-weight: 400;
+            background: #f0f2f5;
+            padding: 6px 18px;
+            border-radius: 40px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: #0b1a2a;
+            margin: 16px 0 6px 0;
+            line-height: 1.1;
+        }
+
+        .gold-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #c9a84c, #e8d28a);
+            border-radius: 4px;
+            margin: 10px 0 22px 0;
         }
 
         .subtitle {
             font-size: 1.15rem;
-            color: #475569;
-            margin-bottom: 48px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid #f1f5f9;
+            color: #4a5a6a;
+            max-width: 720px;
             font-weight: 400;
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #ecf0f3;
         }
 
-        h2 {
+        /* =============================================
+                   SECTION À PROPOS / EXPERTISE
+                ============================================= */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin: -10px 0 30px 0;
+        }
+
+        .expertise-item {
+            background: #f8faff;
+            border-radius: 40px;
+            padding: 6px 18px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1a2a3a;
+            border: 1px solid #e9edf4;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            width: fit-content;
+        }
+
+        .expertise-item span {
+            color: #c9a84c;
+        }
+
+        /* =============================================
+                   TITRES DE SECTION
+                ============================================= */
+        .section-title {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #0f172a;
+            color: #0b1a2a;
             margin: 48px 0 24px 0;
-            letter-spacing: -0.01em;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
-        h2:after {
+        .section-title:after {
             content: '';
             flex: 1;
             height: 1px;
-            background: #e2e8f0;
-            margin-left: 16px;
+            background: linear-gradient(90deg, #dce3ea, transparent);
         }
 
-        /* ========================================
-                   GRILLE PROJETS
-                ======================================== */
+        /* =============================================
+                   GRILLE PROJETS (CARTES PREMIUM)
+                ============================================= */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 16px;
+            gap: 28px;
         }
 
         .project-card {
-            background: #f8fafc;
-            border: 1px solid #f1f5f9;
-            border-radius: 16px;
-            padding: 24px 24px 28px;
-            transition: all 0.2s ease;
+            background: #ffffff;
+            border: 1px solid #eaedf2;
+            border-radius: 20px;
+            padding: 26px 24px 28px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 30px;
+            right: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a84c, #e8d28a);
+            border-radius: 0 0 6px 6px;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .project-card:hover {
-            background: #ffffff;
-            border-color: #cbd5e1;
-            box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.06);
-            transform: translateY(-2px);
+            transform: translateY(-6px);
+            border-color: #d4dce6;
+            box-shadow: 0 20px 50px -12px rgba(0, 20, 40, 0.12);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-card .icon {
             font-size: 2.2rem;
+            margin-bottom: 6px;
+        }
+
+        .project-card .status-badge {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1a7a4a;
+            background: #e6f5ed;
+            padding: 2px 12px;
+            border-radius: 30px;
+            display: inline-block;
             margin-bottom: 8px;
-            display: block;
+            width: fit-content;
         }
 
         .project-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 6px;
+            color: #0b1a2a;
+            margin-bottom: 4px;
         }
 
         .project-card .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin: 10px 0 14px 0;
+            margin: 8px 0 14px 0;
         }
 
         .project-card .tag {
-            background: #f1f5f9;
-            color: #334155;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.2px;
+            background: #f0f3f7;
+            color: #2a3a4a;
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
             text-transform: uppercase;
         }
 
         .project-card .tag.excel {
-            background: #ecfdf5;
-            color: #065f46;
+            background: #e3f2e9;
+            color: #0f5a3a;
         }
         .project-card .tag.ifrs {
-            background: #f1f5f9;
-            color: #1e293b;
+            background: #e8edf5;
+            color: #1a3a6a;
         }
         .project-card .tag.model {
-            background: #eff6ff;
-            color: #1e40af;
+            background: #e1eefa;
+            color: #1a4a7a;
         }
         .project-card .tag.demo {
-            background: #fffbeb;
-            color: #92400e;
+            background: #fcf3e0;
+            color: #8a6a1a;
         }
 
         .project-card .desc {
-            font-size: 0.92rem;
-            color: #475569;
+            font-size: 0.9rem;
+            color: #4a5a6a;
             margin-bottom: 20px;
-            line-height: 1.5;
+            flex-grow: 1;
+            line-height: 1.6;
         }
 
         .btn-group {
@@ -172,78 +266,80 @@
         }
 
         .btn {
-            display: inline-block;
-            padding: 8px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 22px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.85rem;
-            transition: all 0.2s;
+            font-size: 0.8rem;
+            transition: all 0.25s;
             border: 1px solid transparent;
             cursor: pointer;
         }
 
         .btn-primary {
-            background: #0f172a;
-            color: white;
+            background: #0b1a2a;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(11, 26, 42, 0.15);
         }
 
         .btn-primary:hover {
-            background: #1e293b;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+            background: #1a2a3a;
+            box-shadow: 0 8px 24px rgba(11, 26, 42, 0.2);
+            transform: translateY(-1px);
         }
 
         .btn-outline {
             background: transparent;
-            color: #475569;
-            border-color: #e2e8f0;
+            color: #3a4a5a;
+            border-color: #d0d8e0;
         }
 
         .btn-outline:hover {
-            background: #f8fafc;
-            border-color: #94a3b8;
+            background: #f5f7fa;
+            border-color: #a0b0c0;
         }
 
-        /* ========================================
-                   SECTIONS (VIDEO, IMAGES, PDF)
-                ======================================== */
+        /* =============================================
+                   MÉDIAS (VIDÉO, IMAGES, PDF)
+                ============================================= */
         .media-section {
-            background: #f8fafc;
-            border-radius: 16px;
+            background: #fafcfe;
+            border-radius: 20px;
             padding: 28px 30px;
             margin: 16px 0 8px 0;
-            border: 1px solid #f1f5f9;
+            border: 1px solid #eaedf2;
         }
 
         .media-section h3 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 500;
-            color: #0f172a;
+            color: #0b1a2a;
             margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 24px;
         }
 
         .video-grid video {
             width: 100%;
-            border-radius: 12px;
-            background: #0f172a;
-            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            background: #0b1a2a;
+            border: 1px solid #dce3ea;
         }
 
         .video-item p {
             margin-top: 8px;
             font-size: 0.85rem;
-            color: #475569;
-            font-weight: 450;
-        }
-
-        .video-item .btn {
-            margin-top: 8px;
+            color: #4a5a6a;
         }
 
         .image-grid {
@@ -256,14 +352,15 @@
         .image-grid img {
             max-width: 180px;
             height: auto;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s;
+            border-radius: 12px;
+            border: 1px solid #dce3ea;
+            transition: all 0.25s;
         }
 
         .image-grid img:hover {
-            border-color: #94a3b8;
-            transform: scale(1.02);
+            border-color: #b0c0d0;
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
         }
 
         .pdf-list {
@@ -276,37 +373,38 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: white;
-            padding: 8px 20px;
+            background: #ffffff;
+            padding: 8px 22px;
             border-radius: 40px;
             text-decoration: none;
-            color: #1e293b;
+            color: #1a2a3a;
             font-weight: 450;
-            font-size: 0.9rem;
-            border: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+            border: 1px solid #dce3ea;
             transition: all 0.2s;
         }
 
         .pdf-list a:hover {
-            background: #f8fafc;
-            border-color: #94a3b8;
+            background: #f5f7fa;
+            border-color: #b0c0d0;
+            transform: translateY(-1px);
         }
 
-        /* ========================================
-                   SECTION DE TEST
-                ======================================== */
+        /* =============================================
+                   SECTION DE TEST (élégante)
+                ============================================= */
         .test-section {
-            background: #fefce8;
-            border: 1px solid #fde68a;
-            border-radius: 14px;
-            padding: 20px 28px;
-            margin: 40px 0 20px 0;
+            background: #f8faff;
+            border: 1px solid #e3eaf2;
+            border-radius: 16px;
+            padding: 22px 28px;
+            margin: 40px 0 16px 0;
         }
 
         .test-section h3 {
-            color: #78350f;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
+            color: #1a2a3a;
             margin-bottom: 8px;
         }
 
@@ -315,64 +413,83 @@
             padding: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 16px 32px;
+            gap: 12px 28px;
         }
 
         .test-section ul li a {
-            color: #1e293b;
+            color: #1a2a3a;
             font-weight: 450;
             text-decoration: none;
-            border-bottom: 1.5px dotted #d6d3d1;
+            border-bottom: 1.5px dotted #c0cedc;
             padding-bottom: 2px;
+            font-size: 0.85rem;
         }
 
         .test-section ul li a:hover {
-            color: #0f172a;
-            border-bottom-color: #0f172a;
+            color: #0b1a2a;
+            border-bottom-color: #c9a84c;
         }
 
-        /* ========================================
+        .test-section .note {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: #6a7a8a;
+        }
+
+        /* =============================================
                    PIED DE PAGE
-                ======================================== */
+                ============================================= */
         footer {
             margin-top: 50px;
             padding-top: 24px;
-            border-top: 1px solid #f1f5f9;
-            text-align: center;
-            color: #94a3b8;
+            border-top: 1px solid #e6ecf2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: #7a8a9a;
             font-size: 0.85rem;
         }
 
         footer a {
-            color: #1e293b;
+            color: #1a2a3a;
             text-decoration: none;
-            font-weight: 450;
+            font-weight: 500;
         }
 
         footer a:hover {
-            color: #0f172a;
+            color: #0b1a2a;
             text-decoration: underline;
         }
 
-        /* ========================================
+        footer .gold-dot {
+            color: #c9a84c;
+        }
+
+        /* =============================================
                    RESPONSIVE
-                ======================================== */
+                ============================================= */
         @media (max-width: 640px) {
             .container {
                 padding: 24px 18px;
             }
             h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             .subtitle {
                 font-size: 1rem;
             }
             .image-grid img {
-                max-width: 140px;
+                max-width: 130px;
             }
             .test-section ul {
                 flex-direction: column;
-                gap: 8px;
+                gap: 6px;
+            }
+            footer {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -382,24 +499,40 @@
     <div class="container">
 
         <!-- ==========================================
-        EN-TÊTE
+        EN-TÊTE AVEC TOUCHE D'OR
         ========================================== -->
-        <div class="badge">✦ Data-Too · 2026</div>
-        <h1>Consolidation IFRS</h1>
+        <div class="header-top">
+            <span class="badge">✦ Data-Too · IFRS</span>
+            <span class="badge-year">Mise à jour 2026</span>
+        </div>
+
+        <h1>Consolidation &amp; Modélisation IFRS</h1>
+        <div class="gold-line"></div>
         <p class="subtitle">
-            Portfolio d'expertise en modélisation financière et analyse de cohortes.
+            Portfolio d'expertise en consolidation financière, analyse de cohortes et modélisation des dettes.
             Tous les fichiers sont disponibles en téléchargement.
         </p>
 
         <!-- ==========================================
+        EXPERTISE (badges)
+        ========================================== -->
+        <div class="expertise-grid">
+            <span class="expertise-item"><span>●</span> Consolidation IFRS</span>
+            <span class="expertise-item"><span>●</span> Analyse de cohortes</span>
+            <span class="expertise-item"><span>●</span> Modélisation financière</span>
+            <span class="expertise-item"><span>●</span> Dettes &amp; risques</span>
+        </div>
+
+        <!-- ==========================================
         PROJETS EXCEL
         ========================================== -->
-        <h2>📁 Projets Excel</h2>
+        <h2 class="section-title">📁 Projets Excel</h2>
         <div class="project-grid">
 
             <!-- Carte 1 : Analyse de cohortes -->
             <div class="project-card">
-                <span class="icon">📈</span>
+                <div class="icon">📈</div>
+                <div class="status-badge">Disponible</div>
                 <h3>Analyse de cohortes</h3>
                 <div class="tags">
                     <span class="tag excel">Excel</span>
@@ -418,7 +551,8 @@
 
             <!-- Carte 2 : Modélisation financière -->
             <div class="project-card">
-                <span class="icon">💰</span>
+                <div class="icon">💰</div>
+                <div class="status-badge">Disponible</div>
                 <h3>Modélisation financière</h3>
                 <div class="tags">
                     <span class="tag excel">Excel</span>
@@ -437,7 +571,8 @@
 
             <!-- Carte 3 : Modélisation des dettes -->
             <div class="project-card">
-                <span class="icon">📉</span>
+                <div class="icon">📉</div>
+                <div class="status-badge">Disponible</div>
                 <h3>Modélisation des dettes</h3>
                 <div class="tags">
                     <span class="tag excel">Excel</span>
@@ -459,7 +594,7 @@
         <!-- ==========================================
         VIDÉOS
         ========================================== -->
-        <h2>🎥 Démonstrations</h2>
+        <h2 class="section-title">🎥 Démonstrations</h2>
         <div class="media-section">
             <div class="video-grid">
                 <div class="video-item">
@@ -468,7 +603,7 @@
                         Votre navigateur ne supporte pas la lecture de vidéo.
                     </video>
                     <p>Demo Consolidation IFRS</p>
-                    <a href="assets/videos/demo1.mp4" download class="btn btn-outline">⬇️ Télécharger</a>
+                    <a href="assets/videos/demo1.mp4" download class="btn btn-outline" style="margin-top: 6px;">⬇️ Télécharger</a>
                 </div>
                 <div class="video-item">
                     <video controls>
@@ -476,7 +611,7 @@
                         Votre navigateur ne supporte pas la lecture de vidéo.
                     </video>
                     <p>Demo Modélisation financière</p>
-                    <a href="assets/videos/demo2.mp4" download class="btn btn-outline">⬇️ Télécharger</a>
+                    <a href="assets/videos/demo2.mp4" download class="btn btn-outline" style="margin-top: 6px;">⬇️ Télécharger</a>
                 </div>
             </div>
         </div>
@@ -484,14 +619,14 @@
         <!-- ==========================================
         IMAGES
         ========================================== -->
-        <h2>🖼️ Captures d'écran</h2>
+        <h2 class="section-title">🖼️ Captures d'écran</h2>
         <div class="media-section">
             <div class="image-grid">
                 <img src="assets/images/screenshot1.png" alt="Capture écran 1">
                 <img src="assets/images/screenshot2.jpg" alt="Capture écran 2">
                 <img src="assets/images/graph.jpg" alt="Graphique IFRS">
             </div>
-            <p style="margin-top: 16px; font-size: 0.85rem; color: #64748b;">
+            <p style="margin-top: 16px; font-size: 0.85rem; color: #6a7a8a;">
                 Cliquez sur une image pour l'agrandir.
             </p>
         </div>
@@ -499,20 +634,20 @@
         <!-- ==========================================
         PDF
         ========================================== -->
-        <h2>📄 Documents</h2>
+        <h2 class="section-title">📄 Documents</h2>
         <div class="media-section">
             <div class="pdf-list">
                 <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank">📘 Guide IFRS 2026</a>
                 <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank">📗 Rapport de consolidation</a>
                 <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank">📕 Guide de modélisation</a>
             </div>
-            <p style="margin-top: 14px; font-size: 0.85rem; color: #64748b;">
+            <p style="margin-top: 14px; font-size: 0.85rem; color: #6a7a8a;">
                 Les PDF s'ouvrent dans un nouvel onglet.
             </p>
         </div>
 
         <!-- ==========================================
-        TEST
+        TEST (élégant)
         ========================================== -->
         <div class="test-section">
             <h3>🔍 Vérification des fichiers</h3>
@@ -521,7 +656,7 @@
                 <li><a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">📎 Modélisation_dettes.xlsx</a></li>
                 <li><a href="assets/videos/demo1.mp4" target="_blank">📎 demo1.mp4</a></li>
             </ul>
-            <p style="margin-top: 12px; font-size: 0.85rem; color: #78350f;">
+            <p class="note">
                 ⚠️ Si un lien ne fonctionne pas, le fichier est introuvable sur GitHub.
             </p>
         </div>
@@ -530,10 +665,11 @@
         PIED DE PAGE
         ========================================== -->
         <footer>
-            <p>
-                Portfolio Data-Too · Consolidation IFRS 2026 ·
+            <span>Portfolio Data-Too · Consolidation IFRS 2026</span>
+            <span>
+                <span class="gold-dot">●</span>
                 <a href="https://github.com/Data-Too/Portfolio" target="_blank">GitHub</a>
-            </p>
+            </span>
         </footer>
 
     </div>
