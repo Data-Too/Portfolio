@@ -398,20 +398,6 @@
                 padding: 0.1rem 0.6rem;
             }
         }
-
-        /* ===== CORRECTION : GESTION DES ERREURS ===== */
-        .error-message {
-            color: #d9534f;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .error-message i {
-            display: block;
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
     </style>
 </head>
 <body>
@@ -466,10 +452,6 @@
                 </div>
 
                 <div class="video-wrapper">
-                    <!-- 
-                        🔁 REMPLACE "ma-video.mp4" par le nom de TON fichier vidéo
-                        Les vidéos doivent être dans le dossier: assets/videos/
-                    -->
                     <video controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='360' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23111111'/%3E%3Ctext x='320' y='180' font-family='Inter, sans-serif' font-size='24' fill='%23555555' text-anchor='middle' dominant-baseline='central'%3E🎬 Vidéo%3C/text%3E%3C/svg%3E">
                         <source src="assets/videos/ma-video.mp4" type="video/mp4" />
                         <source src="assets/videos/ma-video.webm" type="video/webm" />
@@ -494,14 +476,6 @@
                 </div>
 
                 <div class="doc-list">
-
-                    <!-- 
-                        🔁 POUR CHAQUE DOCUMENT :
-                        1. Remplace "document-presentation.pdf" par le nom de TON fichier
-                        2. Change l'ID dans onclick="previewDoc('pdf1')" 
-                           (utilise un ID unique: pdf1, pdf2, excel1, excel2, ...)
-                        3. Ajoute le fichier dans le mapping JavaScript plus bas
-                    -->
 
                     <!-- Document 1 - PDF -->
                     <div class="doc-item">
@@ -582,16 +556,10 @@
     </div>
 
     <script>
-        /**
-         * previewDoc - Affiche un aperçu du document dans l'iframe
-         * @param {string} type - L'identifiant du document (pdf1, excel1, etc.)
-         */
         function previewDoc(type) {
             const iframe = document.getElementById('docIframe');
             const placeholder = document.getElementById('placeholderMsg');
 
-            // 🔁 MAP DES FICHIERS - MODIFIE ICI AVEC TES PROPRES FICHIERS
-            // Les fichiers doivent être dans le dossier: assets/docs/
             const fileMap = {
                 'pdf1': 'assets/docs/document-presentation.pdf',
                 'excel1': 'assets/docs/tableau-budget.xlsx',
@@ -601,45 +569,37 @@
 
             const fileUrl = fileMap[type];
 
-            // Vérification : si le fichier n'existe pas dans la map
             if (!fileUrl) {
                 iframe.style.display = 'none';
                 placeholder.style.display = 'block';
                 placeholder.innerHTML = `
                     <i class="fas fa-exclamation-triangle" style="color:#d9534f;"></i>
-                    Fichier non trouvé dans la configuration
-                    <br><small style="color:#aaa;">Vérifie le mapping dans le JavaScript</small>
+                    Fichier non trouvé
+                    <br><small style="color:#aaa;">Vérifie le mapping JavaScript</small>
                 `;
                 return;
             }
 
-            // Afficher l'iframe et cacher le placeholder
             iframe.style.display = 'block';
             placeholder.style.display = 'none';
 
-            // Détecter le type de fichier
             const isPdf = fileUrl.endsWith('.pdf') || fileUrl.includes('.pdf');
             const isExcel = fileUrl.endsWith('.xls') || fileUrl.endsWith('.xlsx') || fileUrl.includes('.xls');
 
             try {
                 if (isPdf) {
-                    // Afficher le PDF directement
                     iframe.src = fileUrl;
                 } else if (isExcel) {
-                    // Utiliser Google Docs Viewer pour Excel
-                    const viewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`;
-                    iframe.src = viewerUrl;
+                    iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`;
                 } else {
-                    // Fallback : essayer d'afficher directement
                     iframe.src = fileUrl;
                 }
             } catch (error) {
-                // En cas d'erreur, afficher un message
                 iframe.style.display = 'none';
                 placeholder.style.display = 'block';
                 placeholder.innerHTML = `
                     <i class="fas fa-exclamation-circle" style="color:#d9534f;"></i>
-                    Erreur lors du chargement du document
+                    Erreur de chargement
                     <br><small style="color:#aaa;">${error.message}</small>
                 `;
             }
