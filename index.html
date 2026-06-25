@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio IFRS - Data-Too</title>
     <style>
+        /* --- RESET & BASE --- */
         * {
             margin: 0;
             padding: 0;
@@ -59,6 +60,7 @@
             font-size: 1.1rem;
         }
 
+        /* --- CARTES PROJET --- */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -169,6 +171,7 @@
             margin-top: auto;
         }
 
+        /* --- SECTIONS SPÉCIALES (vidéo, images, PDF) --- */
         .media-section {
             background: #fafcff;
             border-radius: 12px;
@@ -237,6 +240,7 @@
             background: #d5dbdb;
         }
 
+        /* --- RESPONSIVE --- */
         @media (max-width: 600px) {
             .container { padding: 20px; }
             h1 { font-size: 1.8rem; flex-wrap: wrap; }
@@ -276,6 +280,7 @@
                 Analyse dynamique des cohortes pour la consolidation IFRS. Suivi des performances et des tendances.
             </p>
             <div class="btn-group">
+                <!-- Chemin corrigé avec %20 pour l'espace -->
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-success">⬇️ Télécharger</a>
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
             </div>
@@ -294,6 +299,7 @@
                 Modèle financier complet pour la consolidation IFRS. Projections, scénarios et analyse de sensibilité.
             </p>
             <div class="btn-group">
+                <!-- Chemin corrigé avec encodage de l'accent -->
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-success">⬇️ Télécharger</a>
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
             </div>
@@ -312,6 +318,7 @@
                 Analyse et modélisation des dettes selon les normes IFRS. Évaluation des risques et des impacts.
             </p>
             <div class="btn-group">
+                <!-- Chemin corrigé avec encodage de l'accent -->
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-success">⬇️ Télécharger</a>
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
             </div>
@@ -330,7 +337,9 @@
                     Votre navigateur ne supporte pas la lecture de vidéo.
                 </video>
                 <p style="margin-top: 8px; font-size: 0.9rem; color: #555;">Demo Consolidation IFRS</p>
-                <a href="assets/videos/demo1.mp4" download class="btn btn-outline" style="margin-top: 8px;">⬇️ Télécharger</a>
+                <p style="margin-top: 8px;">
+                    <a href="assets/videos/demo1.mp4" download class="btn btn-outline" style="margin-right: 10px;">⬇️ Télécharger Demo 1</a>
+                </p>
             </div>
             <div>
                 <video controls>
@@ -338,7 +347,9 @@
                     Votre navigateur ne supporte pas la lecture de vidéo.
                 </video>
                 <p style="margin-top: 8px; font-size: 0.9rem; color: #555;">Demo Modélisation financière</p>
-                <a href="assets/videos/demo2.mp4" download class="btn btn-outline" style="margin-top: 8px;">⬇️ Télécharger</a>
+                <p style="margin-top: 8px;">
+                    <a href="assets/videos/demo2.mp4" download class="btn btn-outline">⬇️ Télécharger Demo 2</a>
+                </p>
             </div>
         </div>
     </div>
@@ -351,6 +362,7 @@
             <img src="assets/images/screenshot1.png" alt="Capture écran 1">
             <img src="assets/images/screenshot2.jpg" alt="Capture écran 2">
             <img src="assets/images/graph.jpg" alt="Graphique IFRS">
+            <!-- Ajoutez autant d'images que nécessaire -->
         </div>
         <p style="margin-top: 12px; font-size: 0.9rem; color: #555;">
             Cliquez sur une image pour l'agrandir (si votre navigateur le permet).
@@ -365,6 +377,7 @@
             <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank">📘 Guide IFRS 2026</a>
             <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank">📗 Rapport de consolidation</a>
             <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank">📕 Guide de modélisation</a>
+            <a href="assets/docs/cohort-analysis-exp.pdf" target="_blank">📊 Analyse de cohortes (PDF)</a>
         </div>
         <p style="margin-top: 12px; font-size: 0.9rem; color: #555;">
             Les PDF s'ouvrent dans un nouvel onglet. Vous pouvez aussi les télécharger via le menu de votre navigateur.
