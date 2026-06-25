@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio · vidéos & documents</title>
+
+    <!-- Font Awesome (icônes) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background: #f5f7fc;
+            color: #1e1e2f;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e0e7f0;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            background: linear-gradient(145deg, #2a3b5e, #1a2a44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 i {
+            -webkit-text-fill-color: initial;
+            color: #3b5b9b;
+            margin-right: 8px;
+        }
+
+        .header .badge {
+            background: #eef3fa;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #1f3a6b;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #d0dcec;
+            font-size: 0.9rem;
+        }
+
+        .header .badge i {
+            margin-right: 6px;
+            color: #2b6f9e;
+        }
+
+        /* GRILLE PRINCIPALE */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 850px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* --- CARTE VIDÉO --- */
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.6rem 1.6rem 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04), 0 4px 10px rgba(0, 20, 40, 0.03);
+            border: 1px solid #eef2f9;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 40px rgba(0, 20, 40, 0.06);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1b2c4b;
+        }
+
+        .card-title i {
+            color: #3b6a9e;
+            font-size: 1.4rem;
+            width: 32px;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #0b1424;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .video-wrapper video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #121b2e;
+        }
+
+        .video-wrapper video::-webkit-media-controls {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .file-list {
+            margin-top: 1.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .file-tag {
+            background: #f0f5ff;
+            padding: 0.45rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1f3e6b;
+            border: 1px solid #dae3f2;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .file-tag i {
+            font-size: 0.9rem;
+            color: #3a6a9f;
+        }
+
+        /* --- CARTE DOCUMENTS (PDF / EXCEL) --- */
+        .doc-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .doc-item {
+            background: #f8faff;
+            border-radius: 20px;
+            padding: 1rem 1.4rem;
+            border: 1px solid #e8eefa;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.15s ease, border 0.15s ease;
+        }
+
+        .doc-item:hover {
+            background: #f1f7ff;
+            border-color: #c9daf5;
+        }
+
+        .doc-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .doc-info i {
+            font-size: 2rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .doc-info .fa-file-pdf {
+            color: #dc3545;
+        }
+        .doc-info .fa-file-excel {
+            color: #1f7b3c;
+        }
+        .doc-info .fa-file-alt {
+            color: #4a6f9e;
+        }
+
+        .doc-name {
+            font-weight: 500;
+            color: #1d2d4a;
+            word-break: break-word;
+        }
+
+        .doc-ext {
+            font-size: 0.7rem;
+            background: #dce6f5;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            color: #1f3a62;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .doc-preview {
+            background: transparent;
+            border: 1px solid #c6d7f0;
+            border-radius: 30px;
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1f3e72;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: 0.1s ease;
+        }
+
+        .doc-preview i {
+            font-size: 0.8rem;
+            color: #35639b;
+        }
+
+        .doc-preview:hover {
+            background: #e1ebfa;
+            border-color: #9eb9df;
+        }
+
+        /* section "intégration" (iframe pour pdf / excel) */
+        .preview-area {
+            margin-top: 1.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #dee9f7;
+            background: #f2f8ff;
+            transition: all 0.2s;
+        }
+
+        .preview-area iframe {
+            display: block;
+            width: 100%;
+            height: 280px;
+            border: none;
+            background: white;
+        }
+
+        .preview-area .placeholder {
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            color: #6c7f9e;
+            font-size: 0.95rem;
+            background: #f7faff;
+        }
+
+        .preview-area .placeholder i {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: #8aa0c4;
+            display: block;
+        }
+
+        /* footer github */
+        .footer-repo {
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dce4f0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            color: #3b4d6b;
+        }
+
+        .footer-repo a {
+            color: #1d3b70;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-repo a:hover {
+            border-bottom-color: #1d3b70;
+        }
+
+        .footer-repo .copy {
+            font-size: 0.9rem;
+            background: #ecf2fa;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            border: 1px solid #d5e0ef;
+        }
+
+        .btn-github {
+            background: #1f2a44;
+            color: white !important;
+            padding: 0.5rem 1.6rem;
+            border-radius: 40px;
+            border: none;
+            font-weight: 500;
+            border-bottom: none !important;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-github:hover {
+            background: #2f3f64;
+            transform: scale(1.01);
+        }
+
+        .btn-github i {
+            font-size: 1.1rem;
+        }
+
+        /* responsive */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            .doc-item {
+                flex-wrap: wrap;
+                gap: 8px 0;
+            }
+            .doc-preview {
+                margin-left: auto;
+            }
+        }
+
+        /* small tweak pour les icônes */
+        .fa-regular, .fas, .far, .fab {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Entête -->
+        <div class="header">
+            <h1><i class="fas fa-briefcase"></i> Portfolio · Médias & Docs</h1>
+            <span class="badge"><i class="fas fa-code-branch"></i> GitHub ready · extensions incluses</span>
+        </div>
+
+        <!-- Grille principale -->
+        <div class="grid">
+
+            <!-- COLONNE GAUCHE : Vidéos -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-video"></i> Vidéos
+                    <span style="margin-left:auto; font-size:0.8rem; font-weight:400; background:#e5edf8; padding:0.2rem 1rem; border-radius:40px; color:#1e3b62;">
+                        <i class="fas fa-play-circle"></i> .mp4 · .webm
+                    </span>
+                </div>
+
+                <!-- Lecteur vidéo -->
+                <div class="video-wrapper">
+                    <!-- 
+                        🔁 REMPLACE "ma-video.mp4" par le nom de TON fichier vidéo
+                        Les vidéos doivent être dans le dossier: assets/videos/
+                    -->
+                    <video controls preload="metadata" poster="https://via.placeholder.com/640x360/1a253a/white?text=Ma+vid%C3%A9o">
+                        <source src="assets/videos/ma-video.mp4" type="video/mp4" />
+                        <source src="assets/videos/ma-video.webm" type="video/webm" />
+                        <source src="assets/videos/ma-video.ogg" type="video/ogg" />
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                </div>
+
+                <!-- Tags des extensions acceptées -->
+                <div class="file-list">
+                    <span class="file-tag"><i class="fas fa-file-video"></i> .mp4</span>
+                    <span class="file-tag"><i class="fas fa-file-video"></i> .webm</span>
+                    <span class="file-tag"><i class="fas fa-file-video"></i> .ogg</span>
+                    <span class="file-tag"><i class="fas fa-file-video"></i> .mov</span>
+                </div>
+                <p style="margin-top:0.8rem; font-size:0.85rem; color:#48658a; background:#ecf3fc; padding:0.3rem 1rem; border-radius:40px; display:inline-block;">
+                    <i class="fas fa-upload" style="margin-right:6px;"></i> Dépose tes vidéos dans /assets/videos/
+                </p>
+            </div>
+
+            <!-- COLONNE DROITE : Documents (PDF / Excel) -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-file-alt"></i> Documents
+                    <span style="margin-left:auto; font-size:0.8rem; font-weight:400; background:#e5edf8; padding:0.2rem 1rem; border-radius:40px; color:#1e3b62;">
+                        <i class="fas fa-file-pdf"></i> .pdf · .xlsx
+                    </span>
+                </div>
+
+                <div class="doc-grid">
+
+                    <!-- 
+                        🔁 POUR CHAQUE DOCUMENT :
+                        1. Copie ce bloc
+                        2. Remplace "mon-document.pdf" par le nom de TON fichier
+                        3. Change l'ID dans onclick="previewDoc('pdf')" 
+                           (utilise un ID unique: pdf1, pdf2, excel1, excel2, ...)
+                        4. Ajoute le fichier dans le mapping JavaScript plus bas
+                    -->
+
+                    <!-- Document 1 - PDF -->
+                    <div class="doc-item">
+                        <div class="doc-info">
+                            <i class="fas fa-file-pdf"></i>
+                            <span class="doc-name">mon-document.pdf</span>
+                            <span class="doc-ext">PDF</span>
+                        </div>
+                        <span class="doc-preview" onclick="previewDoc('pdf1')">
+                            <i class="fas fa-eye"></i> Aperçu
+                        </span>
+                    </div>
+
+                    <!-- Document 2 - Excel -->
+                    <div class="doc-item">
+                        <div class="doc-info">
+                            <i class="fas fa-file-excel"></i>
+                            <span class="doc-name">mon-tableau.xlsx</span>
+                            <span class="doc-ext">XLSX</span>
+                        </div>
+                        <span class="doc-preview" onclick="previewDoc('excel1')">
+                            <i class="fas fa-eye"></i> Aperçu
+                        </span>
+                    </div>
+
+                    <!-- Document 3 - PDF supplémentaire -->
+                    <div class="doc-item">
+                        <div class="doc-info">
+                            <i class="fas fa-file-pdf"></i>
+                            <span class="doc-name">autre-document.pdf</span>
+                            <span class="doc-ext">PDF</span>
+                        </div>
+                        <span class="doc-preview" onclick="previewDoc('pdf2')">
+                            <i class="fas fa-eye"></i> Aperçu
+                        </span>
+                    </div>
+
+                    <!-- Document 4 - Excel supplémentaire -->
+                    <div class="doc-item">
+                        <div class="doc-info">
+                            <i class="fas fa-file-excel"></i>
+                            <span class="doc-name">autre-tableau.xlsx</span>
+                            <span class="doc-ext">XLSX</span>
+                        </div>
+                        <span class="doc-preview" onclick="previewDoc('excel2')">
+                            <i class="fas fa-eye"></i> Aperçu
+                        </span>
+                    </div>
+
+                    <!-- Message extensions -->
+                    <div style="margin-top: 0.2rem; font-size:0.85rem; background:#f0f6fe; padding:0.5rem 1.2rem; border-radius:60px; display:flex; align-items:center; gap:10px; color:#1d3a62;">
+                        <i class="fas fa-folder-open"></i> 
+                        <span>Extensions acceptées : .pdf · .xlsx · .xls · .csv</span>
+                    </div>
+                </div>
+
+                <!-- Zone d'aperçu (iframe) -->
+                <div class="preview-area" id="previewArea">
+                    <div class="placeholder" id="placeholderMsg">
+                        <i class="fas fa-file-signature"></i>
+                        Clique sur « Aperçu » pour visualiser un document
+                    </div>
+                    <iframe id="docIframe" style="display:none; height:280px;" src=""></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer + lien GitHub -->
+        <div class="footer-repo">
+            <div>
+                <a href="#" class="btn-github"><i class="fab fa-github"></i> Portfolio repo</a>
+            </div>
+            <div class="copy">
+                <i class="fas fa-code"></i> HTML + CSS · extensions vidéo & documents
+            </div>
+            <div style="display:flex; gap:12px;">
+                <span><i class="fas fa-check-circle" style="color:#2a7a4b;"></i> .mp4 .webm .pdf .xlsx</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function previewDoc(type) {
+            const iframe = document.getElementById('docIframe');
+            const placeholder = document.getElementById('placeholderMsg');
+            
+            // Rendre l'iframe visible, cacher le placeholder
+            iframe.style.display = 'block';
+            placeholder.style.display = 'none';
+
+            // 🔁 MAP DES FICHIERS - MODIFIE ICI AVEC TES PROPRES FICHIERS
+            // Les fichiers doivent être dans le dossier: assets/docs/
+            const fileMap = {
+                'pdf1': 'assets/docs/mon-document.pdf',
+                'excel1': 'assets/docs/mon-tableau.xlsx',
+                'pdf2': 'assets/docs/autre-document.pdf',
+                'excel2': 'assets/docs/autre-tableau.xlsx'
+            };
+
+            const fileUrl = fileMap[type];
+
+            if (!fileUrl) {
+                // Si le fichier n'existe pas dans la map
+                iframe.src = '';
+                iframe.style.display = 'none';
+                placeholder.style.display = 'block';
+                placeholder.innerHTML = `<i class="fas fa-exclamation-triangle"></i> Fichier non trouvé`;
+                return;
+            }
+
+            // Détecter si c'est un PDF ou un Excel
+            const isPdf = fileUrl.endsWith('.pdf') || fileUrl.includes('.pdf');
+            const isExcel = fileUrl.endsWith('.xls') || fileUrl.endsWith('.xlsx') || fileUrl.includes('.xls');
+
+            if (isPdf) {
+                // Afficher le PDF directement dans l'iframe
+                iframe.src = fileUrl;
+            } else if (isExcel) {
+                // Utiliser Google Docs Viewer pour Excel
+                const viewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`;
+                iframe.src = viewerUrl;
+            } else {
+                // Fallback: essayer d'afficher directement
+                iframe.src = fileUrl;
+            }
+
+            // Afficher l'iframe
+            iframe.style.display = 'block';
+            placeholder.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
