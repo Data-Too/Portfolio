@@ -221,6 +221,7 @@
             border: 1px solid #e8e8e8;
             cursor: pointer;
             transition: 0.15s;
+            text-decoration: none;
         }
 
         .project-card .doc-list-mini .doc-badge:hover {
@@ -285,12 +286,6 @@
             margin-bottom: 1rem;
         }
 
-        .download-container p {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 1rem;
-        }
-
         .download-container .file-name {
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -298,9 +293,15 @@
             font-size: 0.95rem;
         }
 
+        .download-container p {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
         .download-btn {
             background: #c0a86a;
-            color: white;
+            color: white !important;
             padding: 0.6rem 1.5rem;
             border-radius: 40px;
             text-decoration: none;
@@ -453,7 +454,9 @@
                     </div>
                 </div>
                 <div class="doc-list-mini">
-                    <span class="doc-badge excel" onclick="previewDoc('cohort')"><i class="fas fa-file-excel"></i> cohort-analysis-exp.xlsx</span>
+                    <a href="assets/documents/cohort-analysis-exp.xlsx" download class="doc-badge excel">
+                        <i class="fas fa-file-excel"></i> cohort-analysis-exp.xlsx
+                    </a>
                 </div>
             </div>
 
@@ -476,7 +479,9 @@
                     </div>
                 </div>
                 <div class="doc-list-mini">
-                    <span class="doc-badge excel" onclick="previewDoc('dettes')"><i class="fas fa-file-excel"></i> Modélisation_dettes.xlsx</span>
+                    <a href="assets/documents/Modelisation_dettes.xlsx" download class="doc-badge excel">
+                        <i class="fas fa-file-excel"></i> Modélisation_dettes.xlsx
+                    </a>
                 </div>
             </div>
 
@@ -505,15 +510,7 @@
         <div class="preview-area" id="previewArea">
             <div class="preview-placeholder" id="placeholderMsg">
                 <i class="fas fa-file-signature"></i>
-                Clique sur un document Excel ou PDF pour l'apercevoir
-            </div>
-            <div class="download-container" id="downloadContainer" style="display:none;">
-                <i class="fas fa-file-excel"></i>
-                <div class="file-name" id="fileNameDisplay">Fichier Excel</div>
-                <p>Les fichiers Excel ne peuvent pas être visualisés directement dans le navigateur.</p>
-                <a class="download-btn" id="downloadLink" href="#" download>
-                    <i class="fas fa-download"></i> Télécharger le fichier
-                </a>
+                Clique sur un document Excel pour le télécharger
             </div>
         </div>
 
@@ -524,49 +521,6 @@
         </div>
 
     </main>
-
-    <script>
-        function previewDoc(type) {
-            const placeholder = document.getElementById('placeholderMsg');
-            const downloadContainer = document.getElementById('downloadContainer');
-            const downloadLink = document.getElementById('downloadLink');
-            const fileNameDisplay = document.getElementById('fileNameDisplay');
-            const iframe = document.getElementById('docIframe');
-
-            // Si l'iframe existe, on le cache
-            if (iframe) iframe.style.display = 'none';
-
-            // 🔁 MAP DES FICHIERS - CORRIGÉ AVEC LE BON DOSSIER "documents"
-            const fileMap = {
-                'cohort': 'assets/documents/cohort-analysis-exp.xlsx',
-                'dettes': 'assets/documents/Modelisation_dettes.xlsx'
-            };
-
-            const fileUrl = fileMap[type];
-
-            if (!fileUrl) {
-                downloadContainer.style.display = 'none';
-                placeholder.style.display = 'block';
-                placeholder.innerHTML = `
-                    <i class="fas fa-exclamation-triangle" style="color:#d9534f;"></i>
-                    Fichier non trouvé
-                    <br><small style="color:#aaa;">Vérifie le mapping JavaScript</small>
-                `;
-                return;
-            }
-
-            // Cacher le placeholder, afficher le conteneur de téléchargement
-            placeholder.style.display = 'none';
-            downloadContainer.style.display = 'block';
-
-            // Définir le nom du fichier
-            const fileName = fileUrl.split('/').pop();
-            fileNameDisplay.textContent = fileName;
-
-            // Définir le lien de téléchargement
-            downloadLink.href = fileUrl;
-        }
-    </script>
 
 </body>
 </html>
