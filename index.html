@@ -143,31 +143,6 @@
             z-index: 5;
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-title i {
-            color: #c0a86a;
-            font-size: 1.4rem;
-        }
-
-        .section-title span {
-            background: #e8e3d9;
-            padding: 0.2rem 1rem;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #5a4f3a;
-            margin-left: auto;
-        }
-
         /* ===== GRILLE VIDÉO + DOCS ===== */
         .grid {
             display: grid;
@@ -203,6 +178,16 @@
         .card-title i {
             color: #c0a86a;
             font-size: 1.3rem;
+        }
+
+        .card-title span {
+            background: #e8e3d9;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #5a4f3a;
+            margin-left: auto;
         }
 
         /* ===== VIDÉO ===== */
@@ -271,12 +256,15 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            flex: 1;
+            min-width: 0;
         }
 
         .doc-info i {
             font-size: 1.6rem;
             width: 32px;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .doc-info .fa-file-pdf {
@@ -290,6 +278,7 @@
             font-weight: 500;
             font-size: 0.9rem;
             color: #1a1a1a;
+            word-break: break-all;
         }
 
         .doc-ext {
@@ -300,6 +289,7 @@
             font-weight: 700;
             color: #4a3f2e;
             letter-spacing: 0.5px;
+            flex-shrink: 0;
         }
 
         .doc-preview-btn {
@@ -315,6 +305,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            flex-shrink: 0;
         }
 
         .doc-preview-btn:hover {
@@ -402,6 +393,24 @@
             .doc-preview-btn {
                 margin-left: auto;
             }
+            .card-title span {
+                font-size: 0.6rem;
+                padding: 0.1rem 0.6rem;
+            }
+        }
+
+        /* ===== CORRECTION : GESTION DES ERREURS ===== */
+        .error-message {
+            color: #d9534f;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .error-message i {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -457,9 +466,14 @@
                 </div>
 
                 <div class="video-wrapper">
-                    <video controls preload="metadata">
+                    <!-- 
+                        🔁 REMPLACE "ma-video.mp4" par le nom de TON fichier vidéo
+                        Les vidéos doivent être dans le dossier: assets/videos/
+                    -->
+                    <video controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='360' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23111111'/%3E%3Ctext x='320' y='180' font-family='Inter, sans-serif' font-size='24' fill='%23555555' text-anchor='middle' dominant-baseline='central'%3E🎬 Vidéo%3C/text%3E%3C/svg%3E">
                         <source src="assets/videos/ma-video.mp4" type="video/mp4" />
                         <source src="assets/videos/ma-video.webm" type="video/webm" />
+                        <source src="assets/videos/ma-video.ogg" type="video/ogg" />
                         Votre navigateur ne supporte pas la vidéo.
                     </video>
                 </div>
@@ -480,6 +494,14 @@
                 </div>
 
                 <div class="doc-list">
+
+                    <!-- 
+                        🔁 POUR CHAQUE DOCUMENT :
+                        1. Remplace "document-presentation.pdf" par le nom de TON fichier
+                        2. Change l'ID dans onclick="previewDoc('pdf1')" 
+                           (utilise un ID unique: pdf1, pdf2, excel1, excel2, ...)
+                        3. Ajoute le fichier dans le mapping JavaScript plus bas
+                    -->
 
                     <!-- Document 1 - PDF -->
                     <div class="doc-item">
@@ -505,7 +527,7 @@
                         </span>
                     </div>
 
-                    <!-- Document 3 - PDF -->
+                    <!-- Document 3 - PDF supplémentaire -->
                     <div class="doc-item">
                         <div class="doc-info">
                             <i class="fas fa-file-pdf"></i>
@@ -517,7 +539,7 @@
                         </span>
                     </div>
 
-                    <!-- Document 4 - Excel -->
+                    <!-- Document 4 - Excel supplémentaire -->
                     <div class="doc-item">
                         <div class="doc-info">
                             <i class="fas fa-file-excel"></i>
@@ -527,6 +549,12 @@
                         <span class="doc-preview-btn" onclick="previewDoc('excel2')">
                             <i class="fas fa-eye"></i> Aperçu
                         </span>
+                    </div>
+
+                    <!-- Message d'information -->
+                    <div style="margin-top: 0.5rem; font-size:0.75rem; color:#888; text-align:center; border-top:1px dashed #ece8e2; padding-top:0.8rem;">
+                        <i class="fas fa-folder-open" style="color:#c0a86a;"></i>
+                        Dépose tes fichiers dans <strong>assets/docs/</strong>
                     </div>
 
                 </div>
@@ -554,14 +582,16 @@
     </div>
 
     <script>
+        /**
+         * previewDoc - Affiche un aperçu du document dans l'iframe
+         * @param {string} type - L'identifiant du document (pdf1, excel1, etc.)
+         */
         function previewDoc(type) {
             const iframe = document.getElementById('docIframe');
             const placeholder = document.getElementById('placeholderMsg');
 
-            iframe.style.display = 'block';
-            placeholder.style.display = 'none';
-
             // 🔁 MAP DES FICHIERS - MODIFIE ICI AVEC TES PROPRES FICHIERS
+            // Les fichiers doivent être dans le dossier: assets/docs/
             const fileMap = {
                 'pdf1': 'assets/docs/document-presentation.pdf',
                 'excel1': 'assets/docs/tableau-budget.xlsx',
@@ -571,27 +601,48 @@
 
             const fileUrl = fileMap[type];
 
+            // Vérification : si le fichier n'existe pas dans la map
             if (!fileUrl) {
-                iframe.src = '';
                 iframe.style.display = 'none';
                 placeholder.style.display = 'block';
-                placeholder.innerHTML = `<i class="fas fa-exclamation-triangle"></i> Fichier non trouvé`;
+                placeholder.innerHTML = `
+                    <i class="fas fa-exclamation-triangle" style="color:#d9534f;"></i>
+                    Fichier non trouvé dans la configuration
+                    <br><small style="color:#aaa;">Vérifie le mapping dans le JavaScript</small>
+                `;
                 return;
             }
 
+            // Afficher l'iframe et cacher le placeholder
+            iframe.style.display = 'block';
+            placeholder.style.display = 'none';
+
+            // Détecter le type de fichier
             const isPdf = fileUrl.endsWith('.pdf') || fileUrl.includes('.pdf');
             const isExcel = fileUrl.endsWith('.xls') || fileUrl.endsWith('.xlsx') || fileUrl.includes('.xls');
 
-            if (isPdf) {
-                iframe.src = fileUrl;
-            } else if (isExcel) {
-                iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`;
-            } else {
-                iframe.src = fileUrl;
+            try {
+                if (isPdf) {
+                    // Afficher le PDF directement
+                    iframe.src = fileUrl;
+                } else if (isExcel) {
+                    // Utiliser Google Docs Viewer pour Excel
+                    const viewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`;
+                    iframe.src = viewerUrl;
+                } else {
+                    // Fallback : essayer d'afficher directement
+                    iframe.src = fileUrl;
+                }
+            } catch (error) {
+                // En cas d'erreur, afficher un message
+                iframe.style.display = 'none';
+                placeholder.style.display = 'block';
+                placeholder.innerHTML = `
+                    <i class="fas fa-exclamation-circle" style="color:#d9534f;"></i>
+                    Erreur lors du chargement du document
+                    <br><small style="color:#aaa;">${error.message}</small>
+                `;
             }
-
-            iframe.style.display = 'block';
-            placeholder.style.display = 'none';
         }
     </script>
 
