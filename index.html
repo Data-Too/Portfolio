@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio IFRS - Data-Too</title>
+    <title>Data-Too · Portfolio IFRS</title>
     <style>
-        /* ===== RESET & BASE ===== */
+        /* ========================================
+                   RESET & POLICES
+                ======================================== */
         * {
             margin: 0;
             padding: 0;
@@ -13,213 +15,153 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #fce4ec 0%, #f8f0f5 100%);
-            color: #4a2c3a;
-            padding: 30px 20px;
-            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 40px 20px;
         }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(10px);
-            padding: 50px 45px;
+            background: #ffffff;
+            padding: 50px 55px;
             border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(183, 28, 28, 0.12), 0 8px 24px rgba(183, 28, 28, 0.06);
-            border: 1px solid rgba(244, 143, 177, 0.2);
+            box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f1f5f9;
         }
 
-        /* ===== TYPOGRAPHIE & EN-TÊTE ===== */
+        /* ========================================
+                   TYPOGRAPHIE
+                ======================================== */
         h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: #4a2c3a;
-            background: linear-gradient(135deg, #880e4f, #ad1457);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            padding-bottom: 18px;
-            margin-bottom: 30px;
-            border-bottom: 4px solid #f48fb1;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            letter-spacing: -0.5px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 8px;
         }
 
-        h1 small {
-            font-size: 1rem;
+        .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 16px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            margin-bottom: 24px;
+            border: 1px solid #e0e7ff;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: #475569;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #f1f5f9;
             font-weight: 400;
-            -webkit-text-fill-color: #9c6b7e;
-            background: none;
-            margin-left: auto;
-            background: rgba(244, 143, 177, 0.15);
-            padding: 6px 18px;
-            border-radius: 30px;
-            border: 1px solid rgba(244, 143, 177, 0.3);
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            color: #4a2c3a;
-            margin: 45px 0 25px 0;
-            padding-left: 16px;
-            border-left: 6px solid #e91e63;
+            color: #0f172a;
+            margin: 48px 0 24px 0;
+            letter-spacing: -0.01em;
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .subtitle {
-            color: #7a5a6a;
-            margin-bottom: 35px;
-            font-size: 1.15rem;
-            font-weight: 300;
-            line-height: 1.7;
-            background: rgba(248, 187, 208, 0.15);
-            padding: 16px 22px;
-            border-radius: 14px;
-            border-left: 4px solid #f06292;
+        h2:after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+            margin-left: 16px;
         }
 
-        /* ===== CARTES PROJET ===== */
+        /* ========================================
+                   GRILLE PROJETS
+                ======================================== */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-            margin-bottom: 40px;
+            gap: 24px;
+            margin-bottom: 16px;
         }
 
         .project-card {
-            background: #ffffff;
-            border: 1px solid #f8e8ee;
-            border-radius: 18px;
-            padding: 26px 24px;
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.06);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #f06292, #e91e63, #ad1457);
-            opacity: 0;
-            transition: opacity 0.3s;
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+            border-radius: 16px;
+            padding: 24px 24px 28px;
+            transition: all 0.2s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(233, 30, 99, 0.12);
-            border-color: #f06292;
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
+            background: #ffffff;
+            border-color: #cbd5e1;
+            box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
         }
 
         .project-card .icon {
-            font-size: 2.6rem;
+            font-size: 2.2rem;
             margin-bottom: 8px;
+            display: block;
         }
 
         .project-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
+            color: #0f172a;
             margin-bottom: 6px;
-            color: #3e2432;
         }
 
         .project-card .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin: 12px 0 16px 0;
+            gap: 6px;
+            margin: 10px 0 14px 0;
         }
 
         .project-card .tag {
-            background: #fce4ec;
-            color: #880e4f;
-            padding: 4px 14px;
-            border-radius: 30px;
+            background: #f1f5f9;
+            color: #334155;
+            padding: 2px 12px;
+            border-radius: 20px;
             font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.4px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
             text-transform: uppercase;
-            border: 1px solid rgba(233, 30, 99, 0.1);
         }
 
-        .project-card .tag.excel { background: #1d6f42; color: white; border: none; }
-        .project-card .tag.ifrs { background: #4a2c3a; color: white; border: none; }
-        .project-card .tag.demo { background: #e67e22; color: white; border: none; }
-        .project-card .tag.model { background: #2980b9; color: white; border: none; }
+        .project-card .tag.excel {
+            background: #ecfdf5;
+            color: #065f46;
+        }
+        .project-card .tag.ifrs {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+        .project-card .tag.model {
+            background: #eff6ff;
+            color: #1e40af;
+        }
+        .project-card .tag.demo {
+            background: #fffbeb;
+            color: #92400e;
+        }
 
         .project-card .desc {
-            font-size: 0.95rem;
-            color: #6a4e5e;
+            font-size: 0.92rem;
+            color: #475569;
             margin-bottom: 20px;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-
-        /* ===== BOUTONS ===== */
-        .btn {
-            display: inline-block;
-            padding: 11px 22px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.25s;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            margin-top: 4px;
-            letter-spacing: 0.3px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #e91e63, #ad1457);
-            color: white;
-            box-shadow: 0 4px 14px rgba(233, 30, 99, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(233, 30, 99, 0.4);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #43a047, #2e7d32);
-            color: white;
-            box-shadow: 0 4px 14px rgba(46, 125, 50, 0.3);
-        }
-
-        .btn-success:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #ad1457;
-            border: 2px solid #f06292;
-        }
-
-        .btn-outline:hover {
-            background: #fce4ec;
-            border-color: #e91e63;
-            transform: translateY(-2px);
+            line-height: 1.5;
         }
 
         .btn-group {
@@ -229,326 +171,372 @@
             margin-top: auto;
         }
 
-        /* ===== SECTIONS MÉDIAS ===== */
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #0f172a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e293b;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #475569;
+            border-color: #e2e8f0;
+        }
+
+        .btn-outline:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        /* ========================================
+                   SECTIONS (VIDEO, IMAGES, PDF)
+                ======================================== */
         .media-section {
-            background: linear-gradient(135deg, #fef6f9, #fdf0f5);
-            border-radius: 18px;
-            padding: 28px;
-            margin: 30px 0;
-            border: 1px solid rgba(244, 143, 177, 0.2);
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 28px 30px;
+            margin: 16px 0 8px 0;
+            border: 1px solid #f1f5f9;
         }
 
         .media-section h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #0f172a;
             margin-bottom: 18px;
-            font-size: 1.3rem;
-            color: #4a2c3a;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
         .video-grid video {
             width: 100%;
-            border-radius: 14px;
-            background: #1a1a1a;
-            border: 1px solid rgba(244, 143, 177, 0.2);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border-radius: 12px;
+            background: #0f172a;
+            border: 1px solid #e2e8f0;
         }
 
-        .video-grid .video-item {
-            background: white;
-            border-radius: 14px;
-            padding: 16px;
-            box-shadow: 0 2px 12px rgba(233, 30, 99, 0.06);
+        .video-item p {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #475569;
+            font-weight: 450;
         }
 
-        .video-grid .video-item p {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #7a5a6a;
-            font-weight: 500;
+        .video-item .btn {
+            margin-top: 8px;
         }
 
         .image-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 16px;
-            margin-top: 12px;
+            margin-top: 4px;
         }
 
         .image-grid img {
-            max-width: 200px;
+            max-width: 180px;
             height: auto;
-            border-radius: 12px;
-            border: 2px solid #f8e8ee;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
         }
 
         .image-grid img:hover {
-            transform: scale(1.04) rotate(-1deg);
-            border-color: #f06292;
-            box-shadow: 0 8px 24px rgba(233, 30, 99, 0.12);
+            border-color: #94a3b8;
+            transform: scale(1.02);
         }
 
         .pdf-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 12px;
         }
 
         .pdf-list a {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: white;
-            padding: 12px 24px;
+            padding: 8px 20px;
             border-radius: 40px;
             text-decoration: none;
-            color: #4a2c3a;
-            font-weight: 500;
-            transition: all 0.25s;
-            border: 1px solid #f8e8ee;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            color: #1e293b;
+            font-weight: 450;
+            font-size: 0.9rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
         }
 
         .pdf-list a:hover {
-            background: #fce4ec;
-            border-color: #f06292;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.08);
+            background: #f8fafc;
+            border-color: #94a3b8;
         }
 
-        /* ===== SECTION TEST ===== */
+        /* ========================================
+                   SECTION DE TEST
+                ======================================== */
         .test-section {
-            background: linear-gradient(135deg, #fff3e0, #fce4ec);
-            border: 2px solid #f06292;
-            border-radius: 16px;
-            padding: 24px 28px;
-            margin: 35px 0;
+            background: #fefce8;
+            border: 1px solid #fde68a;
+            border-radius: 14px;
+            padding: 20px 28px;
+            margin: 40px 0 20px 0;
         }
 
         .test-section h3 {
-            color: #ad1457;
-            margin-bottom: 12px;
+            color: #78350f;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .test-section ul {
             list-style: none;
             padding: 0;
-        }
-
-        .test-section ul li {
-            margin: 8px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 32px;
         }
 
         .test-section ul li a {
-            color: #c2185b;
-            font-weight: 600;
+            color: #1e293b;
+            font-weight: 450;
             text-decoration: none;
-            border-bottom: 2px dotted #f06292;
+            border-bottom: 1.5px dotted #d6d3d1;
             padding-bottom: 2px;
         }
 
         .test-section ul li a:hover {
-            color: #880e4f;
-            border-bottom-color: #880e4f;
+            color: #0f172a;
+            border-bottom-color: #0f172a;
         }
 
-        /* ===== PIED DE PAGE ===== */
+        /* ========================================
+                   PIED DE PAGE
+                ======================================== */
         footer {
             margin-top: 50px;
-            padding-top: 28px;
-            border-top: 2px solid #f8e8ee;
+            padding-top: 24px;
+            border-top: 1px solid #f1f5f9;
             text-align: center;
-            color: #9c7a8a;
-            font-size: 0.9rem;
+            color: #94a3b8;
+            font-size: 0.85rem;
         }
 
         footer a {
-            color: #ad1457;
+            color: #1e293b;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 450;
         }
 
         footer a:hover {
-            color: #880e4f;
+            color: #0f172a;
             text-decoration: underline;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 600px) {
-            .container { padding: 24px 18px; }
-            h1 { font-size: 1.8rem; flex-wrap: wrap; }
-            h1 small { margin-left: 0; font-size: 0.8rem; }
-            .project-grid { grid-template-columns: 1fr; }
-            .image-grid img { max-width: 140px; }
+        /* ========================================
+                   RESPONSIVE
+                ======================================== */
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px 18px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+            .image-grid img {
+                max-width: 140px;
+            }
+            .test-section ul {
+                flex-direction: column;
+                gap: 8px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <!-- ===== EN-TÊTE ===== -->
-    <h1>
-        📊 Consolidation IFRS
-        <small>Data-Too · 2026</small>
-    </h1>
-    <p class="subtitle">
-        ✦ Portfolio d'expertise en consolidation financière et modélisation IFRS.
-        Tous les fichiers Excel sont disponibles en téléchargement sécurisé.
-    </p>
-
-    <!-- ===== PROJETS EXCEL ===== -->
-    <h2>📁 Projets Excel</h2>
-    <div class="project-grid">
-
-        <!-- Carte 1 : Analyse de cohortes -->
-        <div class="project-card">
-            <div class="icon">📈</div>
-            <h3>Analyse de cohortes</h3>
-            <div class="tags">
-                <span class="tag excel">Excel</span>
-                <span class="tag ifrs">IFRS</span>
-                <span class="tag">Cohorte</span>
-            </div>
-            <p class="desc">
-                Analyse dynamique des cohortes pour la consolidation IFRS.
-                Suivi des performances et des tendances.
-            </p>
-            <div class="btn-group">
-                <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-success">⬇️ Télécharger</a>
-                <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
-            </div>
-        </div>
-
-        <!-- Carte 2 : Modélisation financière -->
-        <div class="project-card">
-            <div class="icon">💰</div>
-            <h3>Modélisation financière</h3>
-            <div class="tags">
-                <span class="tag excel">Excel</span>
-                <span class="tag model">Modélisation</span>
-                <span class="tag ifrs">2026</span>
-            </div>
-            <p class="desc">
-                Modèle financier complet pour la consolidation IFRS.
-                Projections, scénarios et analyse de sensibilité.
-            </p>
-            <div class="btn-group">
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-success">⬇️ Télécharger</a>
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
-            </div>
-        </div>
-
-        <!-- Carte 3 : Modélisation des dettes -->
-        <div class="project-card">
-            <div class="icon">📉</div>
-            <h3>Modélisation des dettes</h3>
-            <div class="tags">
-                <span class="tag excel">Excel</span>
-                <span class="tag model">Dettes</span>
-                <span class="tag ifrs">IFRS</span>
-            </div>
-            <p class="desc">
-                Analyse et modélisation des dettes selon les normes IFRS.
-                Évaluation des risques et des impacts.
-            </p>
-            <div class="btn-group">
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-success">⬇️ Télécharger</a>
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- ===== VIDÉOS MP4 ===== -->
-    <h2>🎥 Démonstrations vidéo</h2>
-    <div class="media-section">
-        <h3>📽️ Présentations IFRS</h3>
-        <div class="video-grid">
-            <div class="video-item">
-                <video controls>
-                    <source src="assets/videos/demo1.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéo.
-                </video>
-                <p>✨ Demo Consolidation IFRS</p>
-                <a href="assets/videos/demo1.mp4" download class="btn btn-outline" style="margin-top: 6px;">⬇️ Télécharger</a>
-            </div>
-            <div class="video-item">
-                <video controls>
-                    <source src="assets/videos/demo2.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéo.
-                </video>
-                <p>✨ Demo Modélisation financière</p>
-                <a href="assets/videos/demo2.mp4" download class="btn btn-outline" style="margin-top: 6px;">⬇️ Télécharger</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== IMAGES ===== -->
-    <h2>🖼️ Captures d'écran</h2>
-    <div class="media-section">
-        <h3>🖌️ Visuels du projet</h3>
-        <div class="image-grid">
-            <img src="assets/images/screenshot1.png" alt="Capture écran 1">
-            <img src="assets/images/screenshot2.jpg" alt="Capture écran 2">
-            <img src="assets/images/graph.jpg" alt="Graphique IFRS">
-        </div>
-        <p style="margin-top: 16px; font-size: 0.9rem; color: #7a5a6a;">
-            Cliquez sur une image pour l'agrandir.
-        </p>
-    </div>
-
-    <!-- ===== PDF ===== -->
-    <h2>📄 Documents PDF</h2>
-    <div class="media-section">
-        <h3>📚 Rapports et guides</h3>
-        <div class="pdf-list">
-            <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank">📘 Guide IFRS 2026</a>
-            <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank">📗 Rapport de consolidation</a>
-            <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank">📕 Guide de modélisation</a>
-        </div>
-        <p style="margin-top: 14px; font-size: 0.85rem; color: #7a5a6a;">
-            Les PDF s'ouvrent dans un nouvel onglet.
-        </p>
-    </div>
-
-    <!-- ===== TEST ===== -->
-    <div class="test-section">
-        <h3>🔍 Vérification des fichiers</h3>
-        <p style="color: #4a2c3a; margin-bottom: 10px;">
-            <strong>Cliquez sur ces liens pour tester l'accès aux fichiers :</strong>
-        </p>
-        <ul>
-            <li><a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">📎 Test 1 : cohort-analysis-exp.xlsx</a></li>
-            <li><a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">📎 Test 2 : Modélisation_dettes.xlsx</a></li>
-            <li><a href="assets/videos/demo1.mp4" target="_blank">📎 Test 3 : demo1.mp4</a></li>
-        </ul>
-        <p style="color: #ad1457; margin-top: 12px; font-weight: 500;">
-            ⚠️ Si un lien ne fonctionne pas, le fichier est introuvable sur GitHub.
-        </p>
-    </div>
-
-    <!-- ===== PIED DE PAGE ===== -->
-    <footer>
-        <p>
-            Portfolio Data-Too · Consolidation IFRS 2026 ·
-            <a href="https://github.com/Data-Too/Portfolio" target="_blank">GitHub</a>
-        </p>
-        <p style="font-size: 0.8rem; margin-top: 6px; color: #b595a5;">
+        <!-- ==========================================
+        EN-TÊTE
+        ========================================== -->
+        <div class="badge">✦ Data-Too · 2026</div>
+        <h1>Consolidation IFRS</h1>
+        <p class="subtitle">
+            Portfolio d'expertise en modélisation financière et analyse de cohortes.
             Tous les fichiers sont disponibles en téléchargement.
         </p>
-    </footer>
 
-</div>
+        <!-- ==========================================
+        PROJETS EXCEL
+        ========================================== -->
+        <h2>📁 Projets Excel</h2>
+        <div class="project-grid">
+
+            <!-- Carte 1 : Analyse de cohortes -->
+            <div class="project-card">
+                <span class="icon">📈</span>
+                <h3>Analyse de cohortes</h3>
+                <div class="tags">
+                    <span class="tag excel">Excel</span>
+                    <span class="tag ifrs">IFRS</span>
+                    <span class="tag">Cohorte</span>
+                </div>
+                <p class="desc">
+                    Analyse dynamique des cohortes pour la consolidation IFRS.
+                    Suivi des performances et des tendances.
+                </p>
+                <div class="btn-group">
+                    <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
+                    <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
+                </div>
+            </div>
+
+            <!-- Carte 2 : Modélisation financière -->
+            <div class="project-card">
+                <span class="icon">💰</span>
+                <h3>Modélisation financière</h3>
+                <div class="tags">
+                    <span class="tag excel">Excel</span>
+                    <span class="tag model">Modélisation</span>
+                    <span class="tag ifrs">2026</span>
+                </div>
+                <p class="desc">
+                    Modèle financier complet pour la consolidation IFRS.
+                    Projections, scénarios et analyse de sensibilité.
+                </p>
+                <div class="btn-group">
+                    <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
+                    <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
+                </div>
+            </div>
+
+            <!-- Carte 3 : Modélisation des dettes -->
+            <div class="project-card">
+                <span class="icon">📉</span>
+                <h3>Modélisation des dettes</h3>
+                <div class="tags">
+                    <span class="tag excel">Excel</span>
+                    <span class="tag model">Dettes</span>
+                    <span class="tag ifrs">IFRS</span>
+                </div>
+                <p class="desc">
+                    Analyse et modélisation des dettes selon les normes IFRS.
+                    Évaluation des risques et des impacts.
+                </p>
+                <div class="btn-group">
+                    <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
+                    <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==========================================
+        VIDÉOS
+        ========================================== -->
+        <h2>🎥 Démonstrations</h2>
+        <div class="media-section">
+            <div class="video-grid">
+                <div class="video-item">
+                    <video controls>
+                        <source src="assets/videos/demo1.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéo.
+                    </video>
+                    <p>Demo Consolidation IFRS</p>
+                    <a href="assets/videos/demo1.mp4" download class="btn btn-outline">⬇️ Télécharger</a>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="assets/videos/demo2.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéo.
+                    </video>
+                    <p>Demo Modélisation financière</p>
+                    <a href="assets/videos/demo2.mp4" download class="btn btn-outline">⬇️ Télécharger</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+        IMAGES
+        ========================================== -->
+        <h2>🖼️ Captures d'écran</h2>
+        <div class="media-section">
+            <div class="image-grid">
+                <img src="assets/images/screenshot1.png" alt="Capture écran 1">
+                <img src="assets/images/screenshot2.jpg" alt="Capture écran 2">
+                <img src="assets/images/graph.jpg" alt="Graphique IFRS">
+            </div>
+            <p style="margin-top: 16px; font-size: 0.85rem; color: #64748b;">
+                Cliquez sur une image pour l'agrandir.
+            </p>
+        </div>
+
+        <!-- ==========================================
+        PDF
+        ========================================== -->
+        <h2>📄 Documents</h2>
+        <div class="media-section">
+            <div class="pdf-list">
+                <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank">📘 Guide IFRS 2026</a>
+                <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank">📗 Rapport de consolidation</a>
+                <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank">📕 Guide de modélisation</a>
+            </div>
+            <p style="margin-top: 14px; font-size: 0.85rem; color: #64748b;">
+                Les PDF s'ouvrent dans un nouvel onglet.
+            </p>
+        </div>
+
+        <!-- ==========================================
+        TEST
+        ========================================== -->
+        <div class="test-section">
+            <h3>🔍 Vérification des fichiers</h3>
+            <ul>
+                <li><a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">📎 cohort-analysis-exp.xlsx</a></li>
+                <li><a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">📎 Modélisation_dettes.xlsx</a></li>
+                <li><a href="assets/videos/demo1.mp4" target="_blank">📎 demo1.mp4</a></li>
+            </ul>
+            <p style="margin-top: 12px; font-size: 0.85rem; color: #78350f;">
+                ⚠️ Si un lien ne fonctionne pas, le fichier est introuvable sur GitHub.
+            </p>
+        </div>
+
+        <!-- ==========================================
+        PIED DE PAGE
+        ========================================== -->
+        <footer>
+            <p>
+                Portfolio Data-Too · Consolidation IFRS 2026 ·
+                <a href="https://github.com/Data-Too/Portfolio" target="_blank">GitHub</a>
+            </p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
