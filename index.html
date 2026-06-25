@@ -1,29 +1,517 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Portfolio IFRS - Data-Too</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio · Consolidation IFRS</title>
+
+    <!-- Font Awesome (icônes) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <style>
-        /* Votre style ici */
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ===== SIDEBAR GAUCHE ===== */
+        .sidebar {
+            width: 220px;
+            background: #ffffff;
+            padding: 2.5rem 1.5rem;
+            border-right: 1px solid #e8e8e8;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 2.5rem;
+            color: #1a1a1a;
+        }
+
+        .sidebar .logo span {
+            color: #c0a86a;
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .sidebar nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: 0.2s;
+            padding: 0.3rem 0;
+        }
+
+        .sidebar nav a:hover {
+            color: #1a1a1a;
+        }
+
+        .sidebar nav a.active {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .sidebar .footer-side {
+            font-size: 0.7rem;
+            color: #bbb;
+            margin-top: 2rem;
+        }
+
+        /* ===== CONTENU PRINCIPAL ===== */
+        .main {
+            flex: 1;
+            padding: 2.5rem 3rem;
+            overflow-y: auto;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .main-header h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .main-header h1 span {
+            color: #c0a86a;
+        }
+
+        .main-header .year {
+            font-size: 0.8rem;
+            color: #999;
+            background: #f0f0f0;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+        }
+
+        /* ===== GRILLE PROJETS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e8e8e8;
+            transition: 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card .thumb {
+            background: #111;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card .thumb iframe,
+        .project-card .thumb video {
+            width: 100%;
+            height: 100%;
+            border: none;
+            object-fit: cover;
+        }
+
+        .project-card .thumb .placeholder-icon {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 3rem;
+        }
+
+        .project-card .info {
+            padding: 1.2rem 1.2rem 0.5rem;
+        }
+
+        .project-card .info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .project-card .info .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        .project-card .info .meta .tags {
+            display: flex;
+            gap: 6px;
+        }
+
+        .project-card .info .meta .tags span {
+            background: #f0f0f0;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .project-card .info .meta .year-tag {
+            background: #f0f0f0;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #888;
+        }
+
+        .project-card .doc-list-mini {
+            padding: 0.5rem 1.2rem 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .project-card .doc-list-mini .doc-badge {
+            font-size: 0.6rem;
+            background: #f5f5f5;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            color: #666;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid #e8e8e8;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .project-card .doc-list-mini .doc-badge:hover {
+            background: #e8e8e8;
+        }
+
+        .project-card .doc-list-mini .doc-badge i {
+            font-size: 0.6rem;
+        }
+
+        .project-card .doc-list-mini .doc-badge.pdf i {
+            color: #d9534f;
+        }
+        .project-card .doc-list-mini .doc-badge.excel i {
+            color: #2d7d46;
+        }
+
+        /* ===== ZONE D'APERÇU IFRAME ===== */
+        .preview-area {
+            margin-top: 2rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e8e8e8;
+            background: #ffffff;
+        }
+
+        .preview-area iframe {
+            display: block;
+            width: 100%;
+            height: 300px;
+            border: none;
+            background: white;
+        }
+
+        .preview-placeholder {
+            padding: 1.5rem;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            background: #fafafa;
+        }
+
+        .preview-placeholder i {
+            display: block;
+            font-size: 1.8rem;
+            color: #c0a86a;
+            margin-bottom: 8px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                padding: 1rem 1.5rem;
+                border-right: none;
+                border-bottom: 1px solid #e8e8e8;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 0.5rem 1rem;
+                position: relative;
+            }
+
+            .sidebar .logo {
+                margin-bottom: 0;
+                font-size: 1.2rem;
+            }
+
+            .sidebar nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.3rem 1rem;
+            }
+
+            .sidebar .footer-side {
+                display: none;
+            }
+
+            .main {
+                padding: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .sidebar nav a {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>📊 Démontration Consolidation IFRS</h1>
-    
-    <div class="section">
-        <h2>📈 Analyse de cohortes</h2>
-        <a href="excels/cohort-analysis-exp.xlsx" download>
-            ⬇️ Télécharger le fichier Excel
-        </a>
-    </div>
-    
-    <div class="section">
-        <h2>💰 Modélisation financière</h2>
-        <a href="excels/Modélisation_dettes.xlsx" download>
-            ⬇️ Télécharger le fichier Excel
-        </a>
-    </div>
-    
-    <!-- Ajoutez ici vos vidéos, PDF et images -->
+
+    <!-- ===== SIDEBAR GAUCHE ===== -->
+    <aside class="sidebar">
+        <div>
+            <div class="logo"><span>✦</span> Data</div>
+            <nav>
+                <a href="#" class="active"><i class="fas fa-th" style="width:18px;"></i> Projets</a>
+                <a href="#"><i class="fas fa-file-alt" style="width:18px;"></i> Documents</a>
+                <a href="#"><i class="fas fa-user" style="width:18px;"></i> À propos</a>
+            </nav>
+        </div>
+        <div class="footer-side">
+            <i class="fas fa-code"></i> Portfolio · 2026
+        </div>
+    </aside>
+
+    <!-- ===== CONTENU PRINCIPAL ===== -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <div class="main-header">
+            <h1>Consolidation <span>IFRS</span></h1>
+            <span class="year"><i class="far fa-calendar-alt"></i> 2026</span>
+        </div>
+
+        <!-- GRILLE PROJETS -->
+        <div class="projects-grid">
+
+            <!-- ===== PROJET 1 : VIDÉO DÉMO ===== -->
+            <div class="project-card">
+                <div class="thumb">
+                    <!-- Code ScreenPal avec la vidéo Consolidation IFRS -->
+                    <div class="sp-embed-player" data-id="cO1T3mnuWhl" data-aspect-ratio="1.777778" data-padding-top="56.250000%" style="position:relative;width:100%;padding-top:56.250000%;height:0;">
+                        <script src="https://go.screenpal.com/player/appearance/cO1T3mnuWhl"></script>
+                        <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cO1T3mnuWhl?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3>Démonstration Consolidation IFRS</h3>
+                    <div class="meta">
+                        <div class="tags">
+                            <span>Démo</span>
+                            <span>IFRS</span>
+                        </div>
+                        <span class="year-tag">2026</span>
+                    </div>
+                </div>
+                <div class="doc-list-mini">
+                    <span class="doc-badge pdf"><i class="fas fa-file-pdf"></i> Guide IFRS</span>
+                    <span class="doc-badge excel"><i class="fas fa-file-excel"></i> Périmètres</span>
+                </div>
+            </div>
+
+            <!-- ===== PROJET 2 : COHORT ANALYSIS ===== -->
+            <div class="project-card">
+                <div class="thumb" style="background:#1a2e1a;">
+                    <div style="text-align:center; color:white; padding:1rem;">
+                        <i class="fas fa-chart-line" style="font-size:2.5rem; color:#2d7d46; display:block; margin-bottom:0.5rem;"></i>
+                        <span style="font-size:0.8rem; opacity:0.7;">Analyse de cohortes</span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3>Analyse de cohortes</h3>
+                    <div class="meta">
+                        <div class="tags">
+                            <span>Excel</span>
+                            <span>Analyse</span>
+                        </div>
+                        <span class="year-tag">2026</span>
+                    </div>
+                </div>
+                <div class="doc-list-mini">
+                    <span class="doc-badge excel" onclick="previewDoc('cohort')"><i class="fas fa-file-excel"></i> cohort-analysis-exp.xlsx</span>
+                </div>
+            </div>
+
+            <!-- ===== PROJET 3 : MODÉLISATION DETTES ===== -->
+            <div class="project-card">
+                <div class="thumb" style="background:#1a1a2e;">
+                    <div style="text-align:center; color:white; padding:1rem;">
+                        <i class="fas fa-calculator" style="font-size:2.5rem; color:#c0a86a; display:block; margin-bottom:0.5rem;"></i>
+                        <span style="font-size:0.8rem; opacity:0.7;">Modélisation financière</span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3>Modélisation des dettes</h3>
+                    <div class="meta">
+                        <div class="tags">
+                            <span>Excel</span>
+                            <span>Modélisation</span>
+                        </div>
+                        <span class="year-tag">2026</span>
+                    </div>
+                </div>
+                <div class="doc-list-mini">
+                    <span class="doc-badge excel" onclick="previewDoc('dettes')"><i class="fas fa-file-excel"></i> Modélisation_dettes.xlsx</span>
+                </div>
+            </div>
+
+            <!-- ===== PROJET 4 : PROJET SUPPLEMENTAIRE ===== -->
+            <div class="project-card">
+                <div class="thumb" style="background:#1a1a2e; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.3);">
+                    <i class="fas fa-folder-open" style="font-size:3rem;"></i>
+                </div>
+                <div class="info">
+                    <h3>Projet à venir</h3>
+                    <div class="meta">
+                        <div class="tags">
+                            <span>En préparation</span>
+                        </div>
+                        <span class="year-tag">2026</span>
+                    </div>
+                </div>
+                <div class="doc-list-mini">
+                    <span class="doc-badge" style="color:#aaa;"><i class="fas fa-plus"></i> Bientôt disponible</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== ZONE D'APERÇU IFRAME ===== -->
+        <div class="preview-area" id="previewArea">
+            <div class="preview-placeholder" id="placeholderMsg">
+                <i class="fas fa-file-signature"></i>
+                Clique sur un document Excel ou PDF pour l'apercevoir
+            </div>
+            <iframe id="docIframe" style="display:none; height:300px;" src=""></iframe>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid #e8e8e8; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:0.75rem; color:#aaa;">
+            <span><i class="fas fa-check-circle" style="color:#c0a86a;"></i> Vidéos · PDF · Excel</span>
+            <span><i class="fab fa-github"></i> <a href="https://github.com/Data-Too/Portfolio" style="color:#1a1a1a; text-decoration:none;">Voir sur GitHub</a></span>
+        </div>
+
+    </main>
+
+    <script>
+        function previewDoc(type) {
+            const iframe = document.getElementById('docIframe');
+            const placeholder = document.getElementById('placeholderMsg');
+
+            // 🔁 MAP DES FICHIERS - CORRIGÉ AVEC LE BON DOSSIER "documents"
+            const fileMap = {
+                'cohort': 'assets/documents/cohort-analysis exp.xlsx',
+                'dettes': 'assets/documents/Modelisation_dettes.xlsx'
+            };
+
+            const fileUrl = fileMap[type];
+
+            if (!fileUrl) {
+                iframe.style.display = 'none';
+                placeholder.style.display = 'block';
+                placeholder.innerHTML = `
+                    <i class="fas fa-exclamation-triangle" style="color:#d9534f;"></i>
+                    Fichier non trouvé
+                    <br><small style="color:#aaa;">Vérifie le mapping JavaScript</small>
+                `;
+                return;
+            }
+
+            iframe.style.display = 'block';
+            placeholder.style.display = 'none';
+
+            const isPdf = fileUrl.endsWith('.pdf') || fileUrl.includes('.pdf');
+            const isExcel = fileUrl.endsWith('.xls') || fileUrl.endsWith('.xlsx') || fileUrl.includes('.xls');
+
+            try {
+                if (isPdf) {
+                    iframe.src = fileUrl;
+                } else if (isExcel) {
+                    iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`;
+                } else {
+                    iframe.src = fileUrl;
+                }
+            } catch (error) {
+                iframe.style.display = 'none';
+                placeholder.style.display = 'block';
+                placeholder.innerHTML = `
+                    <i class="fas fa-exclamation-circle" style="color:#d9534f;"></i>
+                    Erreur de chargement
+                    <br><small style="color:#aaa;">${error.message}</small>
+                `;
+            }
+        }
+    </script>
+
 </body>
 </html>
