@@ -1,394 +1,120 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio IFRS - Data-Too</title>
+    <title>Mon Portfolio - IFRS Consolidation</title>
     <style>
-        /* --- RESET & BASE --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f7fb;
-            color: #2c3e50;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        h1 {
-            font-size: 2.4rem;
-            color: #1a2a3a;
-            border-bottom: 4px solid #3498db;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        h1 small {
-            font-size: 1rem;
-            font-weight: normal;
-            color: #7f8c8d;
-            margin-left: auto;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin: 40px 0 20px 0;
-            padding-left: 10px;
-            border-left: 5px solid #3498db;
-        }
-
-        .subtitle {
-            color: #7f8c8d;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        /* --- CARTES PROJET --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .project-card {
-            background: #f8faff;
-            border: 1px solid #e9edf4;
-            border-radius: 12px;
-            padding: 22px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.12);
-            border-color: #3498db;
-        }
-
-        .project-card .icon {
-            font-size: 2.8rem;
-            margin-bottom: 8px;
-        }
-
-        .project-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            color: #1a2a3a;
-        }
-
-        .project-card .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 12px 0 16px 0;
-        }
-
-        .project-card .tag {
-            background: #eef2f7;
-            color: #2c3e50;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
-        }
-
-        .project-card .tag.excel { background: #1d6f42; color: white; }
-        .project-card .tag.ifrs { background: #2c3e50; color: white; }
-        .project-card .tag.demo { background: #e67e22; color: white; }
-        .project-card .tag.model { background: #2980b9; color: white; }
-
-        .project-card .desc {
-            font-size: 0.95rem;
-            color: #5d6d7e;
-            margin-bottom: 18px;
-            flex-grow: 1;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            margin-top: 4px;
-        }
-
-        .btn:hover {
-            background: #2176b8;
-        }
-
-        .btn-success {
-            background: #27ae60;
-        }
-
-        .btn-success:hover {
-            background: #1e8449;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #3498db;
-            border: 2px solid #3498db;
-        }
-
-        .btn-outline:hover {
-            background: #3498db;
-            color: white;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: auto;
-        }
-
-        /* --- SECTIONS SPÉCIALES --- */
-        .media-section {
-            background: #fafcff;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-            border: 1px solid #e9edf4;
-        }
-
-        .media-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .video-grid video {
-            width: 100%;
-            border-radius: 10px;
-            background: #000;
-            border: 1px solid #ddd;
-        }
-
-        .image-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .image-grid img {
-            max-width: 200px;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            transition: transform 0.2s;
-        }
-
-        .image-grid img:hover {
-            transform: scale(1.04);
-        }
-
-        .pdf-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .pdf-list a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #ecf0f1;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-
-        .pdf-list a:hover {
-            background: #d5dbdb;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 600px) {
-            .container { padding: 20px; }
-            h1 { font-size: 1.8rem; flex-wrap: wrap; }
-            h1 small { margin-left: 0; }
-            .project-grid { grid-template-columns: 1fr; }
-        }
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px; }
+        .project { border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 8px; }
+        .project h3 { margin-top: 0; color: #2c3e50; }
+        .tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0; }
+        .tag { background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px; }
+        .download-btn { display: inline-block; background: #2ecc71; color: white; padding: 10px 20px; 
+                        text-decoration: none; border-radius: 5px; margin-top: 10px; }
+        .download-btn:hover { background: #27ae60; }
     </style>
 </head>
 <body>
+    <h1>📊 Portfolio IFRS - Consolidation</h1>
+    <p>Bienvenue sur mon portfolio. Cliquez sur les boutons pour télécharger les fichiers.</p>
 
-<div class="container">
-
-    <!-- ====== EN-TÊTE ====== -->
-    <h1>
-        📊 Démontration Consolidation IFRS
-        <small>Data-Too · 2026</small>
-    </h1>
-    <p class="subtitle">
-        Bienvenue sur mon portfolio. Retrouvez ici mes projets d'analyse, de modélisation financière et de consolidation IFRS.
-        Tous les fichiers Excel sont disponibles en téléchargement.
-    </p>
-
-    <!-- ====== PROJETS EXCEL ====== -->
-    <h2>📁 Projets Excel</h2>
-    <div class="project-grid">
-
-        <!-- Carte 1 : Analyse de cohortes -->
-        <div class="project-card">
-            <div class="icon">📈</div>
-            <h3>Analyse de cohortes</h3>
-            <div class="tags">
-                <span class="tag excel">Excel</span>
-                <span class="tag ifrs">IFRS</span>
-                <span class="tag">Cohorte</span>
-            </div>
-            <p class="desc">
-                Analyse dynamique des cohortes pour la consolidation IFRS. Suivi des performances et des tendances.
-            </p>
-            <div class="btn-group">
-                <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-success">⬇️ Télécharger</a>
-                <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
-            </div>
+    <!-- Projet 1 : Analyse de cohortes -->
+    <div class="project">
+        <h3>📈 Analyse de cohortes</h3>
+        <div class="tags">
+            <span class="tag">Excel</span>
+            <span class="tag">Analyse</span>
+            <span class="tag">IFRS</span>
         </div>
-
-        <!-- Carte 2 : Modélisation financière -->
-        <div class="project-card">
-            <div class="icon">💰</div>
-            <h3>Modélisation financière</h3>
-            <div class="tags">
-                <span class="tag excel">Excel</span>
-                <span class="tag model">Modélisation</span>
-                <span class="tag ifrs">2026</span>
-            </div>
-            <p class="desc">
-                Modèle financier complet pour la consolidation IFRS. Projections, scénarios et analyse de sensibilité.
-            </p>
-            <div class="btn-group">
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-success">⬇️ Télécharger</a>
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
-            </div>
-        </div>
-
-        <!-- Carte 3 : Modélisation des dettes -->
-        <div class="project-card">
-            <div class="icon">📉</div>
-            <h3>Modélisation des dettes</h3>
-            <div class="tags">
-                <span class="tag excel">Excel</span>
-                <span class="tag model">Dettes</span>
-                <span class="tag ifrs">IFRS</span>
-            </div>
-            <p class="desc">
-                Analyse et modélisation des dettes selon les normes IFRS. Évaluation des risques et des impacts.
-            </p>
-            <div class="btn-group">
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-success">⬇️ Télécharger</a>
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
-            </div>
-        </div>
-
+        <p>Fichier d'analyse des cohortes pour la consolidation IFRS</p>
+        <!-- CHEMIN CORRIGÉ avec %20 pour l'espace -->
+        <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="download-btn">
+            ⬇️ Télécharger cohort-analysis-exp.xlsx
+        </a>
     </div>
 
-    <!-- ====== VIDÉOS MP4 ====== -->
-    <h2>🎥 Démonstrations vidéo</h2>
-    <div class="media-section">
-        <h3>Vidéos de démonstration</h3>
-        <div class="video-grid">
-            <div>
-                <video controls>
-                    <source src="assets/videos/demo1.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéo.
-                </video>
-                <p style="margin-top: 8px; font-size: 0.9rem; color: #555;">Demo Consolidation IFRS</p>
-            </div>
-            <div>
-                <video controls>
-                    <source src="assets/videos/demo2.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéo.
-                </video>
-                <p style="margin-top: 8px; font-size: 0.9rem; color: #555;">Demo Modélisation financière</p>
-            </div>
+    <!-- Projet 2 : Modélisation financière -->
+    <div class="project">
+        <h3>💰 Modélisation financière</h3>
+        <div class="tags">
+            <span class="tag">Excel</span>
+            <span class="tag">Modélisation</span>
+            <span class="tag">2026</span>
         </div>
-        <p style="margin-top: 12px;">
-            <a href="assets/videos/demo1.mp4" download class="btn btn-outline" style="margin-right: 10px;">⬇️ Télécharger Demo 1</a>
-            <a href="assets/videos/demo2.mp4" download class="btn btn-outline">⬇️ Télécharger Demo 2</a>
-        </p>
+        <p>Modèle financier pour la consolidation IFRS 2026</p>
+        <!-- CHEMIN CORRIGÉ avec encodage de l'accent -->
+        <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="download-btn">
+            ⬇️ Télécharger Modélisation_dettes.xlsx
+        </a>
+    </div>
+
+    <!-- Projet 3 : Modélisation des dettes -->
+    <div class="project">
+        <h3>📉 Modélisation des dettes</h3>
+        <div class="tags">
+            <span class="tag">Excel</span>
+            <span class="tag">Dettes</span>
+            <span class="tag">IFRS</span>
+        </div>
+        <p>Analyse et modélisation des dettes selon IFRS</p>
+        <!-- CHEMIN CORRIGÉ avec encodage de l'accent -->
+        <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="download-btn">
+            ⬇️ Télécharger Modélisation_dettes.xlsx
+        </a>
+    </div>
+
+    <!-- ====== VIDÉOS ====== -->
+    <div class="project">
+        <h3>🎥 Démonstrations vidéo</h3>
+        <div class="tags">
+            <span class="tag">MP4</span>
+            <span class="tag">Démo</span>
+            <span class="tag">IFRS</span>
+        </div>
+        <p>Vidéos de démonstration de la consolidation IFRS</p>
+        <!-- CHEMIN CORRIGÉ -->
+        <video controls width="100%" style="max-width: 400px; margin: 10px 0;">
+            <source src="assets/videos/demo1.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <br>
+        <a href="assets/videos/demo1.mp4" download class="download-btn">
+            ⬇️ Télécharger la vidéo
+        </a>
     </div>
 
     <!-- ====== IMAGES ====== -->
-    <h2>🖼️ Captures d'écran & visuels</h2>
-    <div class="media-section">
-        <h3>Images du projet</h3>
-        <div class="image-grid">
-            <img src="assets/images/screenshot1.png" alt="Capture écran 1">
-            <img src="assets/images/screenshot2.jpg" alt="Capture écran 2">
-            <img src="assets/images/graph.jpg" alt="Graphique IFRS">
+    <div class="project">
+        <h3>🖼️ Captures d'écran</h3>
+        <div class="tags">
+            <span class="tag">Images</span>
+            <span class="tag">Visuels</span>
         </div>
-        <p style="margin-top: 12px; font-size: 0.9rem; color: #555;">
-            Cliquez sur une image pour l'agrandir (si votre navigateur le permet).
-        </p>
+        <p>Images et graphiques du projet</p>
+        <!-- CHEMINS CORRIGÉS -->
+        <img src="assets/images/screenshot1.png" alt="Capture 1" style="max-width: 200px; margin: 5px; border: 1px solid #ddd; border-radius: 4px;">
+        <img src="assets/images/screenshot2.jpg" alt="Capture 2" style="max-width: 200px; margin: 5px; border: 1px solid #ddd; border-radius: 4px;">
+        <img src="assets/images/graph.jpg" alt="Graphique" style="max-width: 200px; margin: 5px; border: 1px solid #ddd; border-radius: 4px;">
     </div>
 
     <!-- ====== PDF ====== -->
-    <h2>📄 Documents PDF</h2>
-    <div class="media-section">
-        <h3>Rapports et guides</h3>
-        <div class="pdf-list">
-            <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank">📘 Guide IFRS 2026</a>
-            <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank">📗 Rapport de consolidation</a>
-            <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank">📕 Guide de modélisation</a>
+    <div class="project">
+        <h3>📄 Documents PDF</h3>
+        <div class="tags">
+            <span class="tag">PDF</span>
+            <span class="tag">Documentation</span>
         </div>
-        <p style="margin-top: 12px; font-size: 0.9rem; color: #555;">
-            Les PDF s'ouvrent dans un nouvel onglet. Vous pouvez aussi les télécharger via le menu de votre navigateur.
-        </p>
+        <p>Guides et rapports au format PDF</p>
+        <!-- CHEMINS CORRIGÉS -->
+        <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank" class="download-btn" style="background: #3498db;">
+            📘 Guide IFRS 2026
+        </a>
+        <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank" class="download-btn" style="background: #3498db;">
+            📗 Rapport de consolidation
+        </a>
+        <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank" class="download-btn" style="background: #3498db;">
+            📕 Guide de modélisation
+        </a>
     </div>
-
-    <!-- ====== PIED DE PAGE ====== -->
-    <footer style="margin-top: 50px; padding-top: 25px; border-top: 2px solid #ecf0f1; text-align: center; color: #95a5a6; font-size: 0.9rem;">
-        <p>
-            Portfolio Data-Too · Consolidation IFRS 2026 ·
-            <a href="https://github.com/Data-Too/Portfolio" target="_blank" style="color: #3498db; text-decoration: none;">GitHub</a>
-        </p>
-        <p style="font-size: 0.8rem; margin-top: 6px;">
-            Tous les fichiers sont disponibles en téléchargement. Pour toute question, contactez-moi.
-        </p>
-    </footer>
-
-</div>
 
 </body>
 </html>
