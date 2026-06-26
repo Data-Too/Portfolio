@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>THE ALPHA REPORT · Financial Intelligence</title>
+    <title>PINK ALPHA · Financial Magazine</title>
     <style>
         /* ============================================================
                    POLICES & RESET
                 ============================================================ */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -28,7 +28,7 @@
         }
 
         /* ============================================================
-                   COUVERTURE — THE ALPHA REPORT
+                   COUVERTURE
                 ============================================================ */
         .cover {
             min-height: 100vh;
@@ -38,7 +38,7 @@
             align-items: center;
             text-align: center;
             padding: 60px 30px;
-            background: linear-gradient(160deg, #F8E1E8 0%, #FCE4EC 35%, #FFF0F3 70%, #FFF5F7 100%);
+            background: linear-gradient(160deg, #F8E1E8 0%, #FCE4EC 40%, #FFF0F3 100%);
             position: relative;
             overflow: hidden;
         }
@@ -46,11 +46,11 @@
         .cover::before {
             content: '';
             position: absolute;
-            top: -20%;
+            top: -30%;
             right: -10%;
             width: 60%;
             height: 80%;
-            background: radial-gradient(circle, rgba(194, 24, 91, 0.04), transparent 70%);
+            background: radial-gradient(circle, rgba(233, 78, 119, 0.04), transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -58,7 +58,7 @@
         .cover::after {
             content: '';
             position: absolute;
-            bottom: -10%;
+            bottom: -20%;
             left: -10%;
             width: 50%;
             height: 60%;
@@ -70,27 +70,27 @@
         .cover-content {
             position: relative;
             z-index: 1;
-            max-width: 920px;
+            max-width: 900px;
         }
 
         .cover-badge {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: #C2185B;
-            margin-bottom: 16px;
-            border: 1px solid rgba(194, 24, 91, 0.08);
-            padding: 4px 28px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(194, 24, 91, 0.12);
+            padding: 4px 24px;
             border-radius: 40px;
             display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(4px);
         }
 
         .cover-title {
             font-family: 'Playfair Display', serif;
-            font-size: 5.5rem;
+            font-size: 5rem;
             font-weight: 700;
             line-height: 1.0;
             color: #1A1A1A;
@@ -98,25 +98,24 @@
             margin: 8px 0;
         }
 
-        .cover-title .alpha {
-            color: #1A1A1A;
-            font-weight: 800;
-        }
-
-        .cover-title .report {
+        .cover-title .pink {
             color: #E94E77;
             font-style: italic;
             font-weight: 400;
         }
 
+        .cover-title .alpha {
+            color: #1A1A1A;
+            font-weight: 800;
+        }
+
         .cover-sub {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 300;
             color: #7A7A7A;
-            max-width: 620px;
-            margin: 12px auto 24px;
+            max-width: 580px;
+            margin: 12px auto 28px;
             line-height: 1.8;
-            letter-spacing: 0.5px;
         }
 
         .cover-sub strong {
@@ -129,9 +128,9 @@
             justify-content: center;
             gap: 32px;
             flex-wrap: wrap;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.5px;
             color: #7A7A7A;
         }
 
@@ -155,15 +154,15 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 1;
-            font-size: 0.55rem;
-            letter-spacing: 2.5px;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: #7A7A7A;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            animation: bounce 2.5s infinite ease-in-out;
+            animation: bounce 2s infinite ease-in-out;
         }
 
         .scroll-indicator .line {
@@ -174,11 +173,11 @@
 
         @keyframes bounce {
             0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(8px); }
+            50% { transform: translateX(-50%) translateY(6px); }
         }
 
         /* ============================================================
-                   CONTENEUR PRINCIPAL — MAGAZINE
+                   CONTENEUR PRINCIPAL (pages du magazine)
                 ============================================================ */
         .magazine {
             max-width: 1120px;
@@ -186,31 +185,14 @@
             padding: 0 20px 48px;
             background: #FFFFFF;
             box-shadow: 0 -2px 40px rgba(0, 0, 0, 0.02);
-            position: relative;
         }
 
         /* ============================================================
-                   ÉDITORIAL — "LE SENS DE L'ENQUÊTE"
+                   ÉDITORIAL (lettre d'introduction)
                 ============================================================ */
         .editorial {
             padding: 60px 0 48px;
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
-            position: relative;
-        }
-
-        .editorial::before {
-            content: 'ÉDITORIAL';
-            position: absolute;
-            top: 20px;
-            right: 0;
-            font-size: 0.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #C2185B;
-            background: rgba(194, 24, 91, 0.04);
-            padding: 2px 16px;
-            border-radius: 30px;
-            border: 1px solid rgba(194, 24, 91, 0.06);
         }
 
         .editorial-label {
@@ -224,17 +206,10 @@
 
         .editorial h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 600;
             color: #1A1A1A;
-            margin-bottom: 4px;
-            line-height: 1.1;
-        }
-
-        .editorial h2 .highlight {
-            color: #E94E77;
-            font-style: italic;
-            font-weight: 400;
+            margin-bottom: 6px;
         }
 
         .editorial .byline {
@@ -252,7 +227,7 @@
         .editorial p {
             font-size: 1rem;
             color: #4A4A4A;
-            max-width: 800px;
+            max-width: 780px;
             line-height: 1.9;
             margin-bottom: 12px;
         }
@@ -270,43 +245,7 @@
         }
 
         /* ============================================================
-                   BREAKING INSIGHTS
-                ============================================================ */
-        .breaking {
-            background: #FFF0F3;
-            padding: 28px 32px;
-            margin: 32px 0 8px;
-            border-left: 4px solid #E94E77;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .breaking .breaking-label {
-            font-size: 0.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #C2185B;
-            display: inline-block;
-            background: rgba(194, 24, 91, 0.04);
-            padding: 2px 14px;
-            border-radius: 30px;
-            margin-bottom: 4px;
-        }
-
-        .breaking p {
-            font-size: 1rem;
-            color: #1A1A1A;
-            font-weight: 400;
-            line-height: 1.7;
-        }
-
-        .breaking p strong {
-            color: #E94E77;
-            font-weight: 600;
-        }
-
-        /* ============================================================
-                   ARTICLES
+                   SECTION : PROJETS (articles)
                 ============================================================ */
         .section-header {
             display: flex;
@@ -314,20 +253,20 @@
             align-items: baseline;
             flex-wrap: wrap;
             gap: 8px;
-            margin: 56px 0 20px 0;
+            margin: 48px 0 20px 0;
             padding-bottom: 8px;
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
         }
 
         .section-header h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #1A1A1A;
         }
 
         .section-header .count {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 400;
             color: #7A7A7A;
             letter-spacing: 1px;
@@ -340,7 +279,7 @@
 
         .article-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
             margin-bottom: 8px;
         }
@@ -348,7 +287,7 @@
         .article-card {
             padding: 0 0 28px 0;
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
-            transition: border-color 0.4s ease;
+            transition: border-color 0.3s ease;
         }
 
         .article-card:hover {
@@ -356,7 +295,7 @@
         }
 
         .article-card .article-number {
-            font-size: 0.5rem;
+            font-size: 0.55rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -373,24 +312,18 @@
 
         .article-card h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: #1A1A1A;
             margin-bottom: 2px;
             line-height: 1.3;
         }
 
-        .article-card .article-story {
+        .article-card .article-desc {
             font-size: 0.88rem;
             color: #7A7A7A;
             margin-bottom: 10px;
-            line-height: 1.7;
-            font-style: italic;
-        }
-
-        .article-card .article-story strong {
-            color: #1A1A1A;
-            font-style: normal;
+            line-height: 1.6;
         }
 
         .article-card .metrics {
@@ -398,10 +331,6 @@
             flex-wrap: wrap;
             gap: 16px;
             margin-bottom: 14px;
-            background: #FFF5F7;
-            padding: 10px 16px;
-            border-radius: 8px;
-            border: 1px solid rgba(233, 78, 119, 0.04);
         }
 
         .article-card .metrics .metric {
@@ -475,7 +404,7 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.75rem;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             border: 1px solid transparent;
             cursor: pointer;
             letter-spacing: 0.3px;
@@ -512,25 +441,9 @@
         .data-room {
             background: #FFF5F7;
             padding: 48px 40px;
-            margin: 48px 0 16px;
+            margin: 48px 0 16px 0;
             border-radius: 8px;
             border: 1px solid rgba(233, 78, 119, 0.04);
-            position: relative;
-        }
-
-        .data-room::before {
-            content: 'CONFIDENTIEL';
-            position: absolute;
-            top: 16px;
-            right: 24px;
-            font-size: 0.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #C2185B;
-            background: rgba(194, 24, 91, 0.04);
-            padding: 2px 16px;
-            border-radius: 30px;
-            border: 1px solid rgba(194, 24, 91, 0.06);
         }
 
         .data-room .data-label {
@@ -555,7 +468,6 @@
             font-size: 0.85rem;
             color: #7A7A7A;
             margin-bottom: 20px;
-            font-style: italic;
         }
 
         .data-grid {
@@ -572,15 +484,15 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             text-decoration: none;
             color: #1A1A1A;
         }
 
         .data-item:hover {
             border-color: #C9A66B;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
         }
 
         .data-item .data-icon {
@@ -600,26 +512,21 @@
         }
 
         .data-item .data-info .type {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             color: #7A7A7A;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .data-item .data-info .type .confidential {
-            color: #C2185B;
-            font-weight: 600;
-        }
-
         /* ============================================================
-                   VIDÉOS
+                   VIDÉOS (interview style magazine)
                 ============================================================ */
-        .video-section {
+        .video-feature {
             padding: 48px 0 24px;
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
         }
 
-        .video-section .video-label {
+        .video-feature .video-label {
             font-size: 0.6rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -629,7 +536,7 @@
             margin-bottom: 2px;
         }
 
-        .video-section h3 {
+        .video-feature h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 600;
@@ -637,11 +544,10 @@
             margin-bottom: 4px;
         }
 
-        .video-section .video-sub {
+        .video-feature .video-sub {
             font-size: 0.85rem;
             color: #7A7A7A;
             margin-bottom: 20px;
-            font-style: italic;
         }
 
         .video-grid {
@@ -664,14 +570,14 @@
         }
 
         /* ============================================================
-                   PROFIL
+                   COMPÉTENCES (style magazine)
                 ============================================================ */
-        .profile-section {
+        .skills-section {
             padding: 48px 0 24px;
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
         }
 
-        .profile-section .profile-label {
+        .skills-section .skills-label {
             font-size: 0.6rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -681,34 +587,26 @@
             margin-bottom: 2px;
         }
 
-        .profile-section h3 {
+        .skills-section h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 600;
             color: #1A1A1A;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
-        .profile-section .profile-intro {
-            font-size: 0.95rem;
-            color: #4A4A4A;
-            max-width: 780px;
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
-
-        .profile-grid {
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 24px;
         }
 
-        .profile-item {
+        .skill-item {
             padding: 0 0 12px 0;
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
         }
 
-        .profile-item .profile-name {
+        .skill-item .skill-name {
             font-family: 'Playfair Display', serif;
             font-size: 1rem;
             font-weight: 600;
@@ -718,16 +616,16 @@
             align-items: baseline;
         }
 
-        .profile-item .profile-name .level {
+        .skill-item .skill-name .level {
             font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 400;
             color: #C9A66B;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.5px;
         }
 
-        .profile-item .profile-desc {
+        .skill-item .skill-desc {
             font-size: 0.8rem;
             color: #7A7A7A;
             margin-top: 2px;
@@ -735,42 +633,7 @@
         }
 
         /* ============================================================
-                   TEST
-                ============================================================ */
-        .test-bar {
-            background: #FFF5F7;
-            padding: 14px 24px;
-            margin: 32px 0 16px;
-            border-radius: 8px;
-            border: 1px solid rgba(233, 78, 119, 0.04);
-        }
-
-        .test-bar p {
-            font-size: 0.7rem;
-            color: #7A7A7A;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 20px;
-        }
-
-        .test-bar p strong {
-            color: #1A1A1A;
-            font-weight: 500;
-        }
-
-        .test-bar p a {
-            color: #C2185B;
-            text-decoration: none;
-            border-bottom: 1px dotted rgba(194, 24, 91, 0.15);
-            transition: border-color 0.2s ease;
-        }
-
-        .test-bar p a:hover {
-            border-bottom-color: #C2185B;
-        }
-
-        /* ============================================================
-                   FOOTER
+                   PIED DE PAGE
                 ============================================================ */
         footer {
             padding: 32px 0 16px;
@@ -821,14 +684,7 @@
                 padding: 0 16px 32px;
             }
             .editorial h2 {
-                font-size: 1.8rem;
-            }
-            .editorial::before {
-                position: relative;
-                top: 0;
-                right: 0;
-                display: inline-block;
-                margin-bottom: 8px;
+                font-size: 1.6rem;
             }
             .article-grid {
                 grid-template-columns: 1fr;
@@ -836,21 +692,11 @@
             .data-room {
                 padding: 32px 20px;
             }
-            .data-room::before {
-                position: relative;
-                top: 0;
-                right: 0;
-                display: inline-block;
-                margin-bottom: 8px;
-            }
             .data-grid {
                 grid-template-columns: 1fr 1fr;
             }
-            .profile-grid {
+            .skills-grid {
                 grid-template-columns: 1fr 1fr;
-            }
-            .breaking {
-                padding: 20px;
             }
             footer {
                 flex-direction: column;
@@ -869,15 +715,11 @@
             .data-grid {
                 grid-template-columns: 1fr;
             }
-            .profile-grid {
+            .skills-grid {
                 grid-template-columns: 1fr;
             }
             .video-grid {
                 grid-template-columns: 1fr;
-            }
-            .test-bar p {
-                flex-direction: column;
-                gap: 4px;
             }
         }
     </style>
@@ -885,18 +727,18 @@
 <body>
 
     <!-- ============================================================
-    COUVERTURE — THE ALPHA REPORT
+    COUVERTURE
     ============================================================ -->
     <section class="cover" id="top">
         <div class="cover-content">
-            <div class="cover-badge">✦ Édition Spéciale 2026</div>
+            <div class="cover-badge">✦ Édition 2026</div>
             <h1 class="cover-title">
-                <span class="alpha">The</span><br />
-                <span class="alpha">Alpha</span> <span class="report">Report</span>
+                <span class="pink">Pink</span><br />
+                <span class="alpha">Alpha</span>
             </h1>
             <p class="cover-sub">
-                <strong>Financial Intelligence · Data &amp; Strategy</strong><br />
-                Le portfolio d'expertise en consolidation IFRS &amp; modélisation financière
+                <strong>Consolidation IFRS · Analyse de cohortes · Modélisation financière</strong><br />
+                Portfolio d'expertise en finance &amp; modélisation
             </p>
             <div class="cover-meta">
                 <span><span class="dot"></span> Data-Too</span>
@@ -905,82 +747,62 @@
             </div>
         </div>
         <div class="scroll-indicator">
-            <span>Lire l'enquête</span>
+            <span>Découvrir</span>
             <div class="line"></div>
         </div>
     </section>
 
     <!-- ============================================================
-    MAGAZINE — PAGES INTÉRIEURES
+    MAGAZINE (pages intérieures)
     ============================================================ -->
     <main class="magazine">
 
         <!-- ==========================================
-        ÉDITORIAL — "LE SENS DE L'ENQUÊTE"
+        ÉDITORIAL
         ========================================== -->
         <section class="editorial">
-            <span class="editorial-label">◆ Éditorial</span>
-            <h2>L'analyste qui <span class="highlight">réinvente</span> la consolidation IFRS</h2>
-            <p class="byline">Par <strong>Data-Too</strong> · 15 juin 2026 · 8 min de lecture</p>
+            <div class="editorial-label">◆ Éditorial</div>
+            <h2>Lettre d'introduction</h2>
+            <p class="byline">Par <strong>Data-Too</strong> · 15 juin 2026</p>
             <p>
-                Dans un monde où la finance se complexifie chaque jour, rares sont les analystes capables de
-                transformer des données brutes en <strong>intelligence stratégique</strong>. Ce numéro spécial du
-                <strong>The Alpha Report</strong> vous plonge au cœur du travail d'un expert en consolidation IFRS,
-                analyse de cohortes et modélisation financière.
+                Bienvenue dans ce numéro spécial du <strong>Pink Alpha</strong>, un portfolio conçu comme un magazine
+                financier interactif. Ce recueil rassemble mes travaux en <strong>consolidation IFRS</strong>,
+                <strong>analyse de cohortes</strong> et <strong>modélisation financière</strong>.
             </p>
             <p>
-                Nous avons mené l'enquête sur ses méthodologies, ses outils et ses résultats. Chaque projet est une
-                pièce à conviction dans une démonstration rigoureuse : comment construire des modèles financiers
-                qui résistent aux chocs, comment analyser les cohortes avec une précision chirurgicale, et comment
-                maîtriser les normes IFRS pour révéler la juste valeur des actifs.
+                Chaque projet est présenté comme un article, avec ses chiffres clés, ses méthodologies et ses livrables.
+                Vous trouverez également une <strong>Data Room</strong> regroupant l'ensemble des documents techniques,
+                des vidéos de démonstration et une présentation de mes compétences.
             </p>
             <p>
-                Ce portfolio n'est pas une simple liste de livrables. C'est un <strong>récit financier</strong>,
-                une immersion dans l'univers d'un analyste qui place la data au centre de la décision.
-                Bienvenue dans les coulisses de la performance.
+                L'objectif est de vous offrir une expérience de lecture fluide, élégante et immersive, à l'image
+                des publications financières les plus prestigieuses.
             </p>
-            <p class="signature">— La rédaction du The Alpha Report</p>
+            <p class="signature">— Data-Too</p>
         </section>
 
         <!-- ==========================================
-        BREAKING INSIGHTS
-        ========================================== -->
-        <div class="breaking">
-            <span class="breaking-label">⚡ The Alpha Insight</span>
-            <p>
-                <strong>+18.4%</strong> de ROI moyen sur les modèles présentés ·
-                <strong>1.32</strong> de ratio de Sharpe ·
-                <strong>100%</strong> des modèles validés en environnement IFRS ·
-                Une méthodologie <strong>reproductible</strong> et <strong>scalable</strong> ·
-                <strong>3 ans</strong> d'expérience en modélisation financière
-            </p>
-        </div>
-
-        <!-- ==========================================
-        ARTICLES — DOSSIER ENQUÊTE
+        PROJETS (ARTICLES)
         ========================================== -->
         <div class="section-header">
-            <h3>📰 Dossier · Les preuves par l'analyse</h3>
-            <span class="count"><span class="gold">◆</span> 3 enquêtes</span>
+            <h3>📁 Projets &amp; Articles</h3>
+            <span class="count"><span class="gold">◆</span> 3 articles</span>
         </div>
 
         <div class="article-grid">
 
-            <!-- Article 1 -->
+            <!-- Article 1 : Analyse de cohortes -->
             <article class="article-card">
-                <span class="article-number">Enquête 01</span>
+                <span class="article-number">Article 01</span>
                 <span class="article-icon">📈</span>
-                <h4>Comment j'ai décrypté les tendances cachées des cohortes</h4>
-                <p class="article-story">
-                    "En analysant <strong>+3 000 lignes de données</strong>, j'ai mis en évidence des
-                    patterns de performance que les modèles traditionnels ignoraient. Une approche qui a
-                    permis d'anticiper les dérives avec <strong>3 mois d'avance</strong>."
+                <h4>Analyse de cohortes</h4>
+                <p class="article-desc">
+                    Suivi des performances et des tendances dans le cadre de la consolidation IFRS.
                 </p>
                 <div class="metrics">
                     <span class="metric">ROI <strong class="highlight">+18.4%</strong></span>
                     <span class="metric">Sharpe <strong>1.32</strong></span>
                     <span class="metric">Cohorte <strong>2025-2026</strong></span>
-                    <span class="metric">Précision <strong>94%</strong></span>
                 </div>
                 <div class="article-tags">
                     <span class="excel">Excel</span>
@@ -993,21 +815,18 @@
                 </div>
             </article>
 
-            <!-- Article 2 -->
+            <!-- Article 2 : Modélisation financière -->
             <article class="article-card">
-                <span class="article-number">Enquête 02</span>
+                <span class="article-number">Article 02</span>
                 <span class="article-icon">💰</span>
-                <h4>Le modèle qui bat le marché : scénarios et résilience</h4>
-                <p class="article-story">
-                    "Face à l'incertitude, j'ai construit un modèle financier avec <strong>5 scénarios</strong>
-                    de stress. Résultat : une résilience à <strong>+22.1%</strong> de ROI même dans les
-                    conditions les plus défavorables."
+                <h4>Modélisation financière</h4>
+                <p class="article-desc">
+                    Projections, scénarios et analyse de sensibilité pour la consolidation IFRS 2026.
                 </p>
                 <div class="metrics">
                     <span class="metric">ROI <strong class="highlight">+22.1%</strong></span>
                     <span class="metric">Sharpe <strong>1.48</strong></span>
                     <span class="metric">Scénarios <strong>5</strong></span>
-                    <span class="metric">Stress test <strong>Validé</strong></span>
                 </div>
                 <div class="article-tags">
                     <span class="excel">Excel</span>
@@ -1020,21 +839,18 @@
                 </div>
             </article>
 
-            <!-- Article 3 -->
+            <!-- Article 3 : Modélisation des dettes -->
             <article class="article-card">
-                <span class="article-number">Enquête 03</span>
+                <span class="article-number">Article 03</span>
                 <span class="article-icon">📉</span>
-                <h4>Dettes IFRS : l'analyse qui révèle les risques cachés</h4>
-                <p class="article-story">
-                    "En décortiquant les normes IFRS, j'ai identifié des <strong>leviers d'optimisation</strong>
-                    qui améliorent le profil de risque de <strong>15.7%</strong> tout en maintenant un
-                    ratio de Sharpe élevé."
+                <h4>Modélisation des dettes</h4>
+                <p class="article-desc">
+                    Analyse des risques et des impacts financiers selon les normes IFRS.
                 </p>
                 <div class="metrics">
                     <span class="metric">ROI <strong class="highlight">+15.7%</strong></span>
                     <span class="metric">Sharpe <strong>1.18</strong></span>
                     <span class="metric">Risque <strong>Modéré</strong></span>
-                    <span class="metric">Leviers <strong>7</strong></span>
                 </div>
                 <div class="article-tags">
                     <span class="excel">Excel</span>
@@ -1050,61 +866,61 @@
         </div>
 
         <!-- ==========================================
-        DATA ROOM — "PREUVES CONFIDENTIELLES"
+        DATA ROOM
         ========================================== -->
         <section class="data-room">
-            <span class="data-label">◆ Salle des preuves</span>
-            <h3>Data Room · Documents confidentiels</h3>
+            <span class="data-label">◆ Ressources</span>
+            <h3>Data Room</h3>
             <p class="data-sub">
-                Rapports, guides et livrables — les pièces à conviction de l'enquête.
+                Documents techniques, rapports et livrables disponibles en téléchargement.
             </p>
             <div class="data-grid">
                 <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank" class="data-item">
                     <span class="data-icon">📘</span>
                     <span class="data-info">
                         <span class="name">Guide IFRS 2026</span>
-                        <span class="type">PDF · <span class="confidential">Confidentiel</span></span>
+                        <span class="type">PDF · 1.2 Mo</span>
                     </span>
                 </a>
                 <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank" class="data-item">
                     <span class="data-icon">📗</span>
                     <span class="data-info">
                         <span class="name">Rapport de consolidation</span>
-                        <span class="type">PDF · <span class="confidential">Confidentiel</span></span>
+                        <span class="type">PDF · 2.4 Mo</span>
                     </span>
                 </a>
                 <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank" class="data-item">
                     <span class="data-icon">📕</span>
                     <span class="data-info">
                         <span class="name">Guide de modélisation</span>
-                        <span class="type">PDF · <span class="confidential">Confidentiel</span></span>
+                        <span class="type">PDF · 1.8 Mo</span>
                     </span>
                 </a>
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="data-item">
                     <span class="data-icon">📊</span>
                     <span class="data-info">
                         <span class="name">Analyse de cohortes</span>
-                        <span class="type">Excel · <span class="confidential">Preuve</span></span>
+                        <span class="type">Excel · 0.8 Mo</span>
                     </span>
                 </a>
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="data-item">
                     <span class="data-icon">📊</span>
                     <span class="data-info">
                         <span class="name">Modélisation financière</span>
-                        <span class="type">Excel · <span class="confidential">Preuve</span></span>
+                        <span class="type">Excel · 1.1 Mo</span>
                     </span>
                 </a>
             </div>
         </section>
 
         <!-- ==========================================
-        VIDÉOS — INTERVIEWS EXCLUSIVES
+        VIDÉOS (interview)
         ========================================== -->
-        <section class="video-section">
+        <section class="video-feature">
             <span class="video-label">◆ Média</span>
-            <h3>Interviews exclusives · Démonstrations</h3>
+            <h3>Vidéos · Démonstrations</h3>
             <p class="video-sub">
-                L'analyste dévoile ses méthodologies en vidéo.
+                Présentations interactives des projets et méthodologies.
             </p>
             <div class="video-grid">
                 <div class="video-item">
@@ -1112,7 +928,7 @@
                         <source src="assets/videos/demo1.mp4" type="video/mp4">
                         Votre navigateur ne supporte pas la lecture de vidéo.
                     </video>
-                    <p>🎙️ Interview : Consolidation IFRS</p>
+                    <p>Demo Consolidation IFRS</p>
                     <a href="assets/videos/demo1.mp4" download class="btn btn-outline" style="margin-top: 6px;">⬇️ Télécharger</a>
                 </div>
                 <div class="video-item">
@@ -1120,76 +936,67 @@
                         <source src="assets/videos/demo2.mp4" type="video/mp4">
                         Votre navigateur ne supporte pas la lecture de vidéo.
                     </video>
-                    <p>🎙️ Interview : Modélisation financière</p>
+                    <p>Demo Modélisation financière</p>
                     <a href="assets/videos/demo2.mp4" download class="btn btn-outline" style="margin-top: 6px;">⬇️ Télécharger</a>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================
-        PROFIL DE L'ANALYSTE
+        COMPÉTENCES (style magazine)
         ========================================== -->
-        <section class="profile-section">
-            <span class="profile-label">◆ Analyse</span>
-            <h3>Profil de l'analyste</h3>
-            <p class="profile-intro">
-                Spécialiste en consolidation IFRS, analyse de cohortes et modélisation financière.
-                Une expertise à la croisée de la <strong>finance quantitative</strong> et de la
-                <strong>stratégie d'entreprise</strong>.
-            </p>
-            <div class="profile-grid">
-                <div class="profile-item">
-                    <div class="profile-name">
+        <section class="skills-section">
+            <span class="skills-label">◆ Expertise</span>
+            <h3>Compétences</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-name">
                         Consolidation IFRS
                         <span class="level">Expert</span>
                     </div>
-                    <p class="profile-desc">
-                        Normes IFRS 10, 11, 12 · Périmètres de consolidation · Retraitements comptables ·
-                        Évaluation des participations
+                    <p class="skill-desc">
+                        Normes IFRS 10, 11, 12 · Périmètres de consolidation · Retraitements comptables
                     </p>
                 </div>
-                <div class="profile-item">
-                    <div class="profile-name">
+                <div class="skill-item">
+                    <div class="skill-name">
                         Analyse de cohortes
                         <span class="level">Avancé</span>
                     </div>
-                    <p class="profile-desc">
-                        Suivi des performances · KPI · Analyse de l'évolution des portefeuilles ·
-                        Prédiction des tendances
+                    <p class="skill-desc">
+                        Suivi des performances · KPI · Analyse de l'évolution des portefeuilles
                     </p>
                 </div>
-                <div class="profile-item">
-                    <div class="profile-name">
+                <div class="skill-item">
+                    <div class="skill-name">
                         Modélisation financière
                         <span class="level">Expert</span>
                     </div>
-                    <p class="profile-desc">
-                        Projections · Scénarios · Analyse de sensibilité · Valorisation DCF · LBO ·
-                        Stress tests
+                    <p class="skill-desc">
+                        Projections · Scénarios · Analyse de sensibilité · Valorisation
                     </p>
                 </div>
-                <div class="profile-item">
-                    <div class="profile-name">
-                        Excel &amp; Data Intelligence
+                <div class="skill-item">
+                    <div class="skill-name">
+                        Excel &amp; Data
                         <span class="level">Avancé</span>
                     </div>
-                    <p class="profile-desc">
-                        Power Query · VBA · Tableaux de bord · Data visualisation · Automatisation
-                        des processus financiers
+                    <p class="skill-desc">
+                        Power Query · VBA · Tableaux de bord · Data visualisation
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================
-        TEST — VÉRIFICATION DISCRÈTE
+        TEST (vérification fichiers)
         ========================================== -->
-        <div class="test-bar">
-            <p>
-                <strong>🔍 Vérification des fichiers :</strong>
-                <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">cohort-analysis-exp.xlsx</a>
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">Modélisation_dettes.xlsx</a>
-                <a href="assets/videos/demo1.mp4" target="_blank">demo1.mp4</a>
+        <div style="background:#FFF5F7; padding:16px 24px; margin:32px 0 16px; border-radius:8px; border:1px solid rgba(233,78,119,0.04);">
+            <p style="font-size:0.75rem; color:#7A7A7A; display:flex; flex-wrap:wrap; gap:8px 20px;">
+                <strong style="color:#1A1A1A;">🔍 Vérification :</strong>
+                <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" style="color:#C2185B; text-decoration:none; border-bottom:1px dotted rgba(194,24,91,0.2);">cohort-analysis-exp.xlsx</a>
+                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" style="color:#C2185B; text-decoration:none; border-bottom:1px dotted rgba(194,24,91,0.2);">Modélisation_dettes.xlsx</a>
+                <a href="assets/videos/demo1.mp4" target="_blank" style="color:#C2185B; text-decoration:none; border-bottom:1px dotted rgba(194,24,91,0.2);">demo1.mp4</a>
                 <span style="color:#7A7A7A;">⚠️ Si un lien ne fonctionne pas, le fichier est introuvable sur GitHub.</span>
             </p>
         </div>
@@ -1198,7 +1005,7 @@
         PIED DE PAGE
         ========================================== -->
         <footer>
-            <span>The Alpha Report · Portfolio Data-Too · Consolidation IFRS 2026</span>
+            <span>Portfolio Data-Too · Consolidation IFRS 2026</span>
             <span>
                 <span class="colophon">✧ édition limitée</span>
                 <a href="https://github.com/Data-Too/Portfolio" target="_blank" style="margin-left: 20px;">GitHub</a>
