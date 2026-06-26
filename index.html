@@ -410,14 +410,8 @@
         }
 
         /* ============================================================
-                   VIDÉOS
+                   VIDÉO
                 ============================================================ */
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
         .video-card {
             background: #FFFFFF;
             border: 1px solid rgba(26, 42, 58, 0.04);
@@ -425,6 +419,8 @@
             overflow: hidden;
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .video-card:hover {
@@ -695,9 +691,6 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
             .data-room {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -708,6 +701,9 @@
             }
             .skills-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+            .video-card {
+                max-width: 100%;
             }
         }
 
@@ -788,9 +784,6 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
             .section {
                 padding: 32px 16px;
             }
@@ -820,7 +813,7 @@
         <a href="#" class="logo">The <span>Alpha</span> Report</a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#projects">Projets</a></li>
-            <li><a href="#videos">Vidéos</a></li>
+            <li><a href="#video">Vidéo</a></li>
             <li><a href="#data">Data Room</a></li>
             <li><a href="#skills">Compétences</a></li>
         </ul>
@@ -853,7 +846,7 @@
             </div>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">Voir les projets</a>
-                <a href="#videos" class="btn btn-outline">Voir les vidéos</a>
+                <a href="#video" class="btn btn-outline">Voir la vidéo</a>
             </div>
         </div>
         <div class="hero-visual">
@@ -941,35 +934,33 @@
     <hr class="section-divider" />
 
     <!-- ============================================================
-    VIDÉOS
+    VIDÉO
     ============================================================ -->
-    <section class="section" id="videos">
+    <section class="section" id="video">
         <div class="section-header">
-            <h2>🎥 Vidéos</h2>
+            <h2>🎥 Vidéo</h2>
             <span class="count">1 démonstration</span>
         </div>
 
-        <div class="video-grid">
-
-            <!-- Vidéo ScreenPal -->
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe 
-                        src="https://go.screenpal.com/player/cO1T3mnuWhl?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" 
-                        allowfullscreen="true"
-                        scrolling="no">
-                    </iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-label">Démonstration</span>
-                    <h4>Consolidation IFRS</h4>
-                    <p>Présentation de la méthodologie de consolidation et des retraitements.</p>
-                    <div class="btn-group">
-                        <a href="https://go.screenpal.com/player/cO1T3mnuWhl?download=1" target="_blank" class="btn btn-primary btn-sm">⬇️ Télécharger</a>
-                    </div>
+        <div class="video-card">
+            <div class="video-wrapper">
+                <!-- Code d'intégration ScreenPal simplifié -->
+                <iframe 
+                    src="https://go.screenpal.com/player/cO1T3mnuWhl?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" 
+                    allowfullscreen="true"
+                    scrolling="no"
+                    title="Démonstration Consolidation IFRS">
+                </iframe>
+            </div>
+            <div class="video-info">
+                <span class="video-label">Démonstration</span>
+                <h4>Consolidation IFRS</h4>
+                <p>Présentation de la méthodologie de consolidation et des retraitements.</p>
+                <div class="btn-group">
+                    <a href="https://go.screenpal.com/player/cO1T3mnuWhl?download=1" target="_blank" class="btn btn-primary btn-sm">⬇️ Télécharger la vidéo</a>
+                    <a href="https://go.screenpal.com/player/cO1T3mnuWhl" target="_blank" class="btn btn-outline btn-sm">🔗 Ouvrir dans ScreenPal</a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -1068,40 +1059,4 @@
             <p>
                 <strong>🔍 Fichiers :</strong>
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">cohort-analysis-exp.xlsx</a>
-                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">Modélisation_dettes.xlsx</a>
-                <a href="https://go.screenpal.com/player/cO1T3mnuWhl" target="_blank">Vidéo ScreenPal</a>
-                <span>⚠️ Vérifiez les chemins sur GitHub</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- ============================================================
-    FOOTER
-    ============================================================ -->
-    <footer>
-        <span>© 2026 The Alpha Report · Data-Too</span>
-        <span>
-            <a href="https://github.com/Data-Too/Portfolio" target="_blank">GitHub</a>
-        </span>
-    </footer>
-
-    <!-- ============================================================
-    MOBILE MENU
-    ============================================================ -->
-    <script>
-        const toggle = document.getElementById('mobileToggle');
-        const links = document.getElementById('navLinks');
-
-        toggle.addEventListener('click', () => {
-            links.classList.toggle('open');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                links.classList.remove('open');
-            });
-        });
-    </script>
-
-</body>
-</html>
+                <a href="assets/documents/Mod%C3%A
