@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data-Too · IFRS Portfolio</title>
     <style>
-        /* =====================================================
+        /* ============================================================
                    POLICES & RESET
-                ===================================================== */
+                ============================================================ */
         @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
 
         * {
@@ -18,146 +18,212 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #1a0f14;
-            background-image: radial-gradient(circle at 20% 30%, #2d1822 0%, #160b10 100%);
-            color: #f0e4ea;
-            padding: 40px 20px;
+            background: #0d0a0f;
+            color: #f0e8ee;
+            padding: 30px 20px;
             min-height: 100vh;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* =====================================================
-                   CONTENEUR PRINCIPAL
-                ===================================================== */
-        .container {
-            max-width: 1120px;
-            margin: 0 auto;
-            background: rgba(30, 18, 24, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 40px;
-            padding: 50px 55px;
-            border: 1px solid rgba(200, 120, 160, 0.15);
-            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8),
-                        0 0 0 1px rgba(200, 120, 160, 0.05) inset;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .container::before {
+        /* ============================================================
+                   FOND AVEC DÉGRADÉ DYNAMIQUE ET FORMES
+                ============================================================ */
+        body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: -40%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(160, 60, 120, 0.08), transparent 70%);
+            left: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle at 30% 40%, rgba(140, 60, 140, 0.15), transparent 70%);
             border-radius: 50%;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* =====================================================
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            right: -10%;
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(circle at 70% 60%, rgba(200, 80, 140, 0.10), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ============================================================
+                   CONTENEUR PRINCIPAL
+                ============================================================ */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            background: rgba(20, 14, 20, 0.70);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 48px;
+            padding: 50px 55px;
+            border: 1px solid rgba(200, 150, 180, 0.06);
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8),
+                        0 0 0 1px rgba(200, 150, 180, 0.03) inset;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        /* Éléments décoratifs flottants (cercles, formes) */
+        .container .shape {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .shape-1 {
+            top: -120px;
+            right: -80px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(180, 80, 160, 0.08), transparent 70%);
+        }
+
+        .shape-2 {
+            bottom: -100px;
+            left: -60px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(120, 60, 200, 0.06), transparent 70%);
+        }
+
+        .shape-3 {
+            top: 40%;
+            left: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(200, 100, 150, 0.05), transparent 70%);
+        }
+
+        /* ============================================================
                    EN-TÊTE
-                ===================================================== */
+                ============================================================ */
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             position: relative;
             z-index: 1;
         }
 
         .badge {
-            background: rgba(180, 80, 140, 0.18);
-            color: #d9a0c0;
+            background: linear-gradient(135deg, rgba(180, 80, 160, 0.15), rgba(120, 60, 200, 0.10));
+            color: #d9b0cc;
             font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 1.4px;
-            padding: 6px 20px;
+            letter-spacing: 1.6px;
+            padding: 6px 22px;
             border-radius: 40px;
             text-transform: uppercase;
-            border: 1px solid rgba(200, 120, 160, 0.25);
+            border: 1px solid rgba(200, 150, 180, 0.08);
+            backdrop-filter: blur(4px);
         }
 
         .badge-year {
-            color: #b088a0;
+            color: #b098a8;
             font-size: 0.75rem;
             font-weight: 400;
-            background: rgba(200, 120, 160, 0.08);
-            padding: 6px 18px;
+            background: rgba(200, 150, 180, 0.04);
+            padding: 6px 20px;
             border-radius: 40px;
-            border: 1px solid rgba(200, 120, 160, 0.06);
+            border: 1px solid rgba(200, 150, 180, 0.04);
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 700;
             letter-spacing: -0.03em;
-            color: #f5e6ee;
-            margin: 16px 0 6px 0;
+            background: linear-gradient(135deg, #f5e6ee, #d9b0cc, #c090b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 14px 0 6px 0;
             line-height: 1.1;
             position: relative;
             z-index: 1;
         }
 
         .accent-line {
-            width: 100px;
+            width: 120px;
             height: 4px;
-            background: linear-gradient(90deg, #c084b0, #a06080, #804060);
+            background: linear-gradient(90deg, #c090b8, #a070a0, #806090);
             border-radius: 4px;
-            margin: 10px 0 22px 0;
+            margin: 10px 0 24px 0;
             position: relative;
             z-index: 1;
         }
 
         .subtitle {
             font-size: 1.15rem;
-            color: #c8a8b8;
+            color: #c8b0bc;
             max-width: 720px;
             font-weight: 400;
             margin-bottom: 40px;
             padding-bottom: 32px;
-            border-bottom: 1px solid rgba(200, 120, 160, 0.1);
+            border-bottom: 1px solid rgba(200, 150, 180, 0.06);
             position: relative;
             z-index: 1;
         }
 
-        /* =====================================================
-                   EXPERTISE
-                ===================================================== */
+        /* ============================================================
+                   BADGES D'EXPERTISE (style "tags" créatifs)
+                ============================================================ */
         .expertise-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin: -10px 0 30px 0;
+            margin: -8px 0 32px 0;
             position: relative;
             z-index: 1;
         }
 
         .expertise-item {
-            background: rgba(180, 80, 140, 0.08);
+            background: rgba(180, 80, 160, 0.06);
             border-radius: 40px;
-            padding: 6px 20px;
-            font-size: 0.78rem;
+            padding: 6px 22px;
+            font-size: 0.75rem;
             font-weight: 500;
             color: #d9b8c8;
-            border: 1px solid rgba(200, 120, 160, 0.08);
+            border: 1px solid rgba(200, 150, 180, 0.04);
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s;
         }
 
-        .expertise-item span {
-            color: #c084b0;
+        .expertise-item:hover {
+            background: rgba(180, 80, 160, 0.10);
+            border-color: rgba(200, 150, 180, 0.10);
+            transform: translateY(-2px);
         }
 
-        /* =====================================================
+        .expertise-item .dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c090b8, #a070a0);
+        }
+
+        /* ============================================================
                    TITRES DE SECTION
-                ===================================================== */
+                ============================================================ */
         .section-title {
             font-size: 1.5rem;
             font-weight: 600;
@@ -174,12 +240,12 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, rgba(200, 120, 160, 0.2), transparent);
+            background: linear-gradient(90deg, rgba(200, 150, 180, 0.10), transparent);
         }
 
-        /* =====================================================
-                   CARTES PROJETS
-                ===================================================== */
+        /* ============================================================
+                   CARTES PROJETS (avec effet dégradé au survol)
+                ============================================================ */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -189,20 +255,41 @@
         }
 
         .project-card {
-            background: rgba(40, 24, 32, 0.6);
+            background: rgba(30, 20, 28, 0.5);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            border: 1px solid rgba(200, 120, 160, 0.08);
-            border-radius: 24px;
-            padding: 26px 24px 28px;
+            border: 1px solid rgba(200, 150, 180, 0.04);
+            border-radius: 28px;
+            padding: 28px 26px 30px;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
             position: relative;
             display: flex;
             flex-direction: column;
             overflow: hidden;
         }
 
+        /* Dégradé de fond au survol */
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(160, 80, 140, 0.02), rgba(100, 60, 180, 0.02));
+            opacity: 0;
+            transition: opacity 0.5s;
+            border-radius: 28px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Liseré dégradé en haut */
         .project-card::before {
             content: '';
             position: absolute;
@@ -210,20 +297,27 @@
             left: 30px;
             right: 30px;
             height: 3px;
-            background: linear-gradient(90deg, #c084b0, #a06080, #c084b0);
+            background: linear-gradient(90deg, #c090b8, #a070a0, #806090, #a070a0, #c090b8);
+            background-size: 200% 100%;
             border-radius: 0 0 6px 6px;
             opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(200, 120, 160, 0.2);
-            box-shadow: 0 20px 50px -12px rgba(160, 60, 120, 0.15);
+            transition: opacity 0.5s;
+            z-index: 1;
         }
 
         .project-card:hover::before {
             opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(200, 150, 180, 0.12);
+            box-shadow: 0 20px 50px -12px rgba(160, 80, 140, 0.10);
+        }
+
+        .project-card>* {
+            position: relative;
+            z-index: 1;
         }
 
         .project-card .icon {
@@ -236,14 +330,14 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: #c084b0;
-            background: rgba(200, 120, 160, 0.1);
-            padding: 3px 14px;
+            color: #c090b8;
+            background: rgba(200, 150, 180, 0.06);
+            padding: 3px 16px;
             border-radius: 30px;
             display: inline-block;
             margin-bottom: 8px;
             width: fit-content;
-            border: 1px solid rgba(200, 120, 160, 0.06);
+            border: 1px solid rgba(200, 150, 180, 0.04);
         }
 
         .project-card h3 {
@@ -261,31 +355,31 @@
         }
 
         .project-card .tag {
-            background: rgba(180, 80, 140, 0.1);
-            color: #d9a0c0;
-            padding: 2px 14px;
+            background: rgba(180, 80, 160, 0.06);
+            color: #d9b0cc;
+            padding: 2px 16px;
             border-radius: 30px;
             font-size: 0.6rem;
             font-weight: 600;
             letter-spacing: 0.4px;
             text-transform: uppercase;
-            border: 1px solid rgba(200, 120, 160, 0.04);
+            border: 1px solid rgba(200, 150, 180, 0.04);
         }
 
         .project-card .tag.excel {
-            background: rgba(60, 160, 100, 0.12);
+            background: rgba(60, 160, 100, 0.08);
             color: #90c8a8;
         }
         .project-card .tag.ifrs {
-            background: rgba(140, 100, 180, 0.12);
+            background: rgba(140, 100, 180, 0.08);
             color: #b8a0d0;
         }
         .project-card .tag.model {
-            background: rgba(100, 140, 200, 0.12);
+            background: rgba(100, 140, 200, 0.08);
             color: #90b8d8;
         }
         .project-card .tag.demo {
-            background: rgba(200, 160, 80, 0.12);
+            background: rgba(200, 160, 80, 0.08);
             color: #d0b888;
         }
 
@@ -304,11 +398,14 @@
             margin-top: auto;
         }
 
+        /* ============================================================
+                   BOUTONS AVEC DÉGRADÉ
+                ============================================================ */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 9px 22px;
+            padding: 9px 24px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 500;
@@ -316,43 +413,44 @@
             transition: all 0.3s;
             border: 1px solid transparent;
             cursor: pointer;
+            background: transparent;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #804060, #602848);
+            background: linear-gradient(135deg, #7a4a7a, #5a3a6a);
             color: #f5e6ee;
-            box-shadow: 0 4px 16px rgba(160, 60, 120, 0.25);
+            box-shadow: 0 4px 20px rgba(120, 60, 140, 0.15);
+            border: 1px solid rgba(200, 150, 180, 0.04);
         }
 
         .btn-primary:hover {
-            background: linear-gradient(135deg, #a06080, #804060);
-            box-shadow: 0 8px 28px rgba(160, 60, 120, 0.35);
+            background: linear-gradient(135deg, #9a5a8a, #7a4a7a);
+            box-shadow: 0 8px 32px rgba(120, 60, 140, 0.25);
             transform: translateY(-2px);
         }
 
         .btn-outline {
-            background: transparent;
-            color: #d9a0c0;
-            border-color: rgba(200, 120, 160, 0.15);
+            color: #d9b0cc;
+            border-color: rgba(200, 150, 180, 0.08);
         }
 
         .btn-outline:hover {
-            background: rgba(200, 120, 160, 0.06);
-            border-color: rgba(200, 120, 160, 0.25);
+            background: rgba(200, 150, 180, 0.04);
+            border-color: rgba(200, 150, 180, 0.12);
             transform: translateY(-2px);
         }
 
-        /* =====================================================
-                   MÉDIAS
-                ===================================================== */
+        /* ============================================================
+                   SECTIONS MÉDIAS (verre dépoli + dégradés subtils)
+                ============================================================ */
         .media-section {
-            background: rgba(40, 24, 32, 0.3);
+            background: rgba(30, 20, 28, 0.25);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            border-radius: 24px;
-            padding: 28px 30px;
+            border-radius: 28px;
+            padding: 30px 32px;
             margin: 16px 0 8px 0;
-            border: 1px solid rgba(200, 120, 160, 0.04);
+            border: 1px solid rgba(200, 150, 180, 0.03);
             position: relative;
             z-index: 1;
         }
@@ -375,9 +473,10 @@
 
         .video-grid video {
             width: 100%;
-            border-radius: 16px;
+            border-radius: 18px;
             background: #0a0508;
-            border: 1px solid rgba(200, 120, 160, 0.06);
+            border: 1px solid rgba(200, 150, 180, 0.04);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
 
         .video-item p {
@@ -396,15 +495,16 @@
         .image-grid img {
             max-width: 180px;
             height: auto;
-            border-radius: 14px;
-            border: 1px solid rgba(200, 120, 160, 0.06);
+            border-radius: 16px;
+            border: 1px solid rgba(200, 150, 180, 0.04);
             transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         }
 
         .image-grid img:hover {
-            border-color: rgba(200, 120, 160, 0.2);
+            border-color: rgba(200, 150, 180, 0.10);
             transform: scale(1.03);
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
         }
 
         .pdf-list {
@@ -417,34 +517,36 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(40, 24, 32, 0.4);
-            padding: 8px 22px;
+            background: rgba(30, 20, 28, 0.3);
+            padding: 8px 24px;
             border-radius: 40px;
             text-decoration: none;
             color: #d9c0cc;
             font-weight: 450;
             font-size: 0.85rem;
-            border: 1px solid rgba(200, 120, 160, 0.04);
+            border: 1px solid rgba(200, 150, 180, 0.03);
             transition: all 0.3s;
+            backdrop-filter: blur(4px);
         }
 
         .pdf-list a:hover {
-            background: rgba(200, 120, 160, 0.06);
-            border-color: rgba(200, 120, 160, 0.12);
+            background: rgba(200, 150, 180, 0.04);
+            border-color: rgba(200, 150, 180, 0.06);
             transform: translateY(-2px);
         }
 
-        /* =====================================================
-                   TEST
-                ===================================================== */
+        /* ============================================================
+                   SECTION DE TEST (avec dégradé subtil)
+                ============================================================ */
         .test-section {
-            background: rgba(60, 30, 50, 0.2);
-            border: 1px solid rgba(200, 120, 160, 0.06);
-            border-radius: 20px;
-            padding: 22px 28px;
+            background: linear-gradient(135deg, rgba(60, 30, 60, 0.15), rgba(40, 20, 50, 0.15));
+            border: 1px solid rgba(200, 150, 180, 0.04);
+            border-radius: 24px;
+            padding: 24px 30px;
             margin: 40px 0 16px 0;
             position: relative;
             z-index: 1;
+            backdrop-filter: blur(4px);
         }
 
         .test-section h3 {
@@ -466,14 +568,15 @@
             color: #c8b0bc;
             font-weight: 450;
             text-decoration: none;
-            border-bottom: 1.5px dotted rgba(200, 120, 160, 0.1);
+            border-bottom: 1.5px dotted rgba(200, 150, 180, 0.06);
             padding-bottom: 2px;
             font-size: 0.85rem;
+            transition: all 0.3s;
         }
 
         .test-section ul li a:hover {
             color: #e8d0dc;
-            border-bottom-color: #c084b0;
+            border-bottom-color: #c090b8;
         }
 
         .test-section .note {
@@ -482,13 +585,13 @@
             color: #9a7a8a;
         }
 
-        /* =====================================================
+        /* ============================================================
                    PIED DE PAGE
-                ===================================================== */
+                ============================================================ */
         footer {
             margin-top: 50px;
             padding-top: 24px;
-            border-top: 1px solid rgba(200, 120, 160, 0.04);
+            border-top: 1px solid rgba(200, 150, 180, 0.03);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -501,9 +604,10 @@
         }
 
         footer a {
-            color: #d9a0c0;
+            color: #d9b0cc;
             text-decoration: none;
             font-weight: 500;
+            transition: all 0.3s;
         }
 
         footer a:hover {
@@ -512,16 +616,21 @@
         }
 
         footer .dot {
-            color: #c084b0;
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c090b8, #a070a0);
+            margin-right: 4px;
         }
 
-        /* =====================================================
+        /* ============================================================
                    RESPONSIVE
-                ===================================================== */
+                ============================================================ */
         @media (max-width: 640px) {
             .container {
                 padding: 24px 18px;
-                border-radius: 24px;
+                border-radius: 28px;
             }
             h1 {
                 font-size: 2rem;
@@ -540,12 +649,20 @@
                 flex-direction: column;
                 text-align: center;
             }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+
+        <!-- Éléments décoratifs flottants -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
 
         <!-- ==========================================
         EN-TÊTE
@@ -563,13 +680,13 @@
         </p>
 
         <!-- ==========================================
-        EXPERTISE
+        BADGES D'EXPERTISE
         ========================================== -->
         <div class="expertise-grid">
-            <span class="expertise-item"><span>◈</span> Consolidation IFRS</span>
-            <span class="expertise-item"><span>◈</span> Analyse de cohortes</span>
-            <span class="expertise-item"><span>◈</span> Modélisation financière</span>
-            <span class="expertise-item"><span>◈</span> Dettes &amp; risques</span>
+            <span class="expertise-item"><span class="dot"></span> Consolidation IFRS</span>
+            <span class="expertise-item"><span class="dot"></span> Analyse de cohortes</span>
+            <span class="expertise-item"><span class="dot"></span> Modélisation financière</span>
+            <span class="expertise-item"><span class="dot"></span> Dettes &amp; risques</span>
         </div>
 
         <!-- ==========================================
@@ -716,7 +833,7 @@
         <footer>
             <span>Portfolio Data-Too · Consolidation IFRS 2026</span>
             <span>
-                <span class="dot">◈</span>
+                <span class="dot"></span>
                 <a href="https://github.com/Data-Too/Portfolio" target="_blank">GitHub</a>
             </span>
         </footer>
