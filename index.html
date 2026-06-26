@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PINK ALPHA · Portfolio</title>
+    <title>PINK ALPHA · Financial Magazine</title>
     <style>
         /* ============================================================
                    POLICES & RESET
@@ -22,7 +22,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #FFF5F7;
+            background: #FFF8FA;
             color: #1A1A1A;
             line-height: 1.7;
         }
@@ -38,7 +38,7 @@
             align-items: center;
             text-align: center;
             padding: 60px 30px;
-            background: linear-gradient(160deg, #F8E1E8 0%, #FCE4EC 40%, #FFF0F3 100%);
+            background: linear-gradient(160deg, #FCE4EC 0%, #FFF0F3 40%, #FFF8FA 100%);
             position: relative;
             overflow: hidden;
         }
@@ -50,7 +50,7 @@
             right: -10%;
             width: 60%;
             height: 80%;
-            background: radial-gradient(circle, rgba(233, 78, 119, 0.04), transparent 70%);
+            background: radial-gradient(circle, rgba(233, 78, 119, 0.05), transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -165,7 +165,7 @@
         }
 
         /* ============================================================
-                   CONTENEUR PRINCIPAL
+                   CONTENEUR PRINCIPAL (pages du magazine)
                 ============================================================ */
         .magazine {
             max-width: 1120px;
@@ -220,6 +220,10 @@
             margin-bottom: 12px;
         }
 
+        .editorial p:last-child {
+            margin-bottom: 0;
+        }
+
         .editorial .signature {
             font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
@@ -229,7 +233,7 @@
         }
 
         /* ============================================================
-                   SECTION : FICHIERS EXCEL
+                   SECTION : PROJETS (articles)
                 ============================================================ */
         .section-header {
             display: flex;
@@ -261,71 +265,122 @@
             color: #C9A66B;
         }
 
-        .file-grid {
+        .article-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
             margin-bottom: 8px;
         }
 
-        .file-card {
-            background: #FFF5F7;
-            border-radius: 8px;
-            padding: 24px 22px 26px;
-            border: 1px solid rgba(233, 78, 119, 0.04);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
+        .article-card {
+            padding: 0 0 28px 0;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+            transition: border-color 0.3s ease;
         }
 
-        .file-card:hover {
-            border-color: #C9A66B;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+        .article-card:hover {
+            border-bottom-color: #E94E77;
         }
 
-        .file-card .file-icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .file-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
+        .article-card .article-number {
+            font-size: 0.55rem;
             font-weight: 600;
-            color: #1A1A1A;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #C9A66B;
+            display: inline-block;
             margin-bottom: 2px;
         }
 
-        .file-card .file-desc {
-            font-size: 0.85rem;
-            color: #7A7A7A;
-            margin-bottom: 12px;
-            line-height: 1.5;
+        .article-card .article-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 2px;
         }
 
-        .file-card .file-meta {
-            font-size: 0.7rem;
+        .article-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+
+        .article-card .article-desc {
+            font-size: 0.88rem;
             color: #7A7A7A;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .article-card .metrics {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 16px;
+            margin-bottom: 14px;
         }
 
-        .file-card .file-meta span {
-            background: rgba(26, 26, 26, 0.02);
+        .article-card .metrics .metric {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #7A7A7A;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .article-card .metrics .metric strong {
+            color: #1A1A1A;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .article-card .metrics .metric .highlight {
+            color: #E94E77;
+        }
+
+        .article-card .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .article-card .article-tags span {
+            font-size: 0.55rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             padding: 2px 14px;
             border-radius: 30px;
             border: 1px solid rgba(26, 26, 26, 0.04);
+            color: #7A7A7A;
+            background: #FFF8FA;
+        }
+
+        .article-card .article-tags .excel {
+            color: #C9A66B;
+            border-color: rgba(201, 166, 107, 0.12);
+            background: rgba(201, 166, 107, 0.04);
+        }
+
+        .article-card .article-tags .ifrs {
+            color: #C2185B;
+            border-color: rgba(194, 24, 91, 0.08);
+            background: rgba(194, 24, 91, 0.04);
+        }
+
+        .article-card .article-tags .model {
+            color: #1A1A1A;
+            border-color: rgba(26, 26, 26, 0.06);
+            background: rgba(26, 26, 26, 0.02);
         }
 
         .btn-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: auto;
         }
 
         .btn {
@@ -369,57 +424,11 @@
         }
 
         /* ============================================================
-                   SECTION : VIDÉOS
-                ============================================================ */
-        .video-section {
-            margin: 16px 0 8px 0;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-            margin-top: 8px;
-        }
-
-        .video-item {
-            background: #FFF5F7;
-            border-radius: 8px;
-            padding: 16px 16px 18px;
-            border: 1px solid rgba(233, 78, 119, 0.04);
-            transition: border-color 0.3s ease;
-        }
-
-        .video-item:hover {
-            border-color: #C9A66B;
-        }
-
-        .video-item video {
-            width: 100%;
-            border-radius: 6px;
-            background: #1A1A1A;
-            border: 1px solid rgba(26, 26, 26, 0.04);
-        }
-
-        .video-item p {
-            margin-top: 8px;
-            font-size: 0.85rem;
-            color: #1A1A1A;
-            font-weight: 500;
-        }
-
-        .video-item .video-desc {
-            font-size: 0.75rem;
-            color: #7A7A7A;
-            margin-bottom: 10px;
-        }
-
-        /* ============================================================
-                   DATA ROOM (documents PDF + autres)
+                   DATA ROOM
                 ============================================================ */
         .data-room {
-            background: #FFF5F7;
-            padding: 40px 38px;
+            background: #FFF8FA;
+            padding: 48px 40px;
             margin: 48px 0 16px 0;
             border-radius: 8px;
             border: 1px solid rgba(233, 78, 119, 0.04);
@@ -451,13 +460,13 @@
 
         .data-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
         }
 
         .data-item {
             background: #FFFFFF;
-            padding: 14px 18px;
+            padding: 16px 20px;
             border-radius: 8px;
             border: 1px solid rgba(26, 26, 26, 0.04);
             display: flex;
@@ -491,10 +500,61 @@
         }
 
         .data-item .data-info .type {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             color: #7A7A7A;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+                   VIDÉOS (interview style magazine)
+                ============================================================ */
+        .video-feature {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+        }
+
+        .video-feature .video-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #C9A66B;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .video-feature h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 4px;
+        }
+
+        .video-feature .video-sub {
+            font-size: 0.85rem;
+            color: #7A7A7A;
+            margin-bottom: 20px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .video-grid video {
+            width: 100%;
+            border-radius: 8px;
+            background: #1A1A1A;
+            border: 1px solid rgba(26, 26, 26, 0.04);
+        }
+
+        .video-item p {
+            margin-top: 6px;
+            font-size: 0.8rem;
+            color: #7A7A7A;
         }
 
         /* ============================================================
@@ -525,18 +585,18 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
         }
 
         .skill-item {
-            padding: 0 0 10px 0;
+            padding: 0 0 12px 0;
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
         }
 
         .skill-item .skill-name {
             font-family: 'Playfair Display', serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #1A1A1A;
             display: flex;
@@ -546,7 +606,7 @@
 
         .skill-item .skill-name .level {
             font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 400;
             color: #C9A66B;
             text-transform: uppercase;
@@ -614,14 +674,11 @@
             .editorial h2 {
                 font-size: 1.6rem;
             }
-            .file-grid {
-                grid-template-columns: 1fr;
-            }
-            .video-grid {
+            .article-grid {
                 grid-template-columns: 1fr;
             }
             .data-room {
-                padding: 28px 20px;
+                padding: 32px 20px;
             }
             .data-grid {
                 grid-template-columns: 1fr 1fr;
@@ -647,6 +704,9 @@
                 grid-template-columns: 1fr;
             }
             .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .video-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -698,100 +758,99 @@
                 <strong>analyse de cohortes</strong> et <strong>modélisation financière</strong>.
             </p>
             <p>
-                Chaque projet est présenté de manière claire et concise, avec ses livrables disponibles en téléchargement.
+                Chaque projet est présenté comme un article, avec ses chiffres clés, ses méthodologies et ses livrables.
                 Vous trouverez également une <strong>Data Room</strong> regroupant l'ensemble des documents techniques,
                 des vidéos de démonstration et une présentation de mes compétences.
+            </p>
+            <p>
+                L'objectif est de vous offrir une expérience de lecture fluide, élégante et immersive, à l'image
+                des publications financières les plus prestigieuses.
             </p>
             <p class="signature">— Data-Too</p>
         </section>
 
         <!-- ==========================================
-        SECTION : FICHIERS EXCEL
+        PROJETS (ARTICLES)
         ========================================== -->
         <div class="section-header">
-            <h3>📊 Fichiers Excel</h3>
-            <span class="count"><span class="gold">◆</span> 3 fichiers</span>
+            <h3>📁 Projets &amp; Articles</h3>
+            <span class="count"><span class="gold">◆</span> 3 articles</span>
         </div>
 
-        <div class="file-grid">
-            <!-- Fichier 1 -->
-            <div class="file-card">
-                <span class="file-icon">📈</span>
+        <div class="article-grid">
+
+            <!-- Article 1 : Analyse de cohortes -->
+            <article class="article-card">
+                <span class="article-number">Article 01</span>
+                <span class="article-icon">📈</span>
                 <h4>Analyse de cohortes</h4>
-                <p class="file-desc">Analyse dynamique des cohortes pour la consolidation IFRS. Suivi des performances et des tendances.</p>
-                <div class="file-meta">
-                    <span>Excel</span>
-                    <span>IFRS</span>
+                <p class="article-desc">
+                    Suivi des performances et des tendances dans le cadre de la consolidation IFRS.
+                </p>
+                <div class="metrics">
+                    <span class="metric">ROI <strong class="highlight">+18.4%</strong></span>
+                    <span class="metric">Sharpe <strong>1.32</strong></span>
+                    <span class="metric">Cohorte <strong>2025-2026</strong></span>
+                </div>
+                <div class="article-tags">
+                    <span class="excel">Excel</span>
+                    <span class="ifrs">IFRS</span>
                     <span>Cohorte</span>
                 </div>
                 <div class="btn-group">
                     <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
                     <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Fichier 2 -->
-            <div class="file-card">
-                <span class="file-icon">💰</span>
+            <!-- Article 2 : Modélisation financière -->
+            <article class="article-card">
+                <span class="article-number">Article 02</span>
+                <span class="article-icon">💰</span>
                 <h4>Modélisation financière</h4>
-                <p class="file-desc">Modèle financier complet pour la consolidation IFRS. Projections, scénarios et analyse de sensibilité.</p>
-                <div class="file-meta">
-                    <span>Excel</span>
-                    <span>Modélisation</span>
-                    <span>2026</span>
+                <p class="article-desc">
+                    Projections, scénarios et analyse de sensibilité pour la consolidation IFRS 2026.
+                </p>
+                <div class="metrics">
+                    <span class="metric">ROI <strong class="highlight">+22.1%</strong></span>
+                    <span class="metric">Sharpe <strong>1.48</strong></span>
+                    <span class="metric">Scénarios <strong>5</strong></span>
+                </div>
+                <div class="article-tags">
+                    <span class="excel">Excel</span>
+                    <span class="model">Modélisation</span>
+                    <span class="ifrs">2026</span>
                 </div>
                 <div class="btn-group">
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Fichier 3 -->
-            <div class="file-card">
-                <span class="file-icon">📉</span>
+            <!-- Article 3 : Modélisation des dettes -->
+            <article class="article-card">
+                <span class="article-number">Article 03</span>
+                <span class="article-icon">📉</span>
                 <h4>Modélisation des dettes</h4>
-                <p class="file-desc">Analyse et modélisation des dettes selon les normes IFRS. Évaluation des risques et des impacts.</p>
-                <div class="file-meta">
-                    <span>Excel</span>
-                    <span>Dettes</span>
-                    <span>IFRS</span>
+                <p class="article-desc">
+                    Analyse des risques et des impacts financiers selon les normes IFRS.
+                </p>
+                <div class="metrics">
+                    <span class="metric">ROI <strong class="highlight">+15.7%</strong></span>
+                    <span class="metric">Sharpe <strong>1.18</strong></span>
+                    <span class="metric">Risque <strong>Modéré</strong></span>
+                </div>
+                <div class="article-tags">
+                    <span class="excel">Excel</span>
+                    <span class="model">Dettes</span>
+                    <span class="ifrs">IFRS</span>
                 </div>
                 <div class="btn-group">
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
                 </div>
-            </div>
-        </div>
+            </article>
 
-        <!-- ==========================================
-        SECTION : VIDÉOS
-        ========================================== -->
-        <div class="section-header" style="margin-top: 32px;">
-            <h3>🎥 Vidéos</h3>
-            <span class="count"><span class="gold">◆</span> 2 démonstrations</span>
-        </div>
-
-        <div class="video-section">
-            <div class="video-grid">
-                <div class="video-item">
-                    <video controls>
-                        <source src="assets/videos/demo1.mp4" type="video/mp4">
-                        Votre navigateur ne supporte pas la lecture de vidéo.
-                    </video>
-                    <p>Démonstration Consolidation IFRS</p>
-                    <p class="video-desc">Présentation de la méthodologie de consolidation et des outils utilisés.</p>
-                    <a href="assets/videos/demo1.mp4" download class="btn btn-outline">⬇️ Télécharger</a>
-                </div>
-                <div class="video-item">
-                    <video controls>
-                        <source src="assets/videos/demo2.mp4" type="video/mp4">
-                        Votre navigateur ne supporte pas la lecture de vidéo.
-                    </video>
-                    <p>Démonstration Modélisation financière</p>
-                    <p class="video-desc">Présentation des modèles financiers, scénarios et analyses de sensibilité.</p>
-                    <a href="assets/videos/demo2.mp4" download class="btn btn-outline">⬇️ Télécharger</a>
-                </div>
-            </div>
         </div>
 
         <!-- ==========================================
@@ -800,48 +859,79 @@
         <section class="data-room">
             <span class="data-label">◆ Ressources</span>
             <h3>Data Room</h3>
-            <p class="data-sub">Documents techniques et rapports disponibles en téléchargement.</p>
+            <p class="data-sub">
+                Documents techniques, rapports et livrables disponibles en téléchargement.
+            </p>
             <div class="data-grid">
                 <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank" class="data-item">
                     <span class="data-icon">📘</span>
                     <span class="data-info">
                         <span class="name">Guide IFRS 2026</span>
-                        <span class="type">PDF</span>
+                        <span class="type">PDF · 1.2 Mo</span>
                     </span>
                 </a>
                 <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank" class="data-item">
                     <span class="data-icon">📗</span>
                     <span class="data-info">
                         <span class="name">Rapport de consolidation</span>
-                        <span class="type">PDF</span>
+                        <span class="type">PDF · 2.4 Mo</span>
                     </span>
                 </a>
                 <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank" class="data-item">
                     <span class="data-icon">📕</span>
                     <span class="data-info">
                         <span class="name">Guide de modélisation</span>
-                        <span class="type">PDF</span>
+                        <span class="type">PDF · 1.8 Mo</span>
                     </span>
                 </a>
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="data-item">
                     <span class="data-icon">📊</span>
                     <span class="data-info">
                         <span class="name">Analyse de cohortes</span>
-                        <span class="type">Excel</span>
+                        <span class="type">Excel · 0.8 Mo</span>
                     </span>
                 </a>
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="data-item">
                     <span class="data-icon">📊</span>
                     <span class="data-info">
                         <span class="name">Modélisation financière</span>
-                        <span class="type">Excel</span>
+                        <span class="type">Excel · 1.1 Mo</span>
                     </span>
                 </a>
             </div>
         </section>
 
         <!-- ==========================================
-        COMPÉTENCES
+        VIDÉOS (interview)
+        ========================================== -->
+        <section class="video-feature">
+            <span class="video-label">◆ Média</span>
+            <h3>Vidéos · Démonstrations</h3>
+            <p class="video-sub">
+                Présentations interactives des projets et méthodologies.
+            </p>
+            <div class="video-grid">
+                <div class="video-item">
+                    <video controls>
+                        <source src="assets/videos/demo1.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéo.
+                    </video>
+                    <p>Demo Consolidation IFRS</p>
+                    <a href="assets/videos/demo1.mp4" download class="btn btn-outline" style="margin-top: 6px;">⬇️ Télécharger</a>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="assets/videos/demo2.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéo.
+                    </video>
+                    <p>Demo Modélisation financière</p>
+                    <a href="assets/videos/demo2.mp4" download class="btn btn-outline" style="margin-top: 6px;">⬇️ Télécharger</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+        COMPÉTENCES (style magazine)
         ========================================== -->
         <section class="skills-section">
             <span class="skills-label">◆ Expertise</span>
@@ -852,28 +942,36 @@
                         Consolidation IFRS
                         <span class="level">Expert</span>
                     </div>
-                    <p class="skill-desc">Normes IFRS 10, 11, 12 · Périmètres de consolidation · Retraitements comptables</p>
+                    <p class="skill-desc">
+                        Normes IFRS 10, 11, 12 · Périmètres de consolidation · Retraitements comptables
+                    </p>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
                         Analyse de cohortes
                         <span class="level">Avancé</span>
                     </div>
-                    <p class="skill-desc">Suivi des performances · KPI · Analyse de l'évolution des portefeuilles</p>
+                    <p class="skill-desc">
+                        Suivi des performances · KPI · Analyse de l'évolution des portefeuilles
+                    </p>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
                         Modélisation financière
                         <span class="level">Expert</span>
                     </div>
-                    <p class="skill-desc">Projections · Scénarios · Analyse de sensibilité · Valorisation</p>
+                    <p class="skill-desc">
+                        Projections · Scénarios · Analyse de sensibilité · Valorisation
+                    </p>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
                         Excel &amp; Data
                         <span class="level">Avancé</span>
                     </div>
-                    <p class="skill-desc">Power Query · VBA · Tableaux de bord · Data visualisation</p>
+                    <p class="skill-desc">
+                        Power Query · VBA · Tableaux de bord · Data visualisation
+                    </p>
                 </div>
             </div>
         </section>
@@ -881,7 +979,7 @@
         <!-- ==========================================
         TEST (vérification fichiers)
         ========================================== -->
-        <div style="background:#FFF5F7; padding:14px 22px; margin:32px 0 16px; border-radius:8px; border:1px solid rgba(233,78,119,0.04);">
+        <div style="background:#FFF8FA; padding:16px 24px; margin:32px 0 16px; border-radius:8px; border:1px solid rgba(233,78,119,0.04);">
             <p style="font-size:0.75rem; color:#7A7A7A; display:flex; flex-wrap:wrap; gap:8px 20px;">
                 <strong style="color:#1A1A1A;">🔍 Vérification :</strong>
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" style="color:#C2185B; text-decoration:none; border-bottom:1px dotted rgba(194,24,91,0.2);">cohort-analysis-exp.xlsx</a>
