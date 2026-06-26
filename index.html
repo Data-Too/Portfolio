@@ -283,7 +283,7 @@
         }
 
         /* ============================================================
-                   PROJETS (Excel)
+                   PROJETS EXCEL
                 ============================================================ */
         .projects-grid {
             display: grid;
@@ -473,6 +473,124 @@
         }
 
         /* ============================================================
+                   DATA ROOM
+                ============================================================ */
+        .data-room {
+            background: #FFFFFF;
+            border: 1px solid rgba(26, 42, 58, 0.04);
+            border-radius: 12px;
+            padding: 32px 36px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .data-room:hover {
+            border-color: rgba(42, 106, 138, 0.10);
+        }
+
+        .data-room .data-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1A2A3A;
+            margin-bottom: 4px;
+        }
+
+        .data-room .data-info p {
+            font-size: 0.85rem;
+            color: #5A6A7A;
+        }
+
+        .data-room .data-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .data-room .data-list .data-item {
+            background: #F5F8FA;
+            padding: 10px 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #1A2A3A;
+            border: 1px solid transparent;
+        }
+
+        .data-room .data-list .data-item:hover {
+            background: #E8F0F5;
+            border-color: rgba(42, 106, 138, 0.10);
+            transform: translateX(4px);
+        }
+
+        .data-room .data-list .data-item .data-icon {
+            font-size: 1.1rem;
+        }
+
+        .data-room .data-list .data-item .data-info .name {
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+
+        .data-room .data-list .data-item .data-info .type {
+            font-size: 0.55rem;
+            color: #6A7A8A;
+            text-transform: uppercase;
+        }
+
+        /* ============================================================
+                   COMPÉTENCES
+                ============================================================ */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(26, 42, 58, 0.04);
+            border-radius: 12px;
+            padding: 18px 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .skill-card:hover {
+            border-color: rgba(42, 106, 138, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .skill-card .skill-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1A2A3A;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .skill-card .skill-name .level {
+            font-size: 0.5rem;
+            font-weight: 400;
+            color: #2A6A8A;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-card .skill-desc {
+            font-size: 0.75rem;
+            color: #5A6A7A;
+        }
+
+        /* ============================================================
                    TEST
                 ============================================================ */
         .test-bar {
@@ -568,6 +686,17 @@
             .video-grid {
                 grid-template-columns: 1fr;
             }
+            .data-room {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 24px 20px;
+            }
+            .data-room .data-list {
+                grid-template-columns: 1fr 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -608,6 +737,12 @@
             .section-header h2 {
                 font-size: 1.4rem;
             }
+            .data-room .data-list {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
             footer {
                 flex-direction: column;
                 text-align: center;
@@ -647,6 +782,12 @@
             .section {
                 padding: 32px 16px;
             }
+            .data-room {
+                padding: 20px 16px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
             .test-bar .bar p {
                 flex-direction: column;
                 gap: 4px;
@@ -668,6 +809,8 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#projects">Projets</a></li>
             <li><a href="#videos">Vidéos</a></li>
+            <li><a href="#data">Data Room</a></li>
+            <li><a href="#skills">Compétences</a></li>
         </ul>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
     </nav>
@@ -795,6 +938,7 @@
         </div>
 
         <div class="video-grid">
+
             <!-- Vidéo 1 -->
             <div class="video-card">
                 <video controls>
@@ -825,6 +969,92 @@
                         <a href="assets/videos/demo2.mp4" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
                     </div>
                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ============================================================
+    DATA ROOM
+    ============================================================ -->
+    <section class="section" id="data">
+        <div class="section-header">
+            <h2>📄 Data Room</h2>
+            <span class="count">3 PDF</span>
+        </div>
+
+        <div class="data-room">
+            <div class="data-info">
+                <h3>Documents</h3>
+                <p>Rapports et guides techniques.</p>
+            </div>
+            <div class="data-list">
+                <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank" class="data-item">
+                    <span class="data-icon">📘</span>
+                    <span class="data-info">
+                        <span class="name">Guide IFRS 2026</span>
+                        <span class="type">PDF</span>
+                    </span>
+                </a>
+                <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank" class="data-item">
+                    <span class="data-icon">📗</span>
+                    <span class="data-info">
+                        <span class="name">Rapport consolidation</span>
+                        <span class="type">PDF</span>
+                    </span>
+                </a>
+                <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank" class="data-item">
+                    <span class="data-icon">📕</span>
+                    <span class="data-info">
+                        <span class="name">Guide modélisation</span>
+                        <span class="type">PDF</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ============================================================
+    COMPÉTENCES
+    ============================================================ -->
+    <section class="section" id="skills">
+        <div class="section-header">
+            <h2>🛠️ Compétences</h2>
+            <span class="count">4 domaines</span>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-name">
+                    Consolidation IFRS
+                    <span class="level">Expert</span>
+                </div>
+                <p class="skill-desc">IFRS 10, 11, 12 · Périmètres · Retraitements</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-name">
+                    Analyse de cohortes
+                    <span class="level">Avancé</span>
+                </div>
+                <p class="skill-desc">KPI · Suivi des performances · Tendances</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-name">
+                    Modélisation financière
+                    <span class="level">Expert</span>
+                </div>
+                <p class="skill-desc">Scénarios · Sensibilité · Valorisation</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-name">
+                    Excel &amp; Data
+                    <span class="level">Avancé</span>
+                </div>
+                <p class="skill-desc">Power Query · VBA · Tableaux de bord</p>
             </div>
         </div>
     </section>
