@@ -1,120 +1,897 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Mon Portfolio - IFRS Consolidation</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE ALPHA REPORT · Portfolio</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px; }
-        .project { border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 8px; }
-        .project h3 { margin-top: 0; color: #2c3e50; }
-        .tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0; }
-        .tag { background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px; }
-        .download-btn { display: inline-block; background: #2ecc71; color: white; padding: 10px 20px; 
-                        text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        .download-btn:hover { background: #27ae60; }
+        /* ============================================================
+                   POLICES & RESET
+                ============================================================ */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FFF5F7;
+            color: #1A1A1A;
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+                   COUVERTURE
+                ============================================================ */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 30px;
+            background: linear-gradient(160deg, #F8E1E8 0%, #FCE4EC 35%, #FFF0F3 70%, #FFF5F7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(194, 24, 91, 0.04), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 50%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(201, 166, 107, 0.03), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            max-width: 920px;
+        }
+
+        .cover-badge {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #C2185B;
+            margin-bottom: 16px;
+            border: 1px solid rgba(194, 24, 91, 0.08);
+            padding: 4px 28px;
+            border-radius: 40px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            font-weight: 700;
+            line-height: 1.0;
+            color: #1A1A1A;
+            letter-spacing: -0.03em;
+            margin: 8px 0;
+        }
+
+        .cover-title .alpha {
+            color: #1A1A1A;
+            font-weight: 800;
+        }
+
+        .cover-title .report {
+            color: #E94E77;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .cover-sub {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #7A7A7A;
+            max-width: 600px;
+            margin: 12px auto 24px;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .cover-sub strong {
+            color: #1A1A1A;
+            font-weight: 500;
+        }
+
+        .cover-meta {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #7A7A7A;
+        }
+
+        .cover-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cover-meta .dot {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #C9A66B;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            font-size: 0.55rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #7A7A7A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: bounce 2.5s infinite ease-in-out;
+        }
+
+        .scroll-indicator .line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(180deg, #C2185B, transparent);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ============================================================
+                   MAGAZINE
+                ============================================================ */
+        .magazine {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px 48px;
+            background: #FFFFFF;
+            box-shadow: 0 -2px 40px rgba(0, 0, 0, 0.02);
+        }
+
+        /* ============================================================
+                   INTRO
+                ============================================================ */
+        .intro {
+            padding: 50px 0 40px;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+        }
+
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 8px;
+        }
+
+        .intro p {
+            font-size: 1rem;
+            color: #4A4A4A;
+            max-width: 780px;
+            line-height: 1.8;
+        }
+
+        /* ============================================================
+                   SECTIONS
+                ============================================================ */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin: 48px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .section-title .count {
+            font-size: 0.6rem;
+            font-weight: 400;
+            color: #7A7A7A;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-title .count .gold {
+            color: #C9A66B;
+        }
+
+        /* ============================================================
+                   PROJETS EXCEL
+                ============================================================ */
+        .excel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .excel-card {
+            padding: 0 0 24px 0;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+            transition: border-color 0.3s ease;
+        }
+
+        .excel-card:hover {
+            border-bottom-color: #E94E77;
+        }
+
+        .excel-card .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .excel-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 2px;
+        }
+
+        .excel-card .desc {
+            font-size: 0.88rem;
+            color: #7A7A7A;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .excel-card .metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 12px;
+            background: #FFF5F7;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(233, 78, 119, 0.04);
+        }
+
+        .excel-card .metrics span {
+            font-size: 0.7rem;
+            color: #7A7A7A;
+        }
+
+        .excel-card .metrics span strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+
+        .excel-card .metrics span .highlight {
+            color: #E94E77;
+        }
+
+        .excel-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .excel-card .tags span {
+            font-size: 0.55rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(26, 26, 26, 0.04);
+            color: #7A7A7A;
+            background: #FFF5F7;
+        }
+
+        .excel-card .tags .excel {
+            color: #C9A66B;
+            border-color: rgba(201, 166, 107, 0.12);
+            background: rgba(201, 166, 107, 0.04);
+        }
+
+        .excel-card .tags .ifrs {
+            color: #C2185B;
+            border-color: rgba(194, 24, 91, 0.08);
+            background: rgba(194, 24, 91, 0.04);
+        }
+
+        .excel-card .tags .model {
+            color: #1A1A1A;
+            border-color: rgba(26, 26, 26, 0.06);
+            background: rgba(26, 26, 26, 0.02);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 22px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            border: 1px solid #1A1A1A;
+        }
+
+        .btn-primary:hover {
+            background: #E94E77;
+            border-color: #E94E77;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            color: #7A7A7A;
+            border-color: rgba(26, 26, 26, 0.06);
+        }
+
+        .btn-outline:hover {
+            color: #1A1A1A;
+            border-color: #1A1A1A;
+            background: rgba(26, 26, 26, 0.02);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+                   VIDÉOS
+                ============================================================ */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 4px;
+        }
+
+        .video-item {
+            background: #FFF5F7;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(233, 78, 119, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .video-item:hover {
+            border-color: rgba(233, 78, 119, 0.08);
+        }
+
+        .video-item video {
+            width: 100%;
+            border-radius: 8px;
+            background: #1A1A1A;
+            border: 1px solid rgba(26, 26, 26, 0.04);
+        }
+
+        .video-item .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .video-item .video-meta p {
+            font-size: 0.8rem;
+            color: #4A4A4A;
+            font-weight: 500;
+        }
+
+        .video-item .video-meta .duration {
+            font-size: 0.6rem;
+            color: #7A7A7A;
+        }
+
+        /* ============================================================
+                   DATA ROOM (réduite)
+                ============================================================ */
+        .data-room {
+            background: #FFF5F7;
+            padding: 32px 36px;
+            margin-top: 48px;
+            border-radius: 8px;
+            border: 1px solid rgba(233, 78, 119, 0.04);
+        }
+
+        .data-room h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 4px;
+        }
+
+        .data-room .data-sub {
+            font-size: 0.85rem;
+            color: #7A7A7A;
+            margin-bottom: 16px;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+        }
+
+        .data-item {
+            background: #FFFFFF;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(26, 26, 26, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #1A1A1A;
+        }
+
+        .data-item:hover {
+            border-color: #C9A66B;
+            transform: translateY(-2px);
+        }
+
+        .data-item .data-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .data-item .data-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .data-item .data-info .name {
+            font-weight: 500;
+            font-size: 0.75rem;
+            color: #1A1A1A;
+        }
+
+        .data-item .data-info .type {
+            font-size: 0.5rem;
+            color: #7A7A7A;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+                   COMPÉTENCES
+                ============================================================ */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            padding: 0 0 10px 0;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+        }
+
+        .skill-item .skill-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #1A1A1A;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .skill-item .skill-name .level {
+            font-size: 0.55rem;
+            font-weight: 400;
+            color: #C9A66B;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .skill-item .skill-desc {
+            font-size: 0.8rem;
+            color: #7A7A7A;
+            margin-top: 2px;
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+                   TEST
+                ============================================================ */
+        .test-bar {
+            background: #FFF5F7;
+            padding: 14px 24px;
+            margin: 32px 0 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(233, 78, 119, 0.04);
+        }
+
+        .test-bar p {
+            font-size: 0.7rem;
+            color: #7A7A7A;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+        }
+
+        .test-bar p strong {
+            color: #1A1A1A;
+            font-weight: 500;
+        }
+
+        .test-bar p a {
+            color: #C2185B;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(194, 24, 91, 0.15);
+        }
+
+        .test-bar p a:hover {
+            border-bottom-color: #C2185B;
+        }
+
+        /* ============================================================
+                   FOOTER
+                ============================================================ */
+        footer {
+            padding: 32px 0 16px;
+            border-top: 1px solid rgba(26, 26, 26, 0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: #7A7A7A;
+            font-size: 0.7rem;
+        }
+
+        footer a {
+            color: #1A1A1A;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #E94E77;
+        }
+
+        footer .colophon {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.7rem;
+            font-style: italic;
+            color: #C9A66B;
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                ============================================================ */
+        @media (max-width: 768px) {
+            .cover-title {
+                font-size: 3.2rem;
+            }
+            .cover-sub {
+                font-size: 0.95rem;
+            }
+            .cover-meta {
+                gap: 16px;
+                font-size: 0.6rem;
+            }
+            .magazine {
+                padding: 0 16px 32px;
+            }
+            .intro h2 {
+                font-size: 1.6rem;
+            }
+            .excel-grid {
+                grid-template-columns: 1fr;
+            }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .data-room {
+                padding: 24px 20px;
+            }
+            .data-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover-title {
+                font-size: 2.4rem;
+            }
+            .cover {
+                padding: 40px 20px;
+                min-height: 80vh;
+            }
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .test-bar p {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>📊 Portfolio IFRS - Consolidation</h1>
-    <p>Bienvenue sur mon portfolio. Cliquez sur les boutons pour télécharger les fichiers.</p>
 
-    <!-- Projet 1 : Analyse de cohortes -->
-    <div class="project">
-        <h3>📈 Analyse de cohortes</h3>
-        <div class="tags">
-            <span class="tag">Excel</span>
-            <span class="tag">Analyse</span>
-            <span class="tag">IFRS</span>
+    <!-- ============================================================
+    COUVERTURE
+    ============================================================ -->
+    <section class="cover" id="top">
+        <div class="cover-content">
+            <div class="cover-badge">✦ Édition 2026</div>
+            <h1 class="cover-title">
+                <span class="alpha">The</span><br />
+                <span class="alpha">Alpha</span> <span class="report">Report</span>
+            </h1>
+            <p class="cover-sub">
+                Consolidation IFRS · Analyse de cohortes · Modélisation financière
+            </p>
+            <div class="cover-meta">
+                <span><span class="dot"></span> Data-Too</span>
+                <span><span class="dot"></span> 2026</span>
+            </div>
         </div>
-        <p>Fichier d'analyse des cohortes pour la consolidation IFRS</p>
-        <!-- CHEMIN CORRIGÉ avec %20 pour l'espace -->
-        <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="download-btn">
-            ⬇️ Télécharger cohort-analysis-exp.xlsx
-        </a>
-    </div>
+        <div class="scroll-indicator">
+            <span>Lire</span>
+            <div class="line"></div>
+        </div>
+    </section>
 
-    <!-- Projet 2 : Modélisation financière -->
-    <div class="project">
-        <h3>💰 Modélisation financière</h3>
-        <div class="tags">
-            <span class="tag">Excel</span>
-            <span class="tag">Modélisation</span>
-            <span class="tag">2026</span>
-        </div>
-        <p>Modèle financier pour la consolidation IFRS 2026</p>
-        <!-- CHEMIN CORRIGÉ avec encodage de l'accent -->
-        <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="download-btn">
-            ⬇️ Télécharger Modélisation_dettes.xlsx
-        </a>
-    </div>
+    <!-- ============================================================
+    MAGAZINE
+    ============================================================ -->
+    <main class="magazine">
 
-    <!-- Projet 3 : Modélisation des dettes -->
-    <div class="project">
-        <h3>📉 Modélisation des dettes</h3>
-        <div class="tags">
-            <span class="tag">Excel</span>
-            <span class="tag">Dettes</span>
-            <span class="tag">IFRS</span>
-        </div>
-        <p>Analyse et modélisation des dettes selon IFRS</p>
-        <!-- CHEMIN CORRIGÉ avec encodage de l'accent -->
-        <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="download-btn">
-            ⬇️ Télécharger Modélisation_dettes.xlsx
-        </a>
-    </div>
+        <!-- ==========================================
+        INTRO
+        ========================================== -->
+        <section class="intro">
+            <h2>Portfolio d'expertise</h2>
+            <p>
+                Ce portfolio rassemble des travaux en consolidation IFRS, analyse de cohortes et
+                modélisation financière. Chaque projet est présenté avec ses indicateurs clés
+                et ses livrables.
+            </p>
+        </section>
 
-    <!-- ====== VIDÉOS ====== -->
-    <div class="project">
-        <h3>🎥 Démonstrations vidéo</h3>
-        <div class="tags">
-            <span class="tag">MP4</span>
-            <span class="tag">Démo</span>
-            <span class="tag">IFRS</span>
+        <!-- ==========================================
+        FICHIERS EXCEL
+        ========================================== -->
+        <div class="section-title">
+            <span>📊 Fichiers Excel</span>
+            <span class="count"><span class="gold">◆</span> 2</span>
         </div>
-        <p>Vidéos de démonstration de la consolidation IFRS</p>
-        <!-- CHEMIN CORRIGÉ -->
-        <video controls width="100%" style="max-width: 400px; margin: 10px 0;">
-            <source src="assets/videos/demo1.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la vidéo.
-        </video>
-        <br>
-        <a href="assets/videos/demo1.mp4" download class="download-btn">
-            ⬇️ Télécharger la vidéo
-        </a>
-    </div>
 
-    <!-- ====== IMAGES ====== -->
-    <div class="project">
-        <h3>🖼️ Captures d'écran</h3>
-        <div class="tags">
-            <span class="tag">Images</span>
-            <span class="tag">Visuels</span>
-        </div>
-        <p>Images et graphiques du projet</p>
-        <!-- CHEMINS CORRIGÉS -->
-        <img src="assets/images/screenshot1.png" alt="Capture 1" style="max-width: 200px; margin: 5px; border: 1px solid #ddd; border-radius: 4px;">
-        <img src="assets/images/screenshot2.jpg" alt="Capture 2" style="max-width: 200px; margin: 5px; border: 1px solid #ddd; border-radius: 4px;">
-        <img src="assets/images/graph.jpg" alt="Graphique" style="max-width: 200px; margin: 5px; border: 1px solid #ddd; border-radius: 4px;">
-    </div>
+        <div class="excel-grid">
 
-    <!-- ====== PDF ====== -->
-    <div class="project">
-        <h3>📄 Documents PDF</h3>
-        <div class="tags">
-            <span class="tag">PDF</span>
-            <span class="tag">Documentation</span>
+            <div class="excel-card">
+                <span class="icon">📈</span>
+                <h4>Analyse de cohortes</h4>
+                <p class="desc">Suivi des performances et des tendances pour la consolidation IFRS.</p>
+                <div class="metrics">
+                    <span>ROI <strong class="highlight">+18.4%</strong></span>
+                    <span>Sharpe <strong>1.32</strong></span>
+                </div>
+                <div class="tags">
+                    <span class="excel">Excel</span>
+                    <span class="ifrs">IFRS</span>
+                </div>
+                <div class="btn-group">
+                    <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
+                    <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
+                </div>
+            </div>
+
+            <div class="excel-card">
+                <span class="icon">📉</span>
+                <h4>Modélisation des dettes</h4>
+                <p class="desc">Analyse des risques et des impacts financiers selon IFRS.</p>
+                <div class="metrics">
+                    <span>ROI <strong class="highlight">+15.7%</strong></span>
+                    <span>Sharpe <strong>1.18</strong></span>
+                </div>
+                <div class="tags">
+                    <span class="excel">Excel</span>
+                    <span class="model">Dettes</span>
+                </div>
+                <div class="btn-group">
+                    <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
+                    <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
+                </div>
+            </div>
+
         </div>
-        <p>Guides et rapports au format PDF</p>
-        <!-- CHEMINS CORRIGÉS -->
-        <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank" class="download-btn" style="background: #3498db;">
-            📘 Guide IFRS 2026
-        </a>
-        <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank" class="download-btn" style="background: #3498db;">
-            📗 Rapport de consolidation
-        </a>
-        <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank" class="download-btn" style="background: #3498db;">
-            📕 Guide de modélisation
-        </a>
-    </div>
+
+        <!-- ==========================================
+        VIDÉOS
+        ========================================== -->
+        <div class="section-title" style="margin-top: 32px;">
+            <span>🎥 Vidéos</span>
+            <span class="count"><span class="gold">◆</span> 2</span>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-item">
+                <video controls>
+                    <source src="assets/videos/demo1.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéo.
+                </video>
+                <div class="video-meta">
+                    <p>Consolidation IFRS</p>
+                    <span class="duration">⏱️ 8 min</span>
+                </div>
+                <a href="assets/videos/demo1.mp4" download class="btn btn-outline" style="margin-top: 10px;">⬇️ Télécharger</a>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="assets/videos/demo2.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéo.
+                </video>
+                <div class="video-meta">
+                    <p>Modélisation financière</p>
+                    <span class="duration">⏱️ 10 min</span>
+                </div>
+                <a href="assets/videos/demo2.mp4" download class="btn btn-outline" style="margin-top: 10px;">⬇️ Télécharger</a>
+            </div>
+        </div>
+
+        <!-- ==========================================
+        DATA ROOM (réduite)
+        ========================================== -->
+        <div class="data-room">
+            <h3>📄 Data Room</h3>
+            <p class="data-sub">Documents PDF</p>
+            <div class="data-grid">
+                <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank" class="data-item">
+                    <span class="data-icon">📘</span>
+                    <span class="data-info">
+                        <span class="name">Guide IFRS 2026</span>
+                        <span class="type">PDF</span>
+                    </span>
+                </a>
+                <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank" class="data-item">
+                    <span class="data-icon">📗</span>
+                    <span class="data-info">
+                        <span class="name">Rapport consolidation</span>
+                        <span class="type">PDF</span>
+                    </span>
+                </a>
+                <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank" class="data-item">
+                    <span class="data-icon">📕</span>
+                    <span class="data-info">
+                        <span class="name">Guide modélisation</span>
+                        <span class="type">PDF</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==========================================
+        COMPÉTENCES
+        ========================================== -->
+        <div class="section-title" style="margin-top: 32px;">
+            <span>🛠️ Compétences</span>
+            <span class="count"><span class="gold">◆</span> 4</span>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-name">
+                    Consolidation IFRS
+                    <span class="level">Expert</span>
+                </div>
+                <p class="skill-desc">IFRS 10, 11, 12 · Périmètres · Retraitements</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">
+                    Analyse de cohortes
+                    <span class="level">Avancé</span>
+                </div>
+                <p class="skill-desc">KPI · Suivi des performances · Tendances</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">
+                    Modélisation financière
+                    <span class="level">Expert</span>
+                </div>
+                <p class="skill-desc">Scénarios · Sensibilité · Valorisation</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">
+                    Excel &amp; Data
+                    <span class="level">Avancé</span>
+                </div>
+                <p class="skill-desc">Power Query · VBA · Tableaux de bord</p>
+            </div>
+        </div>
+
+        <!-- ==========================================
+        TEST
+        ========================================== -->
+        <div class="test-bar">
+            <p>
+                <strong>🔍 Fichiers :</strong>
+                <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">cohort-analysis-exp.xlsx</a>
+                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">Modélisation_dettes.xlsx</a>
+                <a href="assets/videos/demo1.mp4" target="_blank">demo1.mp4</a>
+                <span>⚠️ Vérifiez les chemins sur GitHub</span>
+            </p>
+        </div>
+
+        <!-- ==========================================
+        FOOTER
+        ========================================== -->
+        <footer>
+            <span>The Alpha Report · Data-Too · 2026</span>
+            <span>
+                <span class="colophon">✧ édition limitée</span>
+                <a href="https://github.com/Data-Too/Portfolio" target="_blank" style="margin-left: 20px;">GitHub</a>
+            </span>
+        </footer>
+
+    </main>
 
 </body>
 </html>
