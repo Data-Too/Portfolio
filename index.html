@@ -22,7 +22,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #FFF5F7;
+            background: #F8F5F2;
             color: #1A1A1A;
             line-height: 1.7;
         }
@@ -38,7 +38,7 @@
             align-items: center;
             text-align: center;
             padding: 60px 30px;
-            background: linear-gradient(160deg, #F8E1E8 0%, #FCE4EC 35%, #FFF0F3 70%, #FFF5F7 100%);
+            background: linear-gradient(160deg, #F4EAE6 0%, #F8F0EC 35%, #FCF5F0 70%, #FDF8F5 100%);
             position: relative;
             overflow: hidden;
         }
@@ -46,11 +46,11 @@
         .cover::before {
             content: '';
             position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 60%;
+            top: -30%;
+            right: -20%;
+            width: 70%;
             height: 80%;
-            background: radial-gradient(circle, rgba(194, 24, 91, 0.04), transparent 70%);
+            background: radial-gradient(circle, rgba(180, 140, 130, 0.04), transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -58,11 +58,11 @@
         .cover::after {
             content: '';
             position: absolute;
-            bottom: -10%;
-            left: -10%;
-            width: 50%;
+            bottom: -20%;
+            left: -20%;
+            width: 60%;
             height: 60%;
-            background: radial-gradient(circle, rgba(201, 166, 107, 0.03), transparent 70%);
+            background: radial-gradient(circle, rgba(200, 170, 150, 0.03), transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -78,13 +78,13 @@
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #C2185B;
+            color: #8A6A5A;
             margin-bottom: 16px;
-            border: 1px solid rgba(194, 24, 91, 0.08);
+            border: 1px solid rgba(180, 140, 130, 0.12);
             padding: 4px 28px;
             border-radius: 40px;
             display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(4px);
         }
 
@@ -104,7 +104,7 @@
         }
 
         .cover-title .report {
-            color: #E94E77;
+            color: #B8867A;
             font-style: italic;
             font-weight: 400;
         }
@@ -112,7 +112,7 @@
         .cover-sub {
             font-size: 1rem;
             font-weight: 300;
-            color: #7A7A7A;
+            color: #6A5A52;
             max-width: 600px;
             margin: 12px auto 24px;
             line-height: 1.8;
@@ -132,7 +132,7 @@
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: #7A7A7A;
+            color: #8A7A72;
         }
 
         .cover-meta span {
@@ -146,7 +146,7 @@
             width: 5px;
             height: 5px;
             border-radius: 50%;
-            background: #C9A66B;
+            background: #B8867A;
         }
 
         .scroll-indicator {
@@ -158,7 +158,7 @@
             font-size: 0.55rem;
             letter-spacing: 2.5px;
             text-transform: uppercase;
-            color: #7A7A7A;
+            color: #8A7A72;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -169,7 +169,7 @@
         .scroll-indicator .line {
             width: 1px;
             height: 40px;
-            background: linear-gradient(180deg, #C2185B, transparent);
+            background: linear-gradient(180deg, #B8867A, transparent);
         }
 
         @keyframes bounce {
@@ -193,9 +193,9 @@
                 ============================================================ */
         .intro {
             padding: 50px 0 40px;
-            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+            border-bottom: 2px solid #1A1A1A;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 2fr 1fr;
             gap: 40px;
             align-items: start;
         }
@@ -210,106 +210,109 @@
 
         .intro p {
             font-size: 1rem;
-            color: #4A4A4A;
+            color: #5A4A42;
             line-height: 1.8;
         }
 
         .intro .highlight-stats {
             display: flex;
-            gap: 32px;
+            gap: 24px;
             flex-wrap: wrap;
             padding-top: 8px;
+            justify-content: flex-end;
         }
 
         .intro .highlight-stats .stat {
             text-align: center;
+            padding: 0 16px;
+            border-right: 1px solid rgba(26, 26, 26, 0.06);
+        }
+
+        .intro .highlight-stats .stat:last-child {
+            border-right: none;
         }
 
         .intro .highlight-stats .stat .number {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 700;
-            color: #E94E77;
+            color: #B8867A;
             display: block;
         }
 
         .intro .highlight-stats .stat .label {
-            font-size: 0.7rem;
-            color: #7A7A7A;
+            font-size: 0.6rem;
+            color: #8A7A72;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         /* ============================================================
-                   SECTION DOSSIER (mélange Excel + Vidéo)
+                   SECTION RAPPORT (projets)
                 ============================================================ */
-        .dossier {
-            margin: 48px 0 0 0;
-        }
-
-        .dossier-header {
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 24px;
+            margin: 48px 0 20px 0;
             padding-bottom: 8px;
-            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+            border-bottom: 2px solid #1A1A1A;
         }
 
-        .dossier-header h3 {
+        .section-header h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 600;
             color: #1A1A1A;
         }
 
-        .dossier-header .count {
+        .section-header .count {
             font-size: 0.6rem;
             font-weight: 400;
-            color: #7A7A7A;
+            color: #8A7A72;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .dossier-header .count .gold {
-            color: #C9A66B;
+        .section-header .count .gold {
+            color: #B8867A;
         }
 
-        .dossier-grid {
+        .project-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
 
-        .dossier-card {
+        .project-card {
             padding: 0 0 20px 0;
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
             transition: border-color 0.3s ease;
         }
 
-        .dossier-card:hover {
-            border-bottom-color: #E94E77;
+        .project-card:hover {
+            border-bottom-color: #B8867A;
         }
 
-        .dossier-card .card-label {
+        .project-card .card-label {
             font-size: 0.5rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #C9A66B;
+            color: #B8867A;
             display: inline-block;
             margin-bottom: 2px;
         }
 
-        .dossier-card .icon {
-            font-size: 2rem;
+        .project-card .icon {
+            font-size: 1.8rem;
             display: block;
             margin-bottom: 2px;
         }
 
-        .dossier-card h4 {
+        .project-card h4 {
             font-family: 'Playfair Display', serif;
             font-size: 1.2rem;
             font-weight: 600;
@@ -317,46 +320,45 @@
             margin-bottom: 2px;
         }
 
-        .dossier-card .desc {
+        .project-card .desc {
             font-size: 0.88rem;
-            color: #7A7A7A;
+            color: #6A5A52;
             margin-bottom: 10px;
             line-height: 1.6;
         }
 
-        .dossier-card .metrics {
+        .project-card .metrics {
             display: flex;
             flex-wrap: wrap;
             gap: 16px;
             margin-bottom: 12px;
-            background: #FFF5F7;
+            background: #F8F5F2;
             padding: 8px 14px;
-            border-radius: 8px;
-            border: 1px solid rgba(233, 78, 119, 0.04);
+            border-radius: 4px;
         }
 
-        .dossier-card .metrics span {
+        .project-card .metrics span {
             font-size: 0.7rem;
-            color: #7A7A7A;
+            color: #8A7A72;
         }
 
-        .dossier-card .metrics span strong {
+        .project-card .metrics span strong {
             color: #1A1A1A;
             font-weight: 600;
         }
 
-        .dossier-card .metrics span .highlight {
-            color: #E94E77;
+        .project-card .metrics span .highlight {
+            color: #B8867A;
         }
 
-        .dossier-card .tags {
+        .project-card .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
             margin-bottom: 14px;
         }
 
-        .dossier-card .tags span {
+        .project-card .tags span {
             font-size: 0.55rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -364,29 +366,29 @@
             padding: 2px 14px;
             border-radius: 30px;
             border: 1px solid rgba(26, 26, 26, 0.04);
-            color: #7A7A7A;
-            background: #FFF5F7;
+            color: #6A5A52;
+            background: #F8F5F2;
         }
 
-        .dossier-card .tags .excel {
-            color: #C9A66B;
-            border-color: rgba(201, 166, 107, 0.12);
-            background: rgba(201, 166, 107, 0.04);
+        .project-card .tags .excel {
+            color: #8A7A52;
+            border-color: rgba(180, 140, 130, 0.12);
+            background: rgba(180, 140, 130, 0.04);
         }
 
-        .dossier-card .tags .ifrs {
-            color: #C2185B;
-            border-color: rgba(194, 24, 91, 0.08);
-            background: rgba(194, 24, 91, 0.04);
+        .project-card .tags .ifrs {
+            color: #6A5A6A;
+            border-color: rgba(100, 80, 100, 0.08);
+            background: rgba(100, 80, 100, 0.04);
         }
 
-        .dossier-card .tags .model {
-            color: #1A1A1A;
-            border-color: rgba(26, 26, 26, 0.06);
-            background: rgba(26, 26, 26, 0.02);
+        .project-card .tags .model {
+            color: #4A5A6A;
+            border-color: rgba(60, 80, 100, 0.08);
+            background: rgba(60, 80, 100, 0.04);
         }
 
-        .dossier-card .tags .video-tag {
+        .project-card .tags .video-tag {
             color: #7A5A7A;
             border-color: rgba(120, 80, 120, 0.08);
             background: rgba(120, 80, 120, 0.04);
@@ -403,7 +405,7 @@
             align-items: center;
             gap: 6px;
             padding: 8px 22px;
-            border-radius: 40px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.75rem;
@@ -419,13 +421,13 @@
         }
 
         .btn-primary:hover {
-            background: #E94E77;
-            border-color: #E94E77;
+            background: #B8867A;
+            border-color: #B8867A;
             transform: translateY(-2px);
         }
 
         .btn-outline {
-            color: #7A7A7A;
+            color: #6A5A52;
             border-color: rgba(26, 26, 26, 0.06);
         }
 
@@ -437,54 +439,54 @@
         }
 
         /* ============================================================
-                   VIDÉO EN PLEINE LARGEUR
+                   SECTION VIDÉO (pleine largeur)
                 ============================================================ */
-        .video-feature {
+        .video-section {
             margin: 48px 0 0 0;
-            background: #FFF5F7;
-            border-radius: 12px;
+            background: #F8F5F2;
             padding: 32px 36px;
-            border: 1px solid rgba(233, 78, 119, 0.04);
         }
 
-        .video-feature .video-feature-header {
+        .video-section .video-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1A1A1A;
         }
 
-        .video-feature .video-feature-header h3 {
+        .video-section .video-header h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             font-weight: 600;
             color: #1A1A1A;
         }
 
-        .video-feature .video-feature-header .count {
+        .video-section .video-header .count {
             font-size: 0.6rem;
             font-weight: 400;
-            color: #7A7A7A;
+            color: #8A7A72;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .video-feature .video-grid-inline {
+        .video-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
 
-        .video-feature .video-grid-inline video {
+        .video-grid video {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 4px;
             background: #1A1A1A;
             border: 1px solid rgba(26, 26, 26, 0.04);
         }
 
-        .video-feature .video-item-inline .video-meta {
+        .video-item .video-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -493,29 +495,28 @@
             gap: 8px;
         }
 
-        .video-feature .video-item-inline .video-meta p {
+        .video-item .video-meta p {
             font-size: 0.8rem;
-            color: #4A4A4A;
+            color: #4A3A32;
             font-weight: 500;
         }
 
-        .video-feature .video-item-inline .video-meta .duration {
+        .video-item .video-meta .duration {
             font-size: 0.6rem;
-            color: #7A7A7A;
+            color: #8A7A72;
         }
 
         /* ============================================================
-                   DATA ROOM (réduite)
+                   DATA ROOM
                 ============================================================ */
         .data-room {
-            background: #FFF5F7;
-            padding: 32px 36px;
             margin-top: 48px;
-            border-radius: 8px;
-            border: 1px solid rgba(233, 78, 119, 0.04);
+            padding: 32px 0;
+            border-top: 2px solid #1A1A1A;
+            border-bottom: 2px solid #1A1A1A;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
             align-items: start;
         }
 
@@ -529,21 +530,19 @@
 
         .data-room .data-info .data-sub {
             font-size: 0.85rem;
-            color: #7A7A7A;
+            color: #6A5A52;
             margin-bottom: 0;
         }
 
         .data-room .data-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 16px;
         }
 
         .data-room .data-list .data-item {
-            background: #FFFFFF;
-            padding: 12px 18px;
-            border-radius: 8px;
-            border: 1px solid rgba(26, 26, 26, 0.04);
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -553,7 +552,7 @@
         }
 
         .data-room .data-list .data-item:hover {
-            border-color: #C9A66B;
+            border-bottom-color: #B8867A;
             transform: translateX(4px);
         }
 
@@ -575,7 +574,7 @@
 
         .data-room .data-list .data-item .data-info .type {
             font-size: 0.55rem;
-            color: #7A7A7A;
+            color: #8A7A72;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -586,7 +585,6 @@
         .skills-section {
             margin-top: 48px;
             padding-top: 32px;
-            border-top: 1px solid rgba(26, 26, 26, 0.04);
         }
 
         .skills-section .skills-header {
@@ -596,6 +594,8 @@
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1A1A1A;
         }
 
         .skills-section .skills-header h3 {
@@ -608,13 +608,9 @@
         .skills-section .skills-header .count {
             font-size: 0.6rem;
             font-weight: 400;
-            color: #7A7A7A;
+            color: #8A7A72;
             letter-spacing: 1px;
             text-transform: uppercase;
-        }
-
-        .skills-section .skills-header .count .gold {
-            color: #C9A66B;
         }
 
         .skills-grid {
@@ -640,14 +636,14 @@
         .skill-item .skill-name .level {
             font-size: 0.5rem;
             font-weight: 400;
-            color: #C9A66B;
+            color: #B8867A;
             text-transform: uppercase;
             letter-spacing: 0.8px;
         }
 
         .skill-item .skill-desc {
             font-size: 0.75rem;
-            color: #7A7A7A;
+            color: #6A5A52;
             margin-top: 2px;
             line-height: 1.6;
         }
@@ -656,16 +652,16 @@
                    TEST
                 ============================================================ */
         .test-bar {
-            background: #FFF5F7;
+            background: #F8F5F2;
             padding: 14px 24px;
             margin: 32px 0 16px;
-            border-radius: 8px;
-            border: 1px solid rgba(233, 78, 119, 0.04);
+            border-radius: 4px;
+            border: 1px solid rgba(26, 26, 26, 0.04);
         }
 
         .test-bar p {
             font-size: 0.7rem;
-            color: #7A7A7A;
+            color: #8A7A72;
             display: flex;
             flex-wrap: wrap;
             gap: 8px 20px;
@@ -677,13 +673,13 @@
         }
 
         .test-bar p a {
-            color: #C2185B;
+            color: #B8867A;
             text-decoration: none;
-            border-bottom: 1px dotted rgba(194, 24, 91, 0.15);
+            border-bottom: 1px dotted rgba(180, 140, 130, 0.15);
         }
 
         .test-bar p a:hover {
-            border-bottom-color: #C2185B;
+            border-bottom-color: #B8867A;
         }
 
         /* ============================================================
@@ -691,13 +687,13 @@
                 ============================================================ */
         footer {
             padding: 32px 0 16px;
-            border-top: 1px solid rgba(26, 26, 26, 0.04);
+            border-top: 2px solid #1A1A1A;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            color: #7A7A7A;
+            color: #8A7A72;
             font-size: 0.7rem;
         }
 
@@ -707,14 +703,14 @@
         }
 
         footer a:hover {
-            color: #E94E77;
+            color: #B8867A;
         }
 
         footer .colophon {
             font-family: 'Playfair Display', serif;
             font-size: 0.7rem;
             font-style: italic;
-            color: #C9A66B;
+            color: #B8867A;
         }
 
         /* ============================================================
@@ -725,15 +721,21 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            .dossier-grid {
+            .intro .highlight-stats {
+                justify-content: flex-start;
+            }
+            .project-grid {
                 grid-template-columns: 1fr;
             }
-            .video-feature .video-grid-inline {
+            .video-grid {
                 grid-template-columns: 1fr;
             }
             .data-room {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+            .data-room .data-list {
+                grid-template-columns: 1fr;
             }
             .skills-grid {
                 grid-template-columns: 1fr 1fr;
@@ -757,20 +759,11 @@
             .intro h2 {
                 font-size: 1.6rem;
             }
-            .dossier-grid {
-                grid-template-columns: 1fr;
-            }
-            .video-feature {
-                padding: 24px 20px;
-            }
-            .video-feature .video-grid-inline {
-                grid-template-columns: 1fr;
-            }
-            .data-room {
-                padding: 24px 20px;
-            }
             .skills-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+            .video-section {
+                padding: 24px 20px;
             }
             footer {
                 flex-direction: column;
@@ -794,10 +787,13 @@
                 gap: 4px;
             }
             .intro .highlight-stats {
-                gap: 16px;
+                gap: 12px;
             }
             .intro .highlight-stats .stat .number {
                 font-size: 1.5rem;
+            }
+            .intro .highlight-stats .stat {
+                padding: 0 10px;
             }
         }
     </style>
@@ -834,7 +830,7 @@
     <main class="magazine">
 
         <!-- ==========================================
-        INTRO (2 colonnes)
+        INTRO
         ========================================== -->
         <section class="intro">
             <div>
@@ -862,93 +858,87 @@
         </section>
 
         <!-- ==========================================
-        DOSSIER (Excel + Vidéo mélangés)
+        PROJETS
         ========================================== -->
-        <div class="dossier">
-            <div class="dossier-header">
-                <h3>📁 Dossier</h3>
-                <span class="count"><span class="gold">◆</span> 4 éléments</span>
+        <div class="section-header">
+            <h3>📁 Projets</h3>
+            <span class="count"><span class="gold">◆</span> 3</span>
+        </div>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <span class="card-label">Excel</span>
+                <span class="icon">📈</span>
+                <h4>Analyse de cohortes</h4>
+                <p class="desc">Suivi des performances et des tendances pour la consolidation IFRS.</p>
+                <div class="metrics">
+                    <span>ROI <strong class="highlight">+18.4%</strong></span>
+                    <span>Sharpe <strong>1.32</strong></span>
+                </div>
+                <div class="tags">
+                    <span class="excel">Excel</span>
+                    <span class="ifrs">IFRS</span>
+                </div>
+                <div class="btn-group">
+                    <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
+                    <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
+                </div>
             </div>
 
-            <div class="dossier-grid">
-
-                <!-- Excel 1 -->
-                <div class="dossier-card">
-                    <span class="card-label">Excel</span>
-                    <span class="icon">📈</span>
-                    <h4>Analyse de cohortes</h4>
-                    <p class="desc">Suivi des performances et des tendances pour la consolidation IFRS.</p>
-                    <div class="metrics">
-                        <span>ROI <strong class="highlight">+18.4%</strong></span>
-                        <span>Sharpe <strong>1.32</strong></span>
-                    </div>
-                    <div class="tags">
-                        <span class="excel">Excel</span>
-                        <span class="ifrs">IFRS</span>
-                    </div>
-                    <div class="btn-group">
-                        <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
-                        <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
-                    </div>
+            <div class="project-card">
+                <span class="card-label">Excel</span>
+                <span class="icon">📉</span>
+                <h4>Modélisation des dettes</h4>
+                <p class="desc">Analyse des risques et des impacts financiers selon IFRS.</p>
+                <div class="metrics">
+                    <span>ROI <strong class="highlight">+15.7%</strong></span>
+                    <span>Sharpe <strong>1.18</strong></span>
                 </div>
-
-                <!-- Vidéo 1 -->
-                <div class="dossier-card">
-                    <span class="card-label">Vidéo</span>
-                    <span class="icon">🎥</span>
-                    <h4>Démo Consolidation IFRS</h4>
-                    <p class="desc">Présentation de la méthodologie de consolidation IFRS.</p>
-                    <div class="tags">
-                        <span class="video-tag">MP4</span>
-                        <span class="ifrs">IFRS</span>
-                    </div>
-                    <div class="btn-group">
-                        <a href="assets/videos/demo1.mp4" download class="btn btn-primary">⬇️ Télécharger</a>
-                        <a href="assets/videos/demo1.mp4" target="_blank" class="btn btn-outline">👁️ Voir</a>
-                    </div>
+                <div class="tags">
+                    <span class="excel">Excel</span>
+                    <span class="model">Dettes</span>
                 </div>
-
-                <!-- Excel 2 -->
-                <div class="dossier-card">
-                    <span class="card-label">Excel</span>
-                    <span class="icon">📉</span>
-                    <h4>Modélisation des dettes</h4>
-                    <p class="desc">Analyse des risques et des impacts financiers selon IFRS.</p>
-                    <div class="metrics">
-                        <span>ROI <strong class="highlight">+15.7%</strong></span>
-                        <span>Sharpe <strong>1.18</strong></span>
-                    </div>
-                    <div class="tags">
-                        <span class="excel">Excel</span>
-                        <span class="model">Dettes</span>
-                    </div>
-                    <div class="btn-group">
-                        <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
-                        <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
-                    </div>
+                <div class="btn-group">
+                    <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
+                    <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
                 </div>
-
-                <!-- Vidéo 2 -->
-                <div class="dossier-card">
-                    <span class="card-label">Vidéo</span>
-                    <span class="icon">🎥</span>
-                    <h4>Démo Modélisation financière</h4>
-                    <p class="desc">Présentation des scénarios et de l'analyse de sensibilité.</p>
-                    <div class="tags">
-                        <span class="video-tag">MP4</span>
-                        <span class="model">Modélisation</span>
-                    </div>
-                    <div class="btn-group">
-                        <a href="assets/videos/demo2.mp4" download class="btn btn-primary">⬇️ Télécharger</a>
-                        <a href="assets/videos/demo2.mp4" target="_blank" class="btn btn-outline">👁️ Voir</a>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="project-card" style="grid-column: span 2;">
+                <span class="card-label">Vidéo</span>
+                <span class="icon">🎥</span>
+                <h4>Démonstrations</h4>
+                <p class="desc">Présentations des méthodologies de consolidation et de modélisation.</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin: 12px 0;">
+                    <div>
+                        <video controls style="width:100%; border-radius:4px; background:#1A1A1A;">
+                            <source src="assets/videos/demo1.mp4" type="video/mp4">
+                        </video>
+                        <p style="font-size:0.75rem; color:#6A5A52; margin-top:4px;">Consolidation IFRS · 8 min</p>
+                    </div>
+                    <div>
+                        <video controls style="width:100%; border-radius:4px; background:#1A1A1A;">
+                            <source src="assets/videos/demo2.mp4" type="video/mp4">
+                        </video>
+                        <p style="font-size:0.75rem; color:#6A5A52; margin-top:4px;">Modélisation financière · 10 min</p>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="video-tag">MP4</span>
+                    <span class="ifrs">IFRS</span>
+                    <span class="model">Modélisation</span>
+                </div>
+                <div class="btn-group">
+                    <a href="assets/videos/demo1.mp4" download class="btn btn-primary">⬇️ Télécharger Demo 1</a>
+                    <a href="assets/videos/demo2.mp4" download class="btn btn-primary">⬇️ Télécharger Demo 2</a>
+                </div>
+            </div>
+
         </div>
 
         <!-- ==========================================
-        DATA ROOM (2 colonnes)
+        DATA ROOM
         ========================================== -->
         <div class="data-room">
             <div class="data-info">
@@ -981,7 +971,7 @@
         </div>
 
         <!-- ==========================================
-        COMPÉTENCES (4 colonnes)
+        COMPÉTENCES
         ========================================== -->
         <div class="skills-section">
             <div class="skills-header">
