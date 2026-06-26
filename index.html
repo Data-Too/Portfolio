@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Financial Review · Data-Too</title>
+    <title>PINK ALPHA · Financial Magazine</title>
     <style>
-        /* =============================================================
+        /* ============================================================
                    POLICES & RESET
-                ============================================================= */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+                ============================================================ */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -16,193 +16,237 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #FFF8FA;
+            background: #FFF5F7;
             color: #1A1A1A;
-            padding: 40px 20px;
-            min-height: 100vh;
             line-height: 1.7;
         }
 
-        /* =============================================================
-                   CONTENEUR PRINCIPAL
-                ============================================================= */
-        .container {
-            max-width: 1120px;
-            margin: 0 auto;
-            background: #FFFFFF;
-            padding: 56px 60px 48px;
-            box-shadow: 0 2px 40px rgba(201, 166, 107, 0.04), 0 1px 0 rgba(26, 26, 26, 0.02);
-            border: 1px solid rgba(201, 166, 107, 0.06);
-            position: relative;
-        }
-
-        /* =============================================================
-                   EN-TÊTE MAGAZINE
-                ============================================================= */
-        .magazine-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            padding-bottom: 14px;
-            border-bottom: 2px solid #C2185B;
-            margin-bottom: 20px;
-        }
-
-        .magazine-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #1A1A1A;
-            text-transform: uppercase;
-        }
-
-        .magazine-title .gold {
-            color: #C9A66B;
-        }
-
-        .magazine-meta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: #7A7A7A;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .magazine-meta .separator {
-            color: #C9A66B;
-        }
-
-        .magazine-meta .issue {
-            color: #C2185B;
-            font-weight: 600;
-        }
-
-        /* =============================================================
-                   PAGE DE GARDE
-                ============================================================= */
+        /* ============================================================
+                   COUVERTURE
+                ============================================================ */
         .cover {
-            margin: 28px 0 36px 0;
-            padding-bottom: 32px;
-            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 30px;
+            background: linear-gradient(160deg, #F8E1E8 0%, #FCE4EC 40%, #FFF0F3 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .cover-tag {
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(233, 78, 119, 0.04), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 50%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(201, 166, 107, 0.03), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .cover-badge {
             font-size: 0.65rem;
             font-weight: 600;
-            letter-spacing: 2.5px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: #C2185B;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(194, 24, 91, 0.12);
+            padding: 4px 24px;
+            border-radius: 40px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
         }
 
         .cover-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3.6rem;
+            font-size: 5rem;
             font-weight: 700;
-            line-height: 1.05;
+            line-height: 1.0;
             color: #1A1A1A;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
+            margin: 8px 0;
         }
 
-        .cover-title .highlight {
+        .cover-title .pink {
             color: #E94E77;
             font-style: italic;
             font-weight: 400;
         }
 
-        .cover-subtitle {
-            font-size: 1.1rem;
+        .cover-title .alpha {
+            color: #1A1A1A;
+            font-weight: 800;
+        }
+
+        .cover-sub {
+            font-size: 1.2rem;
             font-weight: 300;
             color: #7A7A7A;
-            max-width: 680px;
-            margin-top: 8px;
+            max-width: 580px;
+            margin: 12px auto 28px;
             line-height: 1.8;
         }
 
-        .cover-subtitle strong {
+        .cover-sub strong {
             color: #1A1A1A;
             font-weight: 500;
         }
 
-        /* =============================================================
-                   GRILLE À LA UNE
-                ============================================================= */
-        .featured-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 12px 0 44px 0;
-        }
-
-        .featured-item {
-            border-top: 3px solid #C2185B;
-            padding-top: 16px;
-        }
-
-        .featured-item .label {
-            font-size: 0.55rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #7A7A7A;
-            margin-bottom: 2px;
-        }
-
-        .featured-item .label .gold-dot {
-            color: #C9A66B;
-            margin-right: 6px;
-        }
-
-        .featured-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1A1A1A;
-            margin-bottom: 2px;
-        }
-
-        .featured-item .desc {
-            font-size: 0.88rem;
-            color: #7A7A7A;
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .featured-item .meta {
+        .cover-meta {
             display: flex;
-            gap: 10px;
+            justify-content: center;
+            gap: 32px;
             flex-wrap: wrap;
-        }
-
-        .featured-item .meta span {
-            font-size: 0.6rem;
-            font-weight: 500;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: #7A7A7A;
-            background: #FFF8FA;
-            padding: 2px 14px;
-            border-radius: 30px;
-            border: 1px solid rgba(26, 26, 26, 0.04);
         }
 
-        .featured-item .meta span.excel {
+        .cover-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cover-meta .dot {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #C9A66B;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #7A7A7A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .scroll-indicator .line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(180deg, #C2185B, transparent);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
+
+        /* ============================================================
+                   CONTENEUR PRINCIPAL (pages du magazine)
+                ============================================================ */
+        .magazine {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px 48px;
+            background: #FFFFFF;
+            box-shadow: 0 -2px 40px rgba(0, 0, 0, 0.02);
+        }
+
+        /* ============================================================
+                   ÉDITORIAL (lettre d'introduction)
+                ============================================================ */
+        .editorial {
+            padding: 60px 0 48px;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+        }
+
+        .editorial-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: #C9A66B;
-            border-color: rgba(201, 166, 107, 0.15);
-            background: rgba(201, 166, 107, 0.04);
+            margin-bottom: 4px;
         }
 
-        /* =============================================================
-                   RUBRIQUES
-                ============================================================= */
+        .editorial h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 6px;
+        }
+
+        .editorial .byline {
+            font-size: 0.75rem;
+            color: #7A7A7A;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .editorial .byline strong {
+            color: #C2185B;
+            font-style: normal;
+        }
+
+        .editorial p {
+            font-size: 1rem;
+            color: #4A4A4A;
+            max-width: 780px;
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .editorial p:last-child {
+            margin-bottom: 0;
+        }
+
+        .editorial .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #C2185B;
+            margin-top: 12px;
+        }
+
+        /* ============================================================
+                   SECTION : PROJETS (articles)
+                ============================================================ */
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -214,14 +258,14 @@
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
         }
 
-        .section-header h2 {
+        .section-header h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 600;
             color: #1A1A1A;
         }
 
-        .section-header .section-number {
+        .section-header .count {
             font-size: 0.65rem;
             font-weight: 400;
             color: #7A7A7A;
@@ -229,34 +273,25 @@
             text-transform: uppercase;
         }
 
-        .section-header .section-number .gold {
+        .section-header .count .gold {
             color: #C9A66B;
         }
 
-        /* =============================================================
-                   GRILLE ARTICLES
-                ============================================================= */
         .article-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
             margin-bottom: 8px;
         }
 
         .article-card {
-            padding: 0 0 24px 0;
+            padding: 0 0 28px 0;
             border-bottom: 1px solid rgba(26, 26, 26, 0.04);
-            transition: all 0.25s ease;
+            transition: border-color 0.3s ease;
         }
 
         .article-card:hover {
-            border-bottom-color: #C2185B;
-        }
-
-        .article-card .article-icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 2px;
+            border-bottom-color: #E94E77;
         }
 
         .article-card .article-number {
@@ -269,9 +304,15 @@
             margin-bottom: 2px;
         }
 
-        .article-card h3 {
+        .article-card .article-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .article-card h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: #1A1A1A;
             margin-bottom: 2px;
@@ -279,10 +320,36 @@
         }
 
         .article-card .article-desc {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: #7A7A7A;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             line-height: 1.6;
+        }
+
+        .article-card .metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .article-card .metrics .metric {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #7A7A7A;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .article-card .metrics .metric strong {
+            color: #1A1A1A;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .article-card .metrics .metric .highlight {
+            color: #E94E77;
         }
 
         .article-card .article-tags {
@@ -301,18 +368,18 @@
             border-radius: 30px;
             border: 1px solid rgba(26, 26, 26, 0.04);
             color: #7A7A7A;
-            background: #FFF8FA;
+            background: #FFF5F7;
         }
 
         .article-card .article-tags .excel {
             color: #C9A66B;
-            border-color: rgba(201, 166, 107, 0.15);
+            border-color: rgba(201, 166, 107, 0.12);
             background: rgba(201, 166, 107, 0.04);
         }
 
         .article-card .article-tags .ifrs {
             color: #C2185B;
-            border-color: rgba(194, 24, 91, 0.10);
+            border-color: rgba(194, 24, 91, 0.08);
             background: rgba(194, 24, 91, 0.04);
         }
 
@@ -326,7 +393,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 2px;
         }
 
         .btn {
@@ -351,9 +417,10 @@
         }
 
         .btn-primary:hover {
-            background: #C2185B;
-            border-color: #C2185B;
-            transform: translateY(-1px);
+            background: #E94E77;
+            border-color: #E94E77;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(233, 78, 119, 0.15);
         }
 
         .btn-outline {
@@ -365,21 +432,22 @@
             color: #1A1A1A;
             border-color: #1A1A1A;
             background: rgba(26, 26, 26, 0.02);
+            transform: translateY(-2px);
         }
 
-        /* =============================================================
-                   SECTIONS MULTIMÉDIA (encarts magazine)
-                ============================================================= */
-        .media-section {
-            background: #FFF8FA;
-            padding: 32px 34px;
-            margin: 16px 0 8px 0;
-            border: 1px solid rgba(201, 166, 107, 0.06);
-            position: relative;
+        /* ============================================================
+                   DATA ROOM
+                ============================================================ */
+        .data-room {
+            background: #FFF5F7;
+            padding: 48px 40px;
+            margin: 48px 0 16px 0;
+            border-radius: 8px;
+            border: 1px solid rgba(233, 78, 119, 0.04);
         }
 
-        .media-section .media-label {
-            font-size: 0.55rem;
+        .data-room .data-label {
+            font-size: 0.6rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -388,31 +456,103 @@
             margin-bottom: 2px;
         }
 
-        .media-section h3 {
+        .data-room h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #1A1A1A;
-            margin-bottom: 16px;
+            margin-bottom: 4px;
+        }
+
+        .data-room .data-sub {
+            font-size: 0.85rem;
+            color: #7A7A7A;
+            margin-bottom: 20px;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .data-item {
+            background: #FFFFFF;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(26, 26, 26, 0.04);
             display: flex;
             align-items: center;
             gap: 12px;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            color: #1A1A1A;
         }
 
-        .media-section h3 .badge-count {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
-            font-weight: 400;
+        .data-item:hover {
+            border-color: #C9A66B;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+        }
+
+        .data-item .data-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .data-item .data-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .data-item .data-info .name {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #1A1A1A;
+        }
+
+        .data-item .data-info .type {
+            font-size: 0.65rem;
             color: #7A7A7A;
-            background: rgba(26, 26, 26, 0.02);
-            padding: 2px 14px;
-            border-radius: 30px;
-            border: 1px solid rgba(26, 26, 26, 0.04);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+                   VIDÉOS (interview style magazine)
+                ============================================================ */
+        .video-feature {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+        }
+
+        .video-feature .video-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #C9A66B;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .video-feature h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 4px;
+        }
+
+        .video-feature .video-sub {
+            font-size: 0.85rem;
+            color: #7A7A7A;
+            margin-bottom: 20px;
         }
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
 
@@ -427,107 +567,76 @@
             margin-top: 6px;
             font-size: 0.8rem;
             color: #7A7A7A;
-            font-weight: 400;
         }
 
-        .image-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 4px;
+        /* ============================================================
+                   COMPÉTENCES (style magazine)
+                ============================================================ */
+        .skills-section {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
         }
 
-        .image-grid img {
-            max-width: 180px;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid rgba(26, 26, 26, 0.04);
-            transition: all 0.25s ease;
+        .skills-section .skills-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #C9A66B;
+            display: block;
+            margin-bottom: 2px;
         }
 
-        .image-grid img:hover {
-            border-color: #C9A66B;
-        }
-
-        .pdf-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .pdf-list a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #FFFFFF;
-            padding: 8px 22px;
-            border-radius: 40px;
-            text-decoration: none;
-            color: #1A1A1A;
-            font-weight: 450;
-            font-size: 0.8rem;
-            border: 1px solid rgba(26, 26, 26, 0.04);
-            transition: all 0.25s ease;
-        }
-
-        .pdf-list a:hover {
-            border-color: #C9A66B;
-            background: #FFF8FA;
-        }
-
-        /* =============================================================
-                   SECTION TEST (encart discret)
-                ============================================================= */
-        .test-section {
-            background: #FFF8FA;
-            border: 1px solid rgba(201, 166, 107, 0.06);
-            padding: 20px 28px;
-            margin: 40px 0 16px 0;
-        }
-
-        .test-section h3 {
+        .skills-section h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
-            font-weight: 400;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: #1A1A1A;
-            margin-bottom: 6px;
+            margin-bottom: 16px;
         }
 
-        .test-section ul {
-            list-style: none;
-            padding: 0;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-item {
+            padding: 0 0 12px 0;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+        }
+
+        .skill-item .skill-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1A1A1A;
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px 24px;
+            justify-content: space-between;
+            align-items: baseline;
         }
 
-        .test-section ul li a {
-            color: #7A7A7A;
+        .skill-item .skill-name .level {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
             font-weight: 400;
-            text-decoration: none;
-            border-bottom: 1px dotted rgba(26, 26, 26, 0.06);
-            padding-bottom: 2px;
+            color: #C9A66B;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-item .skill-desc {
             font-size: 0.8rem;
-            transition: all 0.2s;
-        }
-
-        .test-section ul li a:hover {
-            color: #C2185B;
-            border-bottom-color: #C2185B;
-        }
-
-        .test-section .note {
-            margin-top: 10px;
-            font-size: 0.7rem;
             color: #7A7A7A;
+            margin-top: 2px;
+            line-height: 1.6;
         }
 
-        /* =============================================================
-                   PIED DE PAGE (colophon magazine)
-                ============================================================= */
+        /* ============================================================
+                   PIED DE PAGE
+                ============================================================ */
         footer {
-            margin-top: 48px;
-            padding-top: 24px;
+            padding: 32px 0 16px;
             border-top: 1px solid rgba(26, 26, 26, 0.04);
             display: flex;
             justify-content: space-between;
@@ -543,11 +652,11 @@
             color: #1A1A1A;
             text-decoration: none;
             font-weight: 400;
-            transition: all 0.2s;
+            transition: color 0.2s ease;
         }
 
         footer a:hover {
-            color: #C2185B;
+            color: #E94E77;
         }
 
         footer .colophon {
@@ -557,205 +666,262 @@
             color: #C9A66B;
         }
 
-        /* =============================================================
+        /* ============================================================
                    RESPONSIVE
-                ============================================================= */
+                ============================================================ */
         @media (max-width: 768px) {
-            .container {
-                padding: 28px 20px;
-            }
             .cover-title {
-                font-size: 2.4rem;
+                font-size: 3.2rem;
             }
-            .featured-grid {
+            .cover-sub {
+                font-size: 1rem;
+            }
+            .cover-meta {
+                gap: 16px;
+                font-size: 0.6rem;
+            }
+            .magazine {
+                padding: 0 16px 32px;
+            }
+            .editorial h2 {
+                font-size: 1.6rem;
+            }
+            .article-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
             }
-            .image-grid img {
-                max-width: 130px;
+            .data-room {
+                padding: 32px 20px;
             }
-            .test-section ul {
-                flex-direction: column;
-                gap: 4px;
+            .data-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
             }
             footer {
                 flex-direction: column;
                 text-align: center;
             }
-            .article-grid {
-                grid-template-columns: 1fr;
-            }
-            .magazine-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .magazine-meta {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 18px 14px;
-            }
             .cover-title {
-                font-size: 1.8rem;
+                font-size: 2.4rem;
             }
-            .media-section {
-                padding: 20px 16px;
+            .cover {
+                padding: 40px 20px;
+                min-height: 80vh;
+            }
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .video-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-
-        <!-- ==========================================
-        EN-TÊTE MAGAZINE
-        ========================================== -->
-        <header class="magazine-header">
-            <div class="magazine-title">
-                The Financial <span class="gold">Review</span>
-            </div>
-            <div class="magazine-meta">
-                <span>Édition 2026</span>
-                <span class="separator">◆</span>
-                <span class="issue">Vol. IV · No. 2</span>
-                <span class="separator">◆</span>
-                <span>Data-Too</span>
-            </div>
-        </header>
-
-        <!-- ==========================================
-        PAGE DE GARDE
-        ========================================== -->
-        <div class="cover">
-            <div class="cover-tag">✦ Portfolio d'expertise</div>
+    <!-- ============================================================
+    COUVERTURE
+    ============================================================ -->
+    <section class="cover" id="top">
+        <div class="cover-content">
+            <div class="cover-badge">✦ Édition 2026</div>
             <h1 class="cover-title">
-                Consolidation &amp; <br /><span class="highlight">Modélisation IFRS</span>
+                <span class="pink">Pink</span><br />
+                <span class="alpha">Alpha</span>
             </h1>
-            <p class="cover-subtitle">
-                <strong>Analyse de cohortes</strong> · Modélisation financière · Évaluation des dettes<br />
-                Tous les fichiers sont disponibles en téléchargement.
+            <p class="cover-sub">
+                <strong>Consolidation IFRS · Analyse de cohortes · Modélisation financière</strong><br />
+                Portfolio d'expertise en finance &amp; modélisation
             </p>
+            <div class="cover-meta">
+                <span><span class="dot"></span> Data-Too</span>
+                <span><span class="dot"></span> Vol. IV · No. 2</span>
+                <span><span class="dot"></span> 2026</span>
+            </div>
         </div>
+        <div class="scroll-indicator">
+            <span>Découvrir</span>
+            <div class="line"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    MAGAZINE (pages intérieures)
+    ============================================================ -->
+    <main class="magazine">
 
         <!-- ==========================================
-        À LA UNE
+        ÉDITORIAL
         ========================================== -->
-        <div class="featured-grid">
-            <div class="featured-item">
-                <div class="label"><span class="gold-dot">◆</span> À la une</div>
-                <h3>Analyse de cohortes</h3>
-                <p class="desc">
-                    Méthodologie avancée pour le suivi des performances dans le cadre de la consolidation IFRS.
-                </p>
-                <div class="meta">
-                    <span class="excel">Excel</span>
-                    <span>IFRS</span>
-                    <span>Cohorte</span>
-                </div>
-            </div>
-            <div class="featured-item">
-                <div class="label"><span class="gold-dot">◆</span> À la une</div>
-                <h3>Modélisation financière</h3>
-                <p class="desc">
-                    Projections, scénarios et analyse de sensibilité pour la consolidation IFRS 2026.
-                </p>
-                <div class="meta">
-                    <span class="excel">Excel</span>
-                    <span>Modélisation</span>
-                    <span>2026</span>
-                </div>
-            </div>
-        </div>
+        <section class="editorial">
+            <div class="editorial-label">◆ Éditorial</div>
+            <h2>Lettre d'introduction</h2>
+            <p class="byline">Par <strong>Data-Too</strong> · 15 juin 2026</p>
+            <p>
+                Bienvenue dans ce numéro spécial du <strong>Pink Alpha</strong>, un portfolio conçu comme un magazine
+                financier interactif. Ce recueil rassemble mes travaux en <strong>consolidation IFRS</strong>,
+                <strong>analyse de cohortes</strong> et <strong>modélisation financière</strong>.
+            </p>
+            <p>
+                Chaque projet est présenté comme un article, avec ses chiffres clés, ses méthodologies et ses livrables.
+                Vous trouverez également une <strong>Data Room</strong> regroupant l'ensemble des documents techniques,
+                des vidéos de démonstration et une présentation de mes compétences.
+            </p>
+            <p>
+                L'objectif est de vous offrir une expérience de lecture fluide, élégante et immersive, à l'image
+                des publications financières les plus prestigieuses.
+            </p>
+            <p class="signature">— Data-Too</p>
+        </section>
 
         <!-- ==========================================
-        RUBRIQUE : DOSSIER EXCEL
+        PROJETS (ARTICLES)
         ========================================== -->
         <div class="section-header">
-            <h2>📁 Dossier Excel</h2>
-            <span class="section-number"><span class="gold">◆</span> 3 articles</span>
+            <h3>📁 Projets &amp; Articles</h3>
+            <span class="count"><span class="gold">◆</span> 3 articles</span>
         </div>
 
         <div class="article-grid">
 
-            <!-- Article 1 -->
-            <div class="article-card">
-                <span class="article-icon">📈</span>
+            <!-- Article 1 : Analyse de cohortes -->
+            <article class="article-card">
                 <span class="article-number">Article 01</span>
-                <h3>Analyse de cohortes</h3>
+                <span class="article-icon">📈</span>
+                <h4>Analyse de cohortes</h4>
+                <p class="article-desc">
+                    Suivi des performances et des tendances dans le cadre de la consolidation IFRS.
+                </p>
+                <div class="metrics">
+                    <span class="metric">ROI <strong class="highlight">+18.4%</strong></span>
+                    <span class="metric">Sharpe <strong>1.32</strong></span>
+                    <span class="metric">Cohorte <strong>2025-2026</strong></span>
+                </div>
                 <div class="article-tags">
                     <span class="excel">Excel</span>
                     <span class="ifrs">IFRS</span>
                     <span>Cohorte</span>
                 </div>
-                <p class="article-desc">
-                    Analyse dynamique des cohortes pour la consolidation IFRS. Suivi des performances et des tendances.
-                </p>
                 <div class="btn-group">
                     <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
                     <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Article 2 -->
-            <div class="article-card">
-                <span class="article-icon">💰</span>
+            <!-- Article 2 : Modélisation financière -->
+            <article class="article-card">
                 <span class="article-number">Article 02</span>
-                <h3>Modélisation financière</h3>
+                <span class="article-icon">💰</span>
+                <h4>Modélisation financière</h4>
+                <p class="article-desc">
+                    Projections, scénarios et analyse de sensibilité pour la consolidation IFRS 2026.
+                </p>
+                <div class="metrics">
+                    <span class="metric">ROI <strong class="highlight">+22.1%</strong></span>
+                    <span class="metric">Sharpe <strong>1.48</strong></span>
+                    <span class="metric">Scénarios <strong>5</strong></span>
+                </div>
                 <div class="article-tags">
                     <span class="excel">Excel</span>
                     <span class="model">Modélisation</span>
                     <span class="ifrs">2026</span>
                 </div>
-                <p class="article-desc">
-                    Modèle financier complet pour la consolidation IFRS. Projections, scénarios et analyse de sensibilité.
-                </p>
                 <div class="btn-group">
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Article 3 -->
-            <div class="article-card">
-                <span class="article-icon">📉</span>
+            <!-- Article 3 : Modélisation des dettes -->
+            <article class="article-card">
                 <span class="article-number">Article 03</span>
-                <h3>Modélisation des dettes</h3>
+                <span class="article-icon">📉</span>
+                <h4>Modélisation des dettes</h4>
+                <p class="article-desc">
+                    Analyse des risques et des impacts financiers selon les normes IFRS.
+                </p>
+                <div class="metrics">
+                    <span class="metric">ROI <strong class="highlight">+15.7%</strong></span>
+                    <span class="metric">Sharpe <strong>1.18</strong></span>
+                    <span class="metric">Risque <strong>Modéré</strong></span>
+                </div>
                 <div class="article-tags">
                     <span class="excel">Excel</span>
                     <span class="model">Dettes</span>
                     <span class="ifrs">IFRS</span>
                 </div>
-                <p class="article-desc">
-                    Analyse et modélisation des dettes selon les normes IFRS. Évaluation des risques et des impacts.
-                </p>
                 <div class="btn-group">
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" class="btn btn-outline">👁️ Voir</a>
                 </div>
-            </div>
+            </article>
 
         </div>
 
         <!-- ==========================================
-        RUBRIQUE : MULTIMÉDIA
+        DATA ROOM
         ========================================== -->
-        <div class="section-header">
-            <h2>🎥 Multimédia</h2>
-            <span class="section-number"><span class="gold">◆</span> Vidéos &amp; Images</span>
-        </div>
+        <section class="data-room">
+            <span class="data-label">◆ Ressources</span>
+            <h3>Data Room</h3>
+            <p class="data-sub">
+                Documents techniques, rapports et livrables disponibles en téléchargement.
+            </p>
+            <div class="data-grid">
+                <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank" class="data-item">
+                    <span class="data-icon">📘</span>
+                    <span class="data-info">
+                        <span class="name">Guide IFRS 2026</span>
+                        <span class="type">PDF · 1.2 Mo</span>
+                    </span>
+                </a>
+                <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank" class="data-item">
+                    <span class="data-icon">📗</span>
+                    <span class="data-info">
+                        <span class="name">Rapport de consolidation</span>
+                        <span class="type">PDF · 2.4 Mo</span>
+                    </span>
+                </a>
+                <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank" class="data-item">
+                    <span class="data-icon">📕</span>
+                    <span class="data-info">
+                        <span class="name">Guide de modélisation</span>
+                        <span class="type">PDF · 1.8 Mo</span>
+                    </span>
+                </a>
+                <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="data-item">
+                    <span class="data-icon">📊</span>
+                    <span class="data-info">
+                        <span class="name">Analyse de cohortes</span>
+                        <span class="type">Excel · 0.8 Mo</span>
+                    </span>
+                </a>
+                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="data-item">
+                    <span class="data-icon">📊</span>
+                    <span class="data-info">
+                        <span class="name">Modélisation financière</span>
+                        <span class="type">Excel · 1.1 Mo</span>
+                    </span>
+                </a>
+            </div>
+        </section>
 
-        <!-- Vidéos -->
-        <div class="media-section">
-            <span class="media-label">◆ Démonstrations</span>
-            <h3>
-                Vidéos
-                <span class="badge-count">2</span>
-            </h3>
+        <!-- ==========================================
+        VIDÉOS (interview)
+        ========================================== -->
+        <section class="video-feature">
+            <span class="video-label">◆ Média</span>
+            <h3>Vidéos · Démonstrations</h3>
+            <p class="video-sub">
+                Présentations interactives des projets et méthodologies.
+            </p>
             <div class="video-grid">
                 <div class="video-item">
                     <video controls>
@@ -774,56 +940,64 @@
                     <a href="assets/videos/demo2.mp4" download class="btn btn-outline" style="margin-top: 6px;">⬇️ Télécharger</a>
                 </div>
             </div>
-        </div>
-
-        <!-- Images -->
-        <div class="media-section">
-            <span class="media-label">◆ Visuels</span>
-            <h3>
-                Captures d'écran
-                <span class="badge-count">3</span>
-            </h3>
-            <div class="image-grid">
-                <img src="assets/images/screenshot1.png" alt="Capture écran 1">
-                <img src="assets/images/screenshot2.jpg" alt="Capture écran 2">
-                <img src="assets/images/graph.jpg" alt="Graphique IFRS">
-            </div>
-            <p style="margin-top: 14px; font-size: 0.75rem; color: #7A7A7A;">
-                Cliquez sur une image pour l'agrandir.
-            </p>
-        </div>
+        </section>
 
         <!-- ==========================================
-        RUBRIQUE : DOCUMENTS
+        COMPÉTENCES (style magazine)
         ========================================== -->
-        <div class="section-header">
-            <h2>📄 Documents</h2>
-            <span class="section-number"><span class="gold">◆</span> 3 PDF</span>
-        </div>
-
-        <div class="media-section" style="background: #FFFFFF;">
-            <div class="pdf-list">
-                <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank">📘 Guide IFRS 2026</a>
-                <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank">📗 Rapport de consolidation</a>
-                <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank">📕 Guide de modélisation</a>
+        <section class="skills-section">
+            <span class="skills-label">◆ Expertise</span>
+            <h3>Compétences</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        Consolidation IFRS
+                        <span class="level">Expert</span>
+                    </div>
+                    <p class="skill-desc">
+                        Normes IFRS 10, 11, 12 · Périmètres de consolidation · Retraitements comptables
+                    </p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        Analyse de cohortes
+                        <span class="level">Avancé</span>
+                    </div>
+                    <p class="skill-desc">
+                        Suivi des performances · KPI · Analyse de l'évolution des portefeuilles
+                    </p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        Modélisation financière
+                        <span class="level">Expert</span>
+                    </div>
+                    <p class="skill-desc">
+                        Projections · Scénarios · Analyse de sensibilité · Valorisation
+                    </p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        Excel &amp; Data
+                        <span class="level">Avancé</span>
+                    </div>
+                    <p class="skill-desc">
+                        Power Query · VBA · Tableaux de bord · Data visualisation
+                    </p>
+                </div>
             </div>
-            <p style="margin-top: 14px; font-size: 0.75rem; color: #7A7A7A;">
-                Les PDF s'ouvrent dans un nouvel onglet.
-            </p>
-        </div>
+        </section>
 
         <!-- ==========================================
-        SECTION TEST
+        TEST (vérification fichiers)
         ========================================== -->
-        <div class="test-section">
-            <h3>🔍 Vérification des fichiers</h3>
-            <ul>
-                <li><a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">📎 cohort-analysis-exp.xlsx</a></li>
-                <li><a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">📎 Modélisation_dettes.xlsx</a></li>
-                <li><a href="assets/videos/demo1.mp4" target="_blank">📎 demo1.mp4</a></li>
-            </ul>
-            <p class="note">
-                ⚠️ Si un lien ne fonctionne pas, le fichier est introuvable sur GitHub.
+        <div style="background:#FFF5F7; padding:16px 24px; margin:32px 0 16px; border-radius:8px; border:1px solid rgba(233,78,119,0.04);">
+            <p style="font-size:0.75rem; color:#7A7A7A; display:flex; flex-wrap:wrap; gap:8px 20px;">
+                <strong style="color:#1A1A1A;">🔍 Vérification :</strong>
+                <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank" style="color:#C2185B; text-decoration:none; border-bottom:1px dotted rgba(194,24,91,0.2);">cohort-analysis-exp.xlsx</a>
+                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank" style="color:#C2185B; text-decoration:none; border-bottom:1px dotted rgba(194,24,91,0.2);">Modélisation_dettes.xlsx</a>
+                <a href="assets/videos/demo1.mp4" target="_blank" style="color:#C2185B; text-decoration:none; border-bottom:1px dotted rgba(194,24,91,0.2);">demo1.mp4</a>
+                <span style="color:#7A7A7A;">⚠️ Si un lien ne fonctionne pas, le fichier est introuvable sur GitHub.</span>
             </p>
         </div>
 
@@ -838,7 +1012,7 @@
             </span>
         </footer>
 
-    </div>
+    </main>
 
 </body>
 </html>
