@@ -339,7 +339,7 @@
         .project-card .metrics {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 16px 24px;
             margin-bottom: 14px;
             background: #F0F5F8;
             padding: 8px 14px;
@@ -395,6 +395,12 @@
             color: #3A5A7A;
             border-color: rgba(58, 90, 122, 0.08);
             background: rgba(58, 90, 122, 0.04);
+        }
+
+        .project-card .tags .cohort {
+            color: #4A7A6A;
+            border-color: rgba(74, 122, 106, 0.08);
+            background: rgba(74, 122, 106, 0.04);
         }
 
         .project-card .btn-group {
@@ -462,7 +468,6 @@
             gap: 8px;
         }
 
-        /* Conteneur pour l'iframe ScreenPal */
         .video-wrapper {
             position: relative;
             width: 100%;
@@ -853,13 +858,13 @@
             <div class="visual-grid">
                 <div class="block">
                     <span class="icon">📈</span>
-                    <span class="label">ROI moyen</span>
-                    <span class="value">+18.7%</span>
+                    <span class="label">Volatilité</span>
+                    <span class="value">12.4%</span>
                 </div>
                 <div class="block">
                     <span class="icon">📊</span>
-                    <span class="label">Sharpe</span>
-                    <span class="value">1.32</span>
+                    <span class="label">VaR 95%</span>
+                    <span class="value">-8.2%</span>
                 </div>
                 <div class="block">
                     <span class="icon">📁</span>
@@ -888,19 +893,21 @@
 
         <div class="projects-grid">
 
-            <!-- Projet 1 -->
+            <!-- Projet 1 : Analyse de cohortes -->
             <div class="project-card">
                 <span class="card-label">Excel</span>
                 <span class="icon">📈</span>
                 <h3>Analyse de cohortes</h3>
                 <p class="desc">Suivi des performances et des tendances pour la consolidation IFRS.</p>
                 <div class="metrics">
-                    <span>ROI <strong class="highlight">+18.4%</strong></span>
-                    <span>Sharpe <strong>1.32</strong></span>
+                    <span>Taux de rétention <strong class="highlight">78%</strong></span>
+                    <span>Valeur moyenne <strong>+12.4%</strong></span>
+                    <span>Cohorte <strong>2025-2026</strong></span>
                 </div>
                 <div class="tags">
                     <span class="excel">Excel</span>
                     <span class="ifrs">IFRS</span>
+                    <span class="cohort">Cohorte</span>
                 </div>
                 <div class="btn-group">
                     <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
@@ -908,19 +915,21 @@
                 </div>
             </div>
 
-            <!-- Projet 2 -->
+            <!-- Projet 2 : Modélisation des dettes -->
             <div class="project-card">
                 <span class="card-label">Excel</span>
                 <span class="icon">📉</span>
                 <h3>Modélisation des dettes</h3>
                 <p class="desc">Analyse des risques et des impacts financiers selon IFRS.</p>
                 <div class="metrics">
-                    <span>ROI <strong class="highlight">+15.7%</strong></span>
-                    <span>Sharpe <strong>1.18</strong></span>
+                    <span>Dettes/EBITDA <strong class="highlight">2.8x</strong></span>
+                    <span>Couverture intérêts <strong>4.2x</strong></span>
+                    <span>Rating <strong>BBB+</strong></span>
                 </div>
                 <div class="tags">
                     <span class="excel">Excel</span>
                     <span class="model">Dettes</span>
+                    <span class="ifrs">IFRS</span>
                 </div>
                 <div class="btn-group">
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
@@ -944,7 +953,6 @@
 
         <div class="video-card">
             <div class="video-wrapper">
-                <!-- Code d'intégration ScreenPal simplifié -->
                 <iframe 
                     src="https://go.screenpal.com/player/cO1T3mnuWhl?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" 
                     allowfullscreen="true"
@@ -1059,4 +1067,40 @@
             <p>
                 <strong>🔍 Fichiers :</strong>
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">cohort-analysis-exp.xlsx</a>
-                <a href="assets/documents/Mod%C3%A
+                <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">Modélisation_dettes.xlsx</a>
+                <a href="https://go.screenpal.com/player/cO1T3mnuWhl" target="_blank">Vidéo ScreenPal</a>
+                <span>⚠️ Vérifiez les chemins sur GitHub</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer>
+        <span>© 2026 The Alpha Report · Data-Too</span>
+        <span>
+            <a href="https://github.com/Data-Too/Portfolio" target="_blank">GitHub</a>
+        </span>
+    </footer>
+
+    <!-- ============================================================
+    MOBILE MENU
+    ============================================================ -->
+    <script>
+        const toggle = document.getElementById('mobileToggle');
+        const links = document.getElementById('navLinks');
+
+        toggle.addEventListener('click', () => {
+            links.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                links.classList.remove('open');
+            });
+        });
+    </script>
+
+</body>
+</html>
