@@ -433,12 +433,6 @@
             transform: translateY(-4px);
         }
 
-        .video-card video {
-            width: 100%;
-            display: block;
-            background: #1A2A3A;
-        }
-
         .video-card .video-info {
             padding: 16px 20px 20px;
         }
@@ -470,6 +464,24 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+        }
+
+        /* Conteneur pour l'iframe ScreenPal */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            height: 0;
+            background: #1A2A3A;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         /* ============================================================
@@ -934,39 +946,26 @@
     <section class="section" id="videos">
         <div class="section-header">
             <h2>🎥 Vidéos</h2>
-            <span class="count">2 démonstrations</span>
+            <span class="count">1 démonstration</span>
         </div>
 
         <div class="video-grid">
 
-            <!-- Vidéo 1 -->
+            <!-- Vidéo ScreenPal -->
             <div class="video-card">
-                <video controls>
-                    <source src="assets/videos/demo1.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéo.
-                </video>
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://go.screenpal.com/player/cO1T3mnuWhl?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" 
+                        allowfullscreen="true"
+                        scrolling="no">
+                    </iframe>
+                </div>
                 <div class="video-info">
                     <span class="video-label">Démonstration</span>
                     <h4>Consolidation IFRS</h4>
                     <p>Présentation de la méthodologie de consolidation et des retraitements.</p>
                     <div class="btn-group">
-                        <a href="assets/videos/demo1.mp4" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vidéo 2 -->
-            <div class="video-card">
-                <video controls>
-                    <source src="assets/videos/demo2.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéo.
-                </video>
-                <div class="video-info">
-                    <span class="video-label">Démonstration</span>
-                    <h4>Modélisation financière</h4>
-                    <p>Présentation des scénarios, de l'analyse de sensibilité et des résultats.</p>
-                    <div class="btn-group">
-                        <a href="assets/videos/demo2.mp4" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
+                        <a href="https://go.screenpal.com/player/cO1T3mnuWhl?download=1" target="_blank" class="btn btn-primary btn-sm">⬇️ Télécharger</a>
                     </div>
                 </div>
             </div>
@@ -1070,7 +1069,7 @@
                 <strong>🔍 Fichiers :</strong>
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">cohort-analysis-exp.xlsx</a>
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">Modélisation_dettes.xlsx</a>
-                <a href="assets/videos/demo1.mp4" target="_blank">demo1.mp4</a>
+                <a href="https://go.screenpal.com/player/cO1T3mnuWhl" target="_blank">Vidéo ScreenPal</a>
                 <span>⚠️ Vérifiez les chemins sur GitHub</span>
             </p>
         </div>
