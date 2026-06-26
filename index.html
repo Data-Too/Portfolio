@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data-Too · IFRS Portfolio</title>
     <style>
-        /* ============================================================
+        /* ==========================================================
                    POLICES & RESET
-                ============================================================ */
+                ========================================================== */
         @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
 
         * {
@@ -18,25 +18,25 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0d0a0f;
-            color: #f0e8ee;
-            padding: 30px 20px;
+            background: #f5f0f7;
+            color: #1e1a24;
+            padding: 40px 20px;
             min-height: 100vh;
             line-height: 1.6;
-            overflow-x: hidden;
+            position: relative;
         }
 
-        /* ============================================================
-                   FOND AVEC DÉGRADÉ DYNAMIQUE ET FORMES
-                ============================================================ */
+        /* ==========================================================
+                   FOND AVEC DÉGRADÉ ET FORMES ORGANIQUES
+                ========================================================== */
         body::before {
             content: '';
             position: fixed;
-            top: -40%;
-            left: -20%;
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle at 30% 40%, rgba(140, 60, 140, 0.15), transparent 70%);
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(180, 80, 200, 0.08), rgba(80, 60, 200, 0.02) 70%);
             border-radius: 50%;
             pointer-events: none;
             z-index: 0;
@@ -45,113 +45,101 @@
         body::after {
             content: '';
             position: fixed;
-            bottom: -30%;
-            right: -10%;
-            width: 70%;
-            height: 70%;
-            background: radial-gradient(circle at 70% 60%, rgba(200, 80, 140, 0.10), transparent 70%);
+            bottom: -20%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 100, 150, 0.06), rgba(100, 60, 180, 0.02) 70%);
             border-radius: 50%;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* ============================================================
+        /* ==========================================================
                    CONTENEUR PRINCIPAL
-                ============================================================ */
+                ========================================================== */
         .container {
             max-width: 1120px;
             margin: 0 auto;
-            background: rgba(20, 14, 20, 0.70);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: 48px;
             padding: 50px 55px;
-            border: 1px solid rgba(200, 150, 180, 0.06);
-            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8),
-                        0 0 0 1px rgba(200, 150, 180, 0.03) inset;
+            border: 1px solid rgba(200, 180, 210, 0.15);
+            box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.06),
+                        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
             position: relative;
             z-index: 1;
             overflow: hidden;
         }
 
-        /* Éléments décoratifs flottants (cercles, formes) */
-        .container .shape {
+        /* Formes décoratives flottantes */
+        .shape {
             position: absolute;
             border-radius: 50%;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
         .shape-1 {
-            top: -120px;
-            right: -80px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(180, 80, 160, 0.08), transparent 70%);
+            top: -60px;
+            right: -40px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(180, 80, 200, 0.06), transparent 70%);
         }
 
         .shape-2 {
-            bottom: -100px;
-            left: -60px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(120, 60, 200, 0.06), transparent 70%);
-        }
-
-        .shape-3 {
-            top: 40%;
-            left: -40px;
+            bottom: -40px;
+            left: -30px;
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(200, 100, 150, 0.05), transparent 70%);
+            background: radial-gradient(circle, rgba(100, 60, 200, 0.06), transparent 70%);
         }
 
-        /* ============================================================
+        /* ==========================================================
                    EN-TÊTE
-                ============================================================ */
+                ========================================================== */
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             position: relative;
             z-index: 1;
         }
 
         .badge {
-            background: linear-gradient(135deg, rgba(180, 80, 160, 0.15), rgba(120, 60, 200, 0.10));
-            color: #d9b0cc;
+            background: linear-gradient(135deg, #7a4a8a, #5a3a7a);
+            color: #ffffff;
             font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 1.6px;
+            letter-spacing: 1.4px;
             padding: 6px 22px;
             border-radius: 40px;
             text-transform: uppercase;
-            border: 1px solid rgba(200, 150, 180, 0.08);
-            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 16px rgba(120, 60, 150, 0.15);
         }
 
         .badge-year {
-            color: #b098a8;
+            color: #6a5a72;
             font-size: 0.75rem;
             font-weight: 400;
-            background: rgba(200, 150, 180, 0.04);
+            background: rgba(200, 180, 210, 0.15);
             padding: 6px 20px;
             border-radius: 40px;
-            border: 1px solid rgba(200, 150, 180, 0.04);
+            border: 1px solid rgba(200, 180, 210, 0.10);
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
             letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #f5e6ee, #d9b0cc, #c090b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #1e1424;
             margin: 14px 0 6px 0;
             line-height: 1.1;
             position: relative;
@@ -160,9 +148,9 @@
 
         .accent-line {
             width: 120px;
-            height: 4px;
-            background: linear-gradient(90deg, #c090b8, #a070a0, #806090);
-            border-radius: 4px;
+            height: 5px;
+            background: linear-gradient(90deg, #7a4a8a, #a060b0, #c080d0);
+            border-radius: 8px;
             margin: 10px 0 24px 0;
             position: relative;
             z-index: 1;
@@ -170,19 +158,19 @@
 
         .subtitle {
             font-size: 1.15rem;
-            color: #c8b0bc;
+            color: #4a3a52;
             max-width: 720px;
             font-weight: 400;
             margin-bottom: 40px;
             padding-bottom: 32px;
-            border-bottom: 1px solid rgba(200, 150, 180, 0.06);
+            border-bottom: 1px solid rgba(200, 180, 210, 0.15);
             position: relative;
             z-index: 1;
         }
 
-        /* ============================================================
-                   BADGES D'EXPERTISE (style "tags" créatifs)
-                ============================================================ */
+        /* ==========================================================
+                   BADGES D'EXPERTISE
+                ========================================================== */
         .expertise-grid {
             display: flex;
             flex-wrap: wrap;
@@ -193,23 +181,22 @@
         }
 
         .expertise-item {
-            background: rgba(180, 80, 160, 0.06);
+            background: rgba(200, 180, 210, 0.08);
             border-radius: 40px;
             padding: 6px 22px;
             font-size: 0.75rem;
             font-weight: 500;
-            color: #d9b8c8;
-            border: 1px solid rgba(200, 150, 180, 0.04);
+            color: #3a2a42;
+            border: 1px solid rgba(200, 180, 210, 0.08);
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            backdrop-filter: blur(4px);
             transition: all 0.3s;
         }
 
         .expertise-item:hover {
-            background: rgba(180, 80, 160, 0.10);
-            border-color: rgba(200, 150, 180, 0.10);
+            background: rgba(180, 80, 200, 0.06);
+            border-color: rgba(180, 80, 200, 0.12);
             transform: translateY(-2px);
         }
 
@@ -218,16 +205,16 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #c090b8, #a070a0);
+            background: linear-gradient(135deg, #7a4a8a, #a060b0);
         }
 
-        /* ============================================================
+        /* ==========================================================
                    TITRES DE SECTION
-                ============================================================ */
+                ========================================================== */
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 600;
-            color: #f0e0e8;
+            color: #1e1424;
             margin: 48px 0 24px 0;
             display: flex;
             align-items: center;
@@ -240,12 +227,12 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, rgba(200, 150, 180, 0.10), transparent);
+            background: linear-gradient(90deg, rgba(200, 180, 210, 0.20), transparent);
         }
 
-        /* ============================================================
-                   CARTES PROJETS (avec effet dégradé au survol)
-                ============================================================ */
+        /* ==========================================================
+                   CARTES PROJETS (STYLE MODERNE)
+                ========================================================== */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -255,21 +242,19 @@
         }
 
         .project-card {
-            background: rgba(30, 20, 28, 0.5);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            border: 1px solid rgba(200, 150, 180, 0.04);
+            background: #ffffff;
             border-radius: 28px;
             padding: 28px 26px 30px;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-            position: relative;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(200, 180, 210, 0.10) inset;
+            border: 1px solid rgba(200, 180, 210, 0.06);
             display: flex;
             flex-direction: column;
+            position: relative;
             overflow: hidden;
         }
 
-        /* Dégradé de fond au survol */
+        /* Dégradé subtil au survol */
         .project-card::after {
             content: '';
             position: absolute;
@@ -277,9 +262,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(160, 80, 140, 0.02), rgba(100, 60, 180, 0.02));
+            background: linear-gradient(135deg, rgba(180, 80, 200, 0.02), rgba(100, 60, 200, 0.02));
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: opacity 0.4s;
             border-radius: 28px;
             pointer-events: none;
             z-index: 0;
@@ -289,30 +274,10 @@
             opacity: 1;
         }
 
-        /* Liseré dégradé en haut */
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: 30px;
-            right: 30px;
-            height: 3px;
-            background: linear-gradient(90deg, #c090b8, #a070a0, #806090, #a070a0, #c090b8);
-            background-size: 200% 100%;
-            border-radius: 0 0 6px 6px;
-            opacity: 0;
-            transition: opacity 0.5s;
-            z-index: 1;
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
         .project-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(200, 150, 180, 0.12);
-            box-shadow: 0 20px 50px -12px rgba(160, 80, 140, 0.10);
+            box-shadow: 0 16px 48px -8px rgba(120, 60, 150, 0.08);
+            border-color: rgba(180, 80, 200, 0.08);
         }
 
         .project-card>* {
@@ -321,7 +286,7 @@
         }
 
         .project-card .icon {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin-bottom: 6px;
         }
 
@@ -330,20 +295,20 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: #c090b8;
-            background: rgba(200, 150, 180, 0.06);
+            color: #7a4a8a;
+            background: rgba(180, 80, 200, 0.04);
             padding: 3px 16px;
             border-radius: 30px;
             display: inline-block;
             margin-bottom: 8px;
             width: fit-content;
-            border: 1px solid rgba(200, 150, 180, 0.04);
+            border: 1px solid rgba(180, 80, 200, 0.04);
         }
 
         .project-card h3 {
             font-size: 1.15rem;
             font-weight: 600;
-            color: #f0e0e8;
+            color: #1e1424;
             margin-bottom: 4px;
         }
 
@@ -355,37 +320,37 @@
         }
 
         .project-card .tag {
-            background: rgba(180, 80, 160, 0.06);
-            color: #d9b0cc;
+            background: rgba(200, 180, 210, 0.06);
+            color: #4a3a52;
             padding: 2px 16px;
             border-radius: 30px;
             font-size: 0.6rem;
             font-weight: 600;
             letter-spacing: 0.4px;
             text-transform: uppercase;
-            border: 1px solid rgba(200, 150, 180, 0.04);
+            border: 1px solid rgba(200, 180, 210, 0.04);
         }
 
         .project-card .tag.excel {
-            background: rgba(60, 160, 100, 0.08);
-            color: #90c8a8;
+            background: rgba(60, 160, 100, 0.06);
+            color: #2a6a4a;
         }
         .project-card .tag.ifrs {
-            background: rgba(140, 100, 180, 0.08);
-            color: #b8a0d0;
+            background: rgba(100, 80, 180, 0.06);
+            color: #3a3a6a;
         }
         .project-card .tag.model {
-            background: rgba(100, 140, 200, 0.08);
-            color: #90b8d8;
+            background: rgba(80, 140, 200, 0.06);
+            color: #2a4a7a;
         }
         .project-card .tag.demo {
-            background: rgba(200, 160, 80, 0.08);
-            color: #d0b888;
+            background: rgba(200, 160, 80, 0.06);
+            color: #7a6a2a;
         }
 
         .project-card .desc {
             font-size: 0.9rem;
-            color: #c8b0bc;
+            color: #4a3a52;
             margin-bottom: 20px;
             flex-grow: 1;
             line-height: 1.6;
@@ -398,9 +363,9 @@
             margin-top: auto;
         }
 
-        /* ============================================================
+        /* ==========================================================
                    BOUTONS AVEC DÉGRADÉ
-                ============================================================ */
+                ========================================================== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -413,44 +378,41 @@
             transition: all 0.3s;
             border: 1px solid transparent;
             cursor: pointer;
-            background: transparent;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #7a4a7a, #5a3a6a);
-            color: #f5e6ee;
-            box-shadow: 0 4px 20px rgba(120, 60, 140, 0.15);
-            border: 1px solid rgba(200, 150, 180, 0.04);
+            background: linear-gradient(135deg, #7a4a8a, #5a3a7a);
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(120, 60, 150, 0.15);
         }
 
         .btn-primary:hover {
-            background: linear-gradient(135deg, #9a5a8a, #7a4a7a);
-            box-shadow: 0 8px 32px rgba(120, 60, 140, 0.25);
             transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(120, 60, 150, 0.20);
         }
 
         .btn-outline {
-            color: #d9b0cc;
-            border-color: rgba(200, 150, 180, 0.08);
+            color: #4a3a52;
+            border-color: rgba(200, 180, 210, 0.15);
         }
 
         .btn-outline:hover {
-            background: rgba(200, 150, 180, 0.04);
-            border-color: rgba(200, 150, 180, 0.12);
+            background: rgba(200, 180, 210, 0.04);
+            border-color: rgba(200, 180, 210, 0.20);
             transform: translateY(-2px);
         }
 
-        /* ============================================================
-                   SECTIONS MÉDIAS (verre dépoli + dégradés subtils)
-                ============================================================ */
+        /* ==========================================================
+                   SECTIONS MÉDIAS
+                ========================================================== */
         .media-section {
-            background: rgba(30, 20, 28, 0.25);
+            background: rgba(255, 255, 255, 0.40);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
             border-radius: 28px;
             padding: 30px 32px;
             margin: 16px 0 8px 0;
-            border: 1px solid rgba(200, 150, 180, 0.03);
+            border: 1px solid rgba(200, 180, 210, 0.06);
             position: relative;
             z-index: 1;
         }
@@ -458,7 +420,7 @@
         .media-section h3 {
             font-size: 1.05rem;
             font-weight: 500;
-            color: #e8d0dc;
+            color: #1e1424;
             margin-bottom: 18px;
             display: flex;
             align-items: center;
@@ -475,14 +437,14 @@
             width: 100%;
             border-radius: 18px;
             background: #0a0508;
-            border: 1px solid rgba(200, 150, 180, 0.04);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(200, 180, 210, 0.06);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
         }
 
         .video-item p {
             margin-top: 8px;
             font-size: 0.85rem;
-            color: #c8b0bc;
+            color: #4a3a52;
         }
 
         .image-grid {
@@ -496,15 +458,15 @@
             max-width: 180px;
             height: auto;
             border-radius: 16px;
-            border: 1px solid rgba(200, 150, 180, 0.04);
+            border: 1px solid rgba(200, 180, 210, 0.06);
             transition: all 0.3s;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
         }
 
         .image-grid img:hover {
-            border-color: rgba(200, 150, 180, 0.10);
+            border-color: rgba(180, 80, 200, 0.10);
             transform: scale(1.03);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
         }
 
         .pdf-list {
@@ -517,42 +479,40 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(30, 20, 28, 0.3);
+            background: rgba(255, 255, 255, 0.40);
             padding: 8px 24px;
             border-radius: 40px;
             text-decoration: none;
-            color: #d9c0cc;
+            color: #3a2a42;
             font-weight: 450;
             font-size: 0.85rem;
-            border: 1px solid rgba(200, 150, 180, 0.03);
+            border: 1px solid rgba(200, 180, 210, 0.06);
             transition: all 0.3s;
-            backdrop-filter: blur(4px);
         }
 
         .pdf-list a:hover {
-            background: rgba(200, 150, 180, 0.04);
-            border-color: rgba(200, 150, 180, 0.06);
+            background: rgba(255, 255, 255, 0.60);
+            border-color: rgba(200, 180, 210, 0.12);
             transform: translateY(-2px);
         }
 
-        /* ============================================================
-                   SECTION DE TEST (avec dégradé subtil)
-                ============================================================ */
+        /* ==========================================================
+                   SECTION DE TEST
+                ========================================================== */
         .test-section {
-            background: linear-gradient(135deg, rgba(60, 30, 60, 0.15), rgba(40, 20, 50, 0.15));
-            border: 1px solid rgba(200, 150, 180, 0.04);
+            background: rgba(200, 180, 210, 0.04);
+            border: 1px solid rgba(200, 180, 210, 0.06);
             border-radius: 24px;
             padding: 24px 30px;
             margin: 40px 0 16px 0;
             position: relative;
             z-index: 1;
-            backdrop-filter: blur(4px);
         }
 
         .test-section h3 {
             font-size: 0.9rem;
             font-weight: 600;
-            color: #d9b8c8;
+            color: #3a2a42;
             margin-bottom: 8px;
         }
 
@@ -565,53 +525,53 @@
         }
 
         .test-section ul li a {
-            color: #c8b0bc;
+            color: #4a3a52;
             font-weight: 450;
             text-decoration: none;
-            border-bottom: 1.5px dotted rgba(200, 150, 180, 0.06);
+            border-bottom: 1.5px dotted rgba(200, 180, 210, 0.10);
             padding-bottom: 2px;
             font-size: 0.85rem;
             transition: all 0.3s;
         }
 
         .test-section ul li a:hover {
-            color: #e8d0dc;
-            border-bottom-color: #c090b8;
+            color: #7a4a8a;
+            border-bottom-color: #7a4a8a;
         }
 
         .test-section .note {
             margin-top: 12px;
             font-size: 0.8rem;
-            color: #9a7a8a;
+            color: #6a5a72;
         }
 
-        /* ============================================================
+        /* ==========================================================
                    PIED DE PAGE
-                ============================================================ */
+                ========================================================== */
         footer {
             margin-top: 50px;
             padding-top: 24px;
-            border-top: 1px solid rgba(200, 150, 180, 0.03);
+            border-top: 1px solid rgba(200, 180, 210, 0.06);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            color: #8a6a7a;
+            color: #6a5a72;
             font-size: 0.85rem;
             position: relative;
             z-index: 1;
         }
 
         footer a {
-            color: #d9b0cc;
+            color: #7a4a8a;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
         }
 
         footer a:hover {
-            color: #e8c0d8;
+            color: #5a3a7a;
             text-decoration: underline;
         }
 
@@ -620,13 +580,13 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #c090b8, #a070a0);
+            background: linear-gradient(135deg, #7a4a8a, #a060b0);
             margin-right: 4px;
         }
 
-        /* ============================================================
+        /* ==========================================================
                    RESPONSIVE
-                ============================================================ */
+                ========================================================== */
         @media (max-width: 640px) {
             .container {
                 padding: 24px 18px;
@@ -662,7 +622,6 @@
         <!-- Éléments décoratifs flottants -->
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
 
         <!-- ==========================================
         EN-TÊTE
@@ -792,7 +751,7 @@
                 <img src="assets/images/screenshot2.jpg" alt="Capture écran 2">
                 <img src="assets/images/graph.jpg" alt="Graphique IFRS">
             </div>
-            <p style="margin-top: 16px; font-size: 0.85rem; color: #9a7a8a;">
+            <p style="margin-top: 16px; font-size: 0.85rem; color: #6a5a72;">
                 Cliquez sur une image pour l'agrandir.
             </p>
         </div>
@@ -807,7 +766,7 @@
                 <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank">📗 Rapport de consolidation</a>
                 <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank">📕 Guide de modélisation</a>
             </div>
-            <p style="margin-top: 14px; font-size: 0.85rem; color: #9a7a8a;">
+            <p style="margin-top: 14px; font-size: 0.85rem; color: #6a5a72;">
                 Les PDF s'ouvrent dans un nouvel onglet.
             </p>
         </div>
