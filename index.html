@@ -81,21 +81,6 @@
             color: #2A6A8A;
         }
 
-        .navbar .nav-cta {
-            background: #1A3A5A;
-            color: #FFFFFF;
-            padding: 6px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 500;
-            transition: background 0.3s ease;
-        }
-
-        .navbar .nav-cta:hover {
-            background: #2A6A8A;
-        }
-
         .navbar .mobile-toggle {
             display: none;
             background: none;
@@ -298,7 +283,7 @@
         }
 
         /* ============================================================
-                   PROJETS
+                   PROJETS (Excel)
                 ============================================================ */
         .projects-grid {
             display: grid;
@@ -425,6 +410,69 @@
         }
 
         /* ============================================================
+                   VIDÉOS
+                ============================================================ */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .video-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(26, 42, 58, 0.04);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .video-card:hover {
+            border-color: rgba(42, 106, 138, 0.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            transform: translateY(-4px);
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+            background: #1A2A3A;
+        }
+
+        .video-card .video-info {
+            padding: 16px 20px 20px;
+        }
+
+        .video-card .video-info .video-label {
+            font-size: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #2A6A8A;
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+
+        .video-card .video-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1A2A3A;
+            margin-bottom: 2px;
+        }
+
+        .video-card .video-info p {
+            font-size: 0.8rem;
+            color: #5A6A7A;
+            margin-bottom: 12px;
+        }
+
+        .video-card .video-info .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* ============================================================
                    TEST
                 ============================================================ */
         .test-bar {
@@ -517,6 +565,9 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -590,6 +641,9 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
             .section {
                 padding: 32px 16px;
             }
@@ -613,6 +667,7 @@
         <a href="#" class="logo">The <span>Alpha</span> Report</a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#projects">Projets</a></li>
+            <li><a href="#videos">Vidéos</a></li>
         </ul>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
     </nav>
@@ -643,6 +698,7 @@
             </div>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">Voir les projets</a>
+                <a href="#videos" class="btn btn-outline">Voir les vidéos</a>
             </div>
         </div>
         <div class="hero-visual">
@@ -674,12 +730,12 @@
     <hr class="section-divider" />
 
     <!-- ============================================================
-    PROJETS
+    PROJETS EXCEL
     ============================================================ -->
     <section class="section" id="projects">
         <div class="section-header">
-            <h2>📁 Projets</h2>
-            <span class="count">2 Excel</span>
+            <h2>📁 Projets Excel</h2>
+            <span class="count">2 fichiers</span>
         </div>
 
         <div class="projects-grid">
@@ -730,6 +786,52 @@
     <hr class="section-divider" />
 
     <!-- ============================================================
+    VIDÉOS
+    ============================================================ -->
+    <section class="section" id="videos">
+        <div class="section-header">
+            <h2>🎥 Vidéos</h2>
+            <span class="count">2 démonstrations</span>
+        </div>
+
+        <div class="video-grid">
+            <!-- Vidéo 1 -->
+            <div class="video-card">
+                <video controls>
+                    <source src="assets/videos/demo1.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéo.
+                </video>
+                <div class="video-info">
+                    <span class="video-label">Démonstration</span>
+                    <h4>Consolidation IFRS</h4>
+                    <p>Présentation de la méthodologie de consolidation et des retraitements.</p>
+                    <div class="btn-group">
+                        <a href="assets/videos/demo1.mp4" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vidéo 2 -->
+            <div class="video-card">
+                <video controls>
+                    <source src="assets/videos/demo2.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéo.
+                </video>
+                <div class="video-info">
+                    <span class="video-label">Démonstration</span>
+                    <h4>Modélisation financière</h4>
+                    <p>Présentation des scénarios, de l'analyse de sensibilité et des résultats.</p>
+                    <div class="btn-group">
+                        <a href="assets/videos/demo2.mp4" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ============================================================
     TEST
     ============================================================ -->
     <div class="test-bar">
@@ -738,6 +840,7 @@
                 <strong>🔍 Fichiers :</strong>
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">cohort-analysis-exp.xlsx</a>
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">Modélisation_dettes.xlsx</a>
+                <a href="assets/videos/demo1.mp4" target="_blank">demo1.mp4</a>
                 <span>⚠️ Vérifiez les chemins sur GitHub</span>
             </p>
         </div>
