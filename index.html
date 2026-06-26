@@ -22,8 +22,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #F8F6F4;
-            color: #1A1A1A;
+            background: #F5F8FA;
+            color: #1A2A3A;
             line-height: 1.6;
         }
 
@@ -36,10 +36,10 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+            border-bottom: 1px solid rgba(26, 42, 58, 0.04);
             padding: 0 40px;
             height: 64px;
             display: flex;
@@ -51,7 +51,7 @@
             font-weight: 700;
             font-size: 1rem;
             letter-spacing: -0.3px;
-            color: #1A1A1A;
+            color: #1A2A3A;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -59,7 +59,7 @@
         }
 
         .navbar .logo span {
-            color: #B8867A;
+            color: #2A6A8A;
         }
 
         .navbar .nav-links {
@@ -71,18 +71,18 @@
         }
 
         .navbar .nav-links a {
-            color: #4A4A4A;
+            color: #4A5A6A;
             text-decoration: none;
             transition: color 0.3s ease;
             letter-spacing: 0.2px;
         }
 
         .navbar .nav-links a:hover {
-            color: #B8867A;
+            color: #2A6A8A;
         }
 
         .navbar .nav-cta {
-            background: #1A1A1A;
+            background: #1A3A5A;
             color: #FFFFFF;
             padding: 6px 20px;
             border-radius: 6px;
@@ -93,7 +93,7 @@
         }
 
         .navbar .nav-cta:hover {
-            background: #B8867A;
+            background: #2A6A8A;
         }
 
         .navbar .mobile-toggle {
@@ -102,14 +102,14 @@
             border: none;
             font-size: 1.2rem;
             cursor: pointer;
-            color: #1A1A1A;
+            color: #1A2A3A;
         }
 
         /* ============================================================
                    HERO
                 ============================================================ */
         .hero {
-            padding: 120px 40px 80px;
+            padding: 120px 40px 60px;
             max-width: 1120px;
             margin: 0 auto;
             display: grid;
@@ -123,18 +123,18 @@
             font-size: 3.2rem;
             font-weight: 700;
             line-height: 1.1;
-            color: #1A1A1A;
+            color: #1A2A3A;
             letter-spacing: -0.03em;
             margin-bottom: 16px;
         }
 
         .hero-content h1 .highlight {
-            color: #B8867A;
+            color: #2A6A8A;
         }
 
         .hero-content p {
             font-size: 1.05rem;
-            color: #5A4A42;
+            color: #4A5A6A;
             max-width: 480px;
             margin-bottom: 24px;
             line-height: 1.8;
@@ -149,13 +149,13 @@
         .hero-content .hero-stats .stat .number {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #B8867A;
+            color: #2A6A8A;
             display: block;
         }
 
         .hero-content .hero-stats .stat .label {
             font-size: 0.7rem;
-            color: #8A7A72;
+            color: #6A7A8A;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -181,27 +181,27 @@
         }
 
         .btn-primary {
-            background: #1A1A1A;
+            background: #1A3A5A;
             color: #FFFFFF;
-            border-color: #1A1A1A;
+            border-color: #1A3A5A;
         }
 
         .btn-primary:hover {
-            background: #B8867A;
-            border-color: #B8867A;
+            background: #2A6A8A;
+            border-color: #2A6A8A;
             transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(184, 134, 122, 0.15);
+            box-shadow: 0 4px 16px rgba(42, 106, 138, 0.15);
         }
 
         .btn-outline {
-            color: #4A4A4A;
-            border-color: rgba(26, 26, 26, 0.06);
+            color: #4A5A6A;
+            border-color: rgba(26, 42, 58, 0.06);
             background: #FFFFFF;
         }
 
         .btn-outline:hover {
-            color: #1A1A1A;
-            border-color: #1A1A1A;
+            color: #1A2A3A;
+            border-color: #1A3A5A;
             transform: translateY(-2px);
         }
 
@@ -220,7 +220,8 @@
         }
 
         .hero-visual .visual-grid .block {
-            background: #F0EAE4;
+            background: #FFFFFF;
+            border: 1px solid rgba(26, 42, 58, 0.04);
             border-radius: 12px;
             padding: 20px;
             aspect-ratio: 1;
@@ -230,12 +231,13 @@
             align-items: center;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
         }
 
         .hero-visual .visual-grid .block:hover {
-            border-color: rgba(184, 134, 122, 0.15);
+            border-color: rgba(42, 106, 138, 0.15);
             transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
         }
 
         .hero-visual .visual-grid .block .icon {
@@ -245,18 +247,18 @@
 
         .hero-visual .visual-grid .block .label {
             font-size: 0.65rem;
-            color: #6A5A52;
+            color: #6A7A8A;
             font-weight: 500;
         }
 
         .hero-visual .visual-grid .block .value {
             font-size: 0.8rem;
             font-weight: 600;
-            color: #B8867A;
+            color: #2A6A8A;
         }
 
         /* ============================================================
-                   SECTIONS COMMUNES
+                   SECTIONS
                 ============================================================ */
         .section {
             max-width: 1120px;
@@ -276,22 +278,22 @@
         .section-header h2 {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #1A1A1A;
+            color: #1A2A3A;
             letter-spacing: -0.02em;
         }
 
         .section-header .count {
             font-size: 0.7rem;
             font-weight: 400;
-            color: #8A7A72;
-            background: #F0EAE4;
+            color: #6A7A8A;
+            background: #E8F0F5;
             padding: 4px 18px;
             border-radius: 40px;
         }
 
         .section-divider {
             border: none;
-            border-top: 1px solid rgba(26, 26, 26, 0.04);
+            border-top: 1px solid rgba(26, 42, 58, 0.04);
             margin: 0;
         }
 
@@ -306,15 +308,16 @@
 
         .project-card {
             background: #FFFFFF;
-            border: 1px solid rgba(26, 26, 26, 0.04);
+            border: 1px solid rgba(26, 42, 58, 0.04);
             border-radius: 12px;
             padding: 24px 24px 28px;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
         }
 
         .project-card:hover {
-            border-color: rgba(184, 134, 122, 0.15);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+            border-color: rgba(42, 106, 138, 0.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
             transform: translateY(-4px);
         }
 
@@ -323,7 +326,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #B8867A;
+            color: #2A6A8A;
             display: inline-block;
             margin-bottom: 4px;
         }
@@ -337,13 +340,13 @@
         .project-card h3 {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #1A1A1A;
+            color: #1A2A3A;
             margin-bottom: 4px;
         }
 
         .project-card .desc {
             font-size: 0.85rem;
-            color: #6A5A52;
+            color: #5A6A7A;
             margin-bottom: 12px;
             line-height: 1.6;
         }
@@ -353,23 +356,23 @@
             flex-wrap: wrap;
             gap: 16px;
             margin-bottom: 14px;
-            background: #F8F6F4;
+            background: #F0F5F8;
             padding: 8px 14px;
             border-radius: 6px;
         }
 
         .project-card .metrics span {
             font-size: 0.7rem;
-            color: #8A7A72;
+            color: #6A7A8A;
         }
 
         .project-card .metrics span strong {
-            color: #1A1A1A;
+            color: #1A2A3A;
             font-weight: 600;
         }
 
         .project-card .metrics span .highlight {
-            color: #B8867A;
+            color: #2A6A8A;
         }
 
         .project-card .tags {
@@ -386,27 +389,27 @@
             letter-spacing: 0.5px;
             padding: 2px 14px;
             border-radius: 30px;
-            border: 1px solid rgba(26, 26, 26, 0.04);
-            color: #6A5A52;
-            background: #F8F6F4;
+            border: 1px solid rgba(26, 42, 58, 0.04);
+            color: #5A6A7A;
+            background: #F0F5F8;
         }
 
         .project-card .tags .excel {
-            color: #8A7A52;
-            border-color: rgba(184, 134, 122, 0.12);
-            background: rgba(184, 134, 122, 0.04);
+            color: #2A6A5A;
+            border-color: rgba(42, 106, 90, 0.12);
+            background: rgba(42, 106, 90, 0.04);
         }
 
         .project-card .tags .ifrs {
-            color: #6A5A6A;
-            border-color: rgba(100, 80, 100, 0.08);
-            background: rgba(100, 80, 100, 0.04);
+            color: #2A5A7A;
+            border-color: rgba(42, 90, 122, 0.08);
+            background: rgba(42, 90, 122, 0.04);
         }
 
         .project-card .tags .model {
-            color: #4A5A6A;
-            border-color: rgba(60, 80, 100, 0.08);
-            background: rgba(60, 80, 100, 0.04);
+            color: #3A5A7A;
+            border-color: rgba(58, 90, 122, 0.08);
+            background: rgba(58, 90, 122, 0.04);
         }
 
         .project-card .btn-group {
@@ -422,197 +425,42 @@
         }
 
         /* ============================================================
-                   VIDÉOS
-                ============================================================ */
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .video-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(26, 26, 26, 0.04);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .video-card:hover {
-            border-color: rgba(184, 134, 122, 0.15);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
-        }
-
-        .video-card video {
-            width: 100%;
-            display: block;
-            background: #1A1A1A;
-        }
-
-        .video-card .video-info {
-            padding: 16px 20px 20px;
-        }
-
-        .video-card .video-info h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #1A1A1A;
-            margin-bottom: 2px;
-        }
-
-        .video-card .video-info p {
-            font-size: 0.8rem;
-            color: #6A5A52;
-            margin-bottom: 10px;
-        }
-
-        .video-card .video-info .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        /* ============================================================
-                   DATA ROOM
-                ============================================================ */
-        .data-room {
-            background: #F8F6F4;
-            border-radius: 12px;
-            padding: 36px 40px;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .data-room .data-info h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1A1A1A;
-            margin-bottom: 4px;
-        }
-
-        .data-room .data-info p {
-            font-size: 0.85rem;
-            color: #6A5A52;
-        }
-
-        .data-room .data-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .data-room .data-list .data-item {
-            background: #FFFFFF;
-            padding: 10px 16px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: #1A1A1A;
-            border: 1px solid transparent;
-        }
-
-        .data-room .data-list .data-item:hover {
-            border-color: rgba(184, 134, 122, 0.15);
-            transform: translateX(4px);
-        }
-
-        .data-room .data-list .data-item .data-icon {
-            font-size: 1.1rem;
-        }
-
-        .data-room .data-list .data-item .data-info .name {
-            font-weight: 500;
-            font-size: 0.8rem;
-        }
-
-        .data-room .data-list .data-item .data-info .type {
-            font-size: 0.55rem;
-            color: #8A7A72;
-            text-transform: uppercase;
-        }
-
-        /* ============================================================
-                   COMPÉTENCES
-                ============================================================ */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-
-        .skill-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(26, 26, 26, 0.04);
-            border-radius: 12px;
-            padding: 18px 20px;
-            transition: all 0.3s ease;
-        }
-
-        .skill-card:hover {
-            border-color: rgba(184, 134, 122, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .skill-card .skill-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #1A1A1A;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-
-        .skill-card .skill-name .level {
-            font-size: 0.5rem;
-            font-weight: 400;
-            color: #B8867A;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .skill-card .skill-desc {
-            font-size: 0.75rem;
-            color: #6A5A52;
-        }
-
-        /* ============================================================
                    TEST
                 ============================================================ */
         .test-bar {
-            background: #F8F6F4;
-            padding: 14px 24px;
-            border-radius: 8px;
-            border: 1px solid rgba(26, 26, 26, 0.02);
-            margin-top: 40px;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 40px 16px;
         }
 
-        .test-bar p {
+        .test-bar .bar {
+            background: #F0F5F8;
+            padding: 14px 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(26, 42, 58, 0.02);
+        }
+
+        .test-bar .bar p {
             font-size: 0.7rem;
-            color: #8A7A72;
+            color: #6A7A8A;
             display: flex;
             flex-wrap: wrap;
             gap: 8px 20px;
         }
 
-        .test-bar p strong {
-            color: #1A1A1A;
+        .test-bar .bar p strong {
+            color: #1A2A3A;
             font-weight: 500;
         }
 
-        .test-bar p a {
-            color: #B8867A;
+        .test-bar .bar p a {
+            color: #2A6A8A;
             text-decoration: none;
-            border-bottom: 1px dotted rgba(184, 134, 122, 0.15);
+            border-bottom: 1px dotted rgba(42, 106, 138, 0.15);
         }
 
-        .test-bar p a:hover {
-            border-bottom-color: #B8867A;
+        .test-bar .bar p a:hover {
+            border-bottom-color: #2A6A8A;
         }
 
         /* ============================================================
@@ -622,24 +470,24 @@
             max-width: 1120px;
             margin: 0 auto;
             padding: 32px 40px 24px;
-            border-top: 1px solid rgba(26, 26, 26, 0.04);
+            border-top: 1px solid rgba(26, 42, 58, 0.04);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            color: #8A7A72;
+            color: #6A7A8A;
             font-size: 0.75rem;
         }
 
         footer a {
-            color: #1A1A1A;
+            color: #1A2A3A;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: #B8867A;
+            color: #2A6A8A;
         }
 
         /* ============================================================
@@ -651,6 +499,7 @@
                 padding: 100px 30px 60px;
                 gap: 40px;
                 text-align: center;
+                min-height: auto;
             }
             .hero-content p {
                 max-width: 100%;
@@ -667,20 +516,6 @@
             }
             .projects-grid {
                 grid-template-columns: 1fr;
-            }
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-            .data-room {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 28px 24px;
-            }
-            .data-room .data-list {
-                grid-template-columns: 1fr 1fr;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -705,7 +540,7 @@
                 backdrop-filter: blur(12px);
                 padding: 20px 30px;
                 gap: 16px;
-                border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+                border-bottom: 1px solid rgba(26, 42, 58, 0.04);
             }
             .section {
                 padding: 40px 20px;
@@ -719,12 +554,6 @@
             .hero-content .hero-stats .stat .number {
                 font-size: 1.5rem;
             }
-            .data-room .data-list {
-                grid-template-columns: 1fr;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr 1fr;
-            }
             .section-header h2 {
                 font-size: 1.4rem;
             }
@@ -733,12 +562,14 @@
                 text-align: center;
                 padding: 24px 20px;
             }
+            .test-bar {
+                padding: 0 20px 16px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero {
                 padding: 80px 16px 40px;
-                min-height: auto;
             }
             .hero-content h1 {
                 font-size: 1.8rem;
@@ -759,19 +590,10 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
             .section {
                 padding: 32px 16px;
             }
-            .data-room {
-                padding: 20px 16px;
-            }
-            .test-bar p {
+            .test-bar .bar p {
                 flex-direction: column;
                 gap: 4px;
             }
@@ -791,9 +613,6 @@
         <a href="#" class="logo">The <span>Alpha</span> Report</a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#projects">Projets</a></li>
-            <li><a href="#videos">Vidéos</a></li>
-            <li><a href="#data">Data Room</a></li>
-            <li><a href="#skills">Compétences</a></li>
         </ul>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
     </nav>
@@ -824,7 +643,6 @@
             </div>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">Voir les projets</a>
-                <a href="#data" class="btn btn-outline">Data Room</a>
             </div>
         </div>
         <div class="hero-visual">
@@ -912,142 +730,14 @@
     <hr class="section-divider" />
 
     <!-- ============================================================
-    VIDÉOS
-    ============================================================ -->
-    <section class="section" id="videos">
-        <div class="section-header">
-            <h2>🎥 Vidéos</h2>
-            <span class="count">2 démonstrations</span>
-        </div>
-
-        <div class="video-grid">
-            <div class="video-card">
-                <video controls>
-                    <source src="assets/videos/demo1.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéo.
-                </video>
-                <div class="video-info">
-                    <h4>Consolidation IFRS</h4>
-                    <p>Présentation de la méthodologie de consolidation.</p>
-                    <div class="btn-group">
-                        <a href="assets/videos/demo1.mp4" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <video controls>
-                    <source src="assets/videos/demo2.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéo.
-                </video>
-                <div class="video-info">
-                    <h4>Modélisation financière</h4>
-                    <p>Présentation des scénarios et de l'analyse de sensibilité.</p>
-                    <div class="btn-group">
-                        <a href="assets/videos/demo2.mp4" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ============================================================
-    DATA ROOM
-    ============================================================ -->
-    <section class="section" id="data">
-        <div class="section-header">
-            <h2>📄 Data Room</h2>
-            <span class="count">3 PDF</span>
-        </div>
-
-        <div class="data-room">
-            <div class="data-info">
-                <h3>Documents</h3>
-                <p>Rapports et guides techniques.</p>
-            </div>
-            <div class="data-list">
-                <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank" class="data-item">
-                    <span class="data-icon">📘</span>
-                    <span class="data-info">
-                        <span class="name">Guide IFRS 2026</span>
-                        <span class="type">PDF</span>
-                    </span>
-                </a>
-                <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank" class="data-item">
-                    <span class="data-icon">📗</span>
-                    <span class="data-info">
-                        <span class="name">Rapport consolidation</span>
-                        <span class="type">PDF</span>
-                    </span>
-                </a>
-                <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank" class="data-item">
-                    <span class="data-icon">📕</span>
-                    <span class="data-info">
-                        <span class="name">Guide modélisation</span>
-                        <span class="type">PDF</span>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ============================================================
-    COMPÉTENCES
-    ============================================================ -->
-    <section class="section" id="skills">
-        <div class="section-header">
-            <h2>🛠️ Compétences</h2>
-            <span class="count">4 domaines</span>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-name">
-                    Consolidation IFRS
-                    <span class="level">Expert</span>
-                </div>
-                <p class="skill-desc">IFRS 10, 11, 12 · Périmètres · Retraitements</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-name">
-                    Analyse de cohortes
-                    <span class="level">Avancé</span>
-                </div>
-                <p class="skill-desc">KPI · Suivi des performances · Tendances</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-name">
-                    Modélisation financière
-                    <span class="level">Expert</span>
-                </div>
-                <p class="skill-desc">Scénarios · Sensibilité · Valorisation</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-name">
-                    Excel &amp; Data
-                    <span class="level">Avancé</span>
-                </div>
-                <p class="skill-desc">Power Query · VBA · Tableaux de bord</p>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ============================================================
     TEST
     ============================================================ -->
-    <div style="max-width:1120px; margin:0 auto; padding:0 40px;">
-        <div class="test-bar">
+    <div class="test-bar">
+        <div class="bar">
             <p>
                 <strong>🔍 Fichiers :</strong>
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">cohort-analysis-exp.xlsx</a>
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">Modélisation_dettes.xlsx</a>
-                <a href="assets/videos/demo1.mp4" target="_blank">demo1.mp4</a>
                 <span>⚠️ Vérifiez les chemins sur GitHub</span>
             </p>
         </div>
@@ -1074,7 +764,6 @@
             links.classList.toggle('open');
         });
 
-        // Ferme le menu au clic sur un lien
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 links.classList.remove('open');
