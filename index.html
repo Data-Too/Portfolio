@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data-Too · IFRS Portfolio</title>
+    <title>Data-Too · IFRS Magazine</title>
     <style>
         /* ==========================================================
                    POLICES & RESET
                 ========================================================== */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
         * {
             margin: 0;
@@ -18,89 +18,28 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f5f0f7;
-            color: #1e1a24;
+            background: #f8f6f3;
+            color: #1a1a1e;
             padding: 40px 20px;
             min-height: 100vh;
-            line-height: 1.6;
-            position: relative;
+            line-height: 1.7;
         }
 
         /* ==========================================================
-                   FOND AVEC DÉGRADÉ ET FORMES ORGANIQUES
-                ========================================================== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -30%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(180, 80, 200, 0.08), rgba(80, 60, 200, 0.02) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: -20%;
-            left: -5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(200, 100, 150, 0.06), rgba(100, 60, 180, 0.02) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ==========================================================
-                   CONTENEUR PRINCIPAL
+                   CONTENEUR PRINCIPAL (comme une page de magazine)
                 ========================================================== */
         .container {
-            max-width: 1120px;
+            max-width: 1100px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 48px;
-            padding: 50px 55px;
-            border: 1px solid rgba(200, 180, 210, 0.15);
-            box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.06),
-                        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+            background: #ffffff;
+            padding: 60px 65px;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.03);
             position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        /* Formes décoratives flottantes */
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.3;
-        }
-
-        .shape-1 {
-            top: -60px;
-            right: -40px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(180, 80, 200, 0.06), transparent 70%);
-        }
-
-        .shape-2 {
-            bottom: -40px;
-            left: -30px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(100, 60, 200, 0.06), transparent 70%);
+            border: 1px solid rgba(0, 0, 0, 0.02);
         }
 
         /* ==========================================================
-                   EN-TÊTE
+                   EN-TÊTE (comme une page de garde de magazine)
                 ========================================================== */
         .header-top {
             display: flex;
@@ -108,411 +47,373 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eae6e0;
         }
 
-        .badge {
-            background: linear-gradient(135deg, #7a4a8a, #5a3a7a);
-            color: #ffffff;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 1.4px;
-            padding: 6px 22px;
-            border-radius: 40px;
+        .magazine-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            box-shadow: 0 4px 16px rgba(120, 60, 150, 0.15);
+            color: #8a7a6a;
         }
 
-        .badge-year {
-            color: #6a5a72;
-            font-size: 0.75rem;
+        .magazine-date {
+            font-size: 0.7rem;
             font-weight: 400;
-            background: rgba(200, 180, 210, 0.15);
-            padding: 6px 20px;
+            color: #b0a898;
+            letter-spacing: 0.5px;
+        }
+
+        .issue-badge {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #8a7a6a;
+            border: 1px solid #eae6e0;
+            padding: 4px 18px;
             border-radius: 40px;
-            border: 1px solid rgba(200, 180, 210, 0.10);
+            letter-spacing: 1px;
         }
 
-        h1 {
-            font-size: 3.2rem;
+        /* ==========================================================
+                   TITRE PRINCIPAL (comme un titre de magazine)
+                ========================================================== */
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
             font-weight: 700;
-            letter-spacing: -0.03em;
-            color: #1e1424;
-            margin: 14px 0 6px 0;
-            line-height: 1.1;
-            position: relative;
-            z-index: 1;
+            line-height: 1.05;
+            color: #1a1a1e;
+            margin: 20px 0 8px 0;
+            letter-spacing: -0.02em;
         }
 
-        .accent-line {
-            width: 120px;
-            height: 5px;
-            background: linear-gradient(90deg, #7a4a8a, #a060b0, #c080d0);
-            border-radius: 8px;
-            margin: 10px 0 24px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .subtitle {
-            font-size: 1.15rem;
-            color: #4a3a52;
-            max-width: 720px;
+        .main-title .highlight {
+            font-style: italic;
             font-weight: 400;
+            color: #6a4a5a;
+        }
+
+        .main-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #5a4a3a;
+            max-width: 680px;
             margin-bottom: 40px;
             padding-bottom: 32px;
-            border-bottom: 1px solid rgba(200, 180, 210, 0.15);
-            position: relative;
-            z-index: 1;
+            border-bottom: 1px solid #eae6e0;
+            line-height: 1.8;
         }
 
         /* ==========================================================
-                   BADGES D'EXPERTISE
+                   GRILLE À LA UNE (comme les articles en une)
                 ========================================================== */
-        .expertise-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: -8px 0 32px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .expertise-item {
-            background: rgba(200, 180, 210, 0.08);
-            border-radius: 40px;
-            padding: 6px 22px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #3a2a42;
-            border: 1px solid rgba(200, 180, 210, 0.08);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-
-        .expertise-item:hover {
-            background: rgba(180, 80, 200, 0.06);
-            border-color: rgba(180, 80, 200, 0.12);
-            transform: translateY(-2px);
-        }
-
-        .expertise-item .dot {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #7a4a8a, #a060b0);
-        }
-
-        /* ==========================================================
-                   TITRES DE SECTION
-                ========================================================== */
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #1e1424;
-            margin: 48px 0 24px 0;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-title:after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(200, 180, 210, 0.20), transparent);
-        }
-
-        /* ==========================================================
-                   CARTES PROJETS (STYLE MODERNE)
-                ========================================================== */
-        .project-grid {
+        .featured-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-            position: relative;
-            z-index: 1;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 12px 0 48px 0;
         }
 
-        .project-card {
-            background: #ffffff;
-            border-radius: 28px;
-            padding: 28px 26px 30px;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(200, 180, 210, 0.10) inset;
-            border: 1px solid rgba(200, 180, 210, 0.06);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
+        .featured-item {
+            border-top: 3px solid #1a1a1e;
+            padding-top: 16px;
         }
 
-        /* Dégradé subtil au survol */
-        .project-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(180, 80, 200, 0.02), rgba(100, 60, 200, 0.02));
-            opacity: 0;
-            transition: opacity 0.4s;
-            border-radius: 28px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .project-card:hover::after {
-            opacity: 1;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 48px -8px rgba(120, 60, 150, 0.08);
-            border-color: rgba(180, 80, 200, 0.08);
-        }
-
-        .project-card>* {
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-card .icon {
-            font-size: 2.4rem;
-            margin-bottom: 6px;
-        }
-
-        .project-card .status-badge {
-            font-size: 0.55rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: #7a4a8a;
-            background: rgba(180, 80, 200, 0.04);
-            padding: 3px 16px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 8px;
-            width: fit-content;
-            border: 1px solid rgba(180, 80, 200, 0.04);
-        }
-
-        .project-card h3 {
-            font-size: 1.15rem;
+        .featured-item .label {
+            font-size: 0.6rem;
             font-weight: 600;
-            color: #1e1424;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8a7a6a;
             margin-bottom: 4px;
         }
 
-        .project-card .tags {
+        .featured-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a1a1e;
+            margin-bottom: 4px;
+        }
+
+        .featured-item .desc {
+            font-size: 0.85rem;
+            color: #5a4a3a;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .featured-item .meta {
+            font-size: 0.7rem;
+            color: #8a7a6a;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .featured-item .meta span {
+            background: #f4f0ea;
+            padding: 2px 14px;
+            border-radius: 30px;
+        }
+
+        /* ==========================================================
+                   SECTION ARTICLES (grille magazine)
+                ========================================================== */
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1a1a1e;
+            margin: 48px 0 24px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1a1a1e;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-header .section-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #8a7a6a;
+            letter-spacing: 2px;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 16px;
+        }
+
+        .article-card {
+            padding: 0 0 24px 0;
+            border-bottom: 1px solid #f0ece6;
+            transition: all 0.2s;
+        }
+
+        .article-card:hover {
+            border-bottom-color: #1a1a1e;
+        }
+
+        .article-card .article-icon {
+            font-size: 2rem;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .article-card .article-tag {
+            font-size: 0.55rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8a7a6a;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .article-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1e;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .article-card .article-desc {
+            font-size: 0.85rem;
+            color: #5a4a3a;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .article-card .article-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin: 8px 0 14px 0;
+            margin-bottom: 14px;
         }
 
-        .project-card .tag {
-            background: rgba(200, 180, 210, 0.06);
-            color: #4a3a52;
-            padding: 2px 16px;
+        .article-card .article-tags span {
+            background: #f4f0ea;
+            padding: 2px 14px;
             border-radius: 30px;
             font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 0.4px;
-            text-transform: uppercase;
-            border: 1px solid rgba(200, 180, 210, 0.04);
+            font-weight: 500;
+            color: #4a3a2a;
         }
 
-        .project-card .tag.excel {
-            background: rgba(60, 160, 100, 0.06);
-            color: #2a6a4a;
-        }
-        .project-card .tag.ifrs {
-            background: rgba(100, 80, 180, 0.06);
-            color: #3a3a6a;
-        }
-        .project-card .tag.model {
-            background: rgba(80, 140, 200, 0.06);
-            color: #2a4a7a;
-        }
-        .project-card .tag.demo {
-            background: rgba(200, 160, 80, 0.06);
-            color: #7a6a2a;
-        }
-
-        .project-card .desc {
-            font-size: 0.9rem;
-            color: #4a3a52;
-            margin-bottom: 20px;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
+        .article-card .article-tags .excel { background: #e6f0ea; color: #2a5a3a; }
+        .article-card .article-tags .ifrs { background: #ede8f0; color: #3a2a5a; }
+        .article-card .article-tags .model { background: #e6ecf2; color: #2a3a5a; }
+        .article-card .article-tags .demo { background: #f5ede0; color: #5a4a2a; }
 
         .btn-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: auto;
+            margin-top: 4px;
         }
 
-        /* ==========================================================
-                   BOUTONS AVEC DÉGRADÉ
-                ========================================================== */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 9px 24px;
+            padding: 8px 22px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.78rem;
-            transition: all 0.3s;
+            font-size: 0.75rem;
+            transition: all 0.2s;
             border: 1px solid transparent;
             cursor: pointer;
+            background: transparent;
+            letter-spacing: 0.3px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #7a4a8a, #5a3a7a);
+            background: #1a1a1e;
             color: #ffffff;
-            box-shadow: 0 4px 20px rgba(120, 60, 150, 0.15);
+            border: 1px solid #1a1a1e;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(120, 60, 150, 0.20);
+            background: #3a3a3e;
+            border-color: #3a3a3e;
         }
 
         .btn-outline {
-            color: #4a3a52;
-            border-color: rgba(200, 180, 210, 0.15);
+            color: #4a3a2a;
+            border-color: #d0c8c0;
         }
 
         .btn-outline:hover {
-            background: rgba(200, 180, 210, 0.04);
-            border-color: rgba(200, 180, 210, 0.20);
-            transform: translateY(-2px);
+            background: #f4f0ea;
+            border-color: #b0a898;
         }
 
         /* ==========================================================
-                   SECTIONS MÉDIAS
+                   SECTIONS MULTIMÉDIA (comme des encarts magazine)
                 ========================================================== */
         .media-section {
-            background: rgba(255, 255, 255, 0.40);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            border-radius: 28px;
-            padding: 30px 32px;
+            background: #faf8f5;
+            padding: 32px 34px;
             margin: 16px 0 8px 0;
-            border: 1px solid rgba(200, 180, 210, 0.06);
+            border: 1px solid #eae6e0;
             position: relative;
-            z-index: 1;
         }
 
         .media-section h3 {
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: #1e1424;
-            margin-bottom: 18px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1e;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
+        .media-section h3 .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 400;
+            color: #8a7a6a;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: #f0ece6;
+            padding: 2px 14px;
+            border-radius: 30px;
+        }
+
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px;
         }
 
         .video-grid video {
             width: 100%;
-            border-radius: 18px;
+            border-radius: 8px;
             background: #0a0508;
-            border: 1px solid rgba(200, 180, 210, 0.06);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eae6e0;
         }
 
         .video-item p {
-            margin-top: 8px;
-            font-size: 0.85rem;
-            color: #4a3a52;
+            margin-top: 6px;
+            font-size: 0.8rem;
+            color: #5a4a3a;
+            font-weight: 400;
         }
 
         .image-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 14px;
             margin-top: 4px;
         }
 
         .image-grid img {
             max-width: 180px;
             height: auto;
-            border-radius: 16px;
-            border: 1px solid rgba(200, 180, 210, 0.06);
-            transition: all 0.3s;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+            border-radius: 8px;
+            border: 1px solid #eae6e0;
+            transition: all 0.2s;
         }
 
         .image-grid img:hover {
-            border-color: rgba(180, 80, 200, 0.10);
-            transform: scale(1.03);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            border-color: #b0a898;
         }
 
         .pdf-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         .pdf-list a {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.40);
-            padding: 8px 24px;
+            background: #ffffff;
+            padding: 8px 22px;
             border-radius: 40px;
             text-decoration: none;
-            color: #3a2a42;
+            color: #2a2a2e;
             font-weight: 450;
-            font-size: 0.85rem;
-            border: 1px solid rgba(200, 180, 210, 0.06);
-            transition: all 0.3s;
+            font-size: 0.8rem;
+            border: 1px solid #eae6e0;
+            transition: all 0.2s;
         }
 
         .pdf-list a:hover {
-            background: rgba(255, 255, 255, 0.60);
-            border-color: rgba(200, 180, 210, 0.12);
-            transform: translateY(-2px);
+            border-color: #b0a898;
+            background: #faf8f5;
         }
 
         /* ==========================================================
-                   SECTION DE TEST
+                   TEST (encart discret)
                 ========================================================== */
         .test-section {
-            background: rgba(200, 180, 210, 0.04);
-            border: 1px solid rgba(200, 180, 210, 0.06);
-            border-radius: 24px;
-            padding: 24px 30px;
+            background: #faf8f5;
+            border: 1px solid #eae6e0;
+            padding: 20px 28px;
             margin: 40px 0 16px 0;
-            position: relative;
-            z-index: 1;
         }
 
         .test-section h3 {
+            font-family: 'Playfair Display', serif;
             font-size: 0.9rem;
-            font-weight: 600;
-            color: #3a2a42;
+            font-weight: 400;
+            color: #1a1a1e;
             margin-bottom: 8px;
         }
 
@@ -521,96 +422,105 @@
             padding: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 12px 28px;
+            gap: 10px 24px;
         }
 
         .test-section ul li a {
-            color: #4a3a52;
-            font-weight: 450;
+            color: #4a3a2a;
+            font-weight: 400;
             text-decoration: none;
-            border-bottom: 1.5px dotted rgba(200, 180, 210, 0.10);
+            border-bottom: 1px dotted #d0c8c0;
             padding-bottom: 2px;
-            font-size: 0.85rem;
-            transition: all 0.3s;
+            font-size: 0.8rem;
+            transition: all 0.2s;
         }
 
         .test-section ul li a:hover {
-            color: #7a4a8a;
-            border-bottom-color: #7a4a8a;
+            border-bottom-color: #1a1a1e;
+            color: #1a1a1e;
         }
 
         .test-section .note {
-            margin-top: 12px;
-            font-size: 0.8rem;
-            color: #6a5a72;
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: #8a7a6a;
         }
 
         /* ==========================================================
-                   PIED DE PAGE
+                   PIED DE PAGE (comme un colophon de magazine)
                 ========================================================== */
         footer {
             margin-top: 50px;
             padding-top: 24px;
-            border-top: 1px solid rgba(200, 180, 210, 0.06);
+            border-top: 1px solid #eae6e0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            color: #6a5a72;
-            font-size: 0.85rem;
-            position: relative;
-            z-index: 1;
+            color: #8a7a6a;
+            font-size: 0.75rem;
+            letter-spacing: 0.3px;
         }
 
         footer a {
-            color: #7a4a8a;
+            color: #4a3a2a;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
+            font-weight: 400;
+            transition: all 0.2s;
         }
 
         footer a:hover {
-            color: #5a3a7a;
+            color: #1a1a1e;
             text-decoration: underline;
         }
 
-        footer .dot {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #7a4a8a, #a060b0);
-            margin-right: 4px;
+        footer .colophon {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.7rem;
+            font-style: italic;
         }
 
         /* ==========================================================
                    RESPONSIVE
                 ========================================================== */
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             .container {
-                padding: 24px 18px;
-                border-radius: 28px;
+                padding: 28px 20px;
             }
-            h1 {
-                font-size: 2rem;
+            .main-title {
+                font-size: 2.4rem;
             }
-            .subtitle {
-                font-size: 1rem;
+            .featured-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
             .image-grid img {
                 max-width: 130px;
             }
             .test-section ul {
                 flex-direction: column;
-                gap: 6px;
+                gap: 4px;
             }
             footer {
                 flex-direction: column;
                 text-align: center;
             }
-            .project-grid {
+            .article-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 14px;
+            }
+            .main-title {
+                font-size: 1.8rem;
+            }
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -619,54 +529,78 @@
 
     <div class="container">
 
-        <!-- Éléments décoratifs flottants -->
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-
         <!-- ==========================================
-        EN-TÊTE
+        EN-TÊTE MAGAZINE
         ========================================== -->
         <div class="header-top">
-            <span class="badge">✦ Data-Too · IFRS</span>
-            <span class="badge-year">Mise à jour 2026</span>
+            <span class="magazine-title">✦ Data-Too · IFRS Review</span>
+            <span class="magazine-date">Édition 2026</span>
+            <span class="issue-badge">Vol. IV · No. 2</span>
         </div>
 
-        <h1>Consolidation &amp; Modélisation IFRS</h1>
-        <div class="accent-line"></div>
-        <p class="subtitle">
+        <!-- ==========================================
+        TITRE PRINCIPAL
+        ========================================== -->
+        <h1 class="main-title">
+            Consolidation &amp; <br /><span class="highlight">Modélisation IFRS</span>
+        </h1>
+        <p class="main-subtitle">
             Portfolio d'expertise en consolidation financière, analyse de cohortes et modélisation des dettes.
             Tous les fichiers sont disponibles en téléchargement.
         </p>
 
         <!-- ==========================================
-        BADGES D'EXPERTISE
+        À LA UNE (featured)
         ========================================== -->
-        <div class="expertise-grid">
-            <span class="expertise-item"><span class="dot"></span> Consolidation IFRS</span>
-            <span class="expertise-item"><span class="dot"></span> Analyse de cohortes</span>
-            <span class="expertise-item"><span class="dot"></span> Modélisation financière</span>
-            <span class="expertise-item"><span class="dot"></span> Dettes &amp; risques</span>
+        <div class="featured-grid">
+            <div class="featured-item">
+                <div class="label">À la une</div>
+                <h3>Analyse de cohortes</h3>
+                <p class="desc">
+                    Méthodologie avancée pour le suivi des performances dans le cadre de la consolidation IFRS.
+                </p>
+                <div class="meta">
+                    <span>Excel</span>
+                    <span>IFRS</span>
+                    <span>Cohorte</span>
+                </div>
+            </div>
+            <div class="featured-item">
+                <div class="label">À la une</div>
+                <h3>Modélisation financière</h3>
+                <p class="desc">
+                    Projections, scénarios et analyse de sensibilité pour la consolidation IFRS 2026.
+                </p>
+                <div class="meta">
+                    <span>Excel</span>
+                    <span>Modélisation</span>
+                    <span>2026</span>
+                </div>
+            </div>
         </div>
 
         <!-- ==========================================
-        PROJETS EXCEL
+        DOSSIER EXCEL (articles)
         ========================================== -->
-        <h2 class="section-title">📁 Projets Excel</h2>
-        <div class="project-grid">
+        <div class="section-header">
+            <span>📁 Dossier Excel</span>
+            <span class="section-number">3 articles</span>
+        </div>
 
-            <!-- Carte 1 : Analyse de cohortes -->
-            <div class="project-card">
-                <div class="icon">📈</div>
-                <div class="status-badge">Disponible</div>
+        <div class="article-grid">
+
+            <!-- Article 1 : Analyse de cohortes -->
+            <div class="article-card">
+                <span class="article-icon">📈</span>
+                <span class="article-tag">Article 1</span>
                 <h3>Analyse de cohortes</h3>
-                <div class="tags">
-                    <span class="tag excel">Excel</span>
-                    <span class="tag ifrs">IFRS</span>
-                    <span class="tag">Cohorte</span>
+                <div class="article-tags">
+                    <span class="excel">Excel</span>
+                    <span class="ifrs">IFRS</span>
+                    <span>Cohorte</span>
                 </div>
-                <p class="desc">
-                    Analyse dynamique des cohortes pour la consolidation IFRS.
-                    Suivi des performances et des tendances.
+                <p class="article-desc">
+                    Analyse dynamique des cohortes pour la consolidation IFRS. Suivi des performances et des tendances.
                 </p>
                 <div class="btn-group">
                     <a href="assets/documents/cohort-analysis%20exp.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
@@ -674,19 +608,18 @@
                 </div>
             </div>
 
-            <!-- Carte 2 : Modélisation financière -->
-            <div class="project-card">
-                <div class="icon">💰</div>
-                <div class="status-badge">Disponible</div>
+            <!-- Article 2 : Modélisation financière -->
+            <div class="article-card">
+                <span class="article-icon">💰</span>
+                <span class="article-tag">Article 2</span>
                 <h3>Modélisation financière</h3>
-                <div class="tags">
-                    <span class="tag excel">Excel</span>
-                    <span class="tag model">Modélisation</span>
-                    <span class="tag ifrs">2026</span>
+                <div class="article-tags">
+                    <span class="excel">Excel</span>
+                    <span class="model">Modélisation</span>
+                    <span class="ifrs">2026</span>
                 </div>
-                <p class="desc">
-                    Modèle financier complet pour la consolidation IFRS.
-                    Projections, scénarios et analyse de sensibilité.
+                <p class="article-desc">
+                    Modèle financier complet pour la consolidation IFRS. Projections, scénarios et analyse de sensibilité.
                 </p>
                 <div class="btn-group">
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
@@ -694,19 +627,18 @@
                 </div>
             </div>
 
-            <!-- Carte 3 : Modélisation des dettes -->
-            <div class="project-card">
-                <div class="icon">📉</div>
-                <div class="status-badge">Disponible</div>
+            <!-- Article 3 : Modélisation des dettes -->
+            <div class="article-card">
+                <span class="article-icon">📉</span>
+                <span class="article-tag">Article 3</span>
                 <h3>Modélisation des dettes</h3>
-                <div class="tags">
-                    <span class="tag excel">Excel</span>
-                    <span class="tag model">Dettes</span>
-                    <span class="tag ifrs">IFRS</span>
+                <div class="article-tags">
+                    <span class="excel">Excel</span>
+                    <span class="model">Dettes</span>
+                    <span class="ifrs">IFRS</span>
                 </div>
-                <p class="desc">
-                    Analyse et modélisation des dettes selon les normes IFRS.
-                    Évaluation des risques et des impacts.
+                <p class="article-desc">
+                    Analyse et modélisation des dettes selon les normes IFRS. Évaluation des risques et des impacts.
                 </p>
                 <div class="btn-group">
                     <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" download class="btn btn-primary">⬇️ Télécharger</a>
@@ -717,10 +649,18 @@
         </div>
 
         <!-- ==========================================
-        VIDÉOS
+        MULTIMÉDIA
         ========================================== -->
-        <h2 class="section-title">🎥 Démonstrations</h2>
+        <div class="section-header">
+            <span>🎥 Multimédia</span>
+            <span class="section-number">Vidéos &amp; Images</span>
+        </div>
+
         <div class="media-section">
+            <h3>
+                Démonstrations
+                <span class="section-label">2 vidéos</span>
+            </h3>
             <div class="video-grid">
                 <div class="video-item">
                     <video controls>
@@ -741,32 +681,36 @@
             </div>
         </div>
 
-        <!-- ==========================================
-        IMAGES
-        ========================================== -->
-        <h2 class="section-title">🖼️ Captures d'écran</h2>
         <div class="media-section">
+            <h3>
+                Captures d'écran
+                <span class="section-label">3 visuels</span>
+            </h3>
             <div class="image-grid">
                 <img src="assets/images/screenshot1.png" alt="Capture écran 1">
                 <img src="assets/images/screenshot2.jpg" alt="Capture écran 2">
                 <img src="assets/images/graph.jpg" alt="Graphique IFRS">
             </div>
-            <p style="margin-top: 16px; font-size: 0.85rem; color: #6a5a72;">
+            <p style="margin-top: 14px; font-size: 0.8rem; color: #8a7a6a;">
                 Cliquez sur une image pour l'agrandir.
             </p>
         </div>
 
         <!-- ==========================================
-        PDF
+        DOCUMENTS
         ========================================== -->
-        <h2 class="section-title">📄 Documents</h2>
-        <div class="media-section">
+        <div class="section-header">
+            <span>📄 Documents</span>
+            <span class="section-number">3 PDF</span>
+        </div>
+
+        <div class="media-section" style="background: #ffffff;">
             <div class="pdf-list">
                 <a href="assets/docs/Guide_IFRS_2026.pdf" target="_blank">📘 Guide IFRS 2026</a>
                 <a href="assets/docs/Rapport_Consolidation.pdf" target="_blank">📗 Rapport de consolidation</a>
                 <a href="assets/docs/Modelisation_Financiere.pdf" target="_blank">📕 Guide de modélisation</a>
             </div>
-            <p style="margin-top: 14px; font-size: 0.85rem; color: #6a5a72;">
+            <p style="margin-top: 14px; font-size: 0.8rem; color: #8a7a6a;">
                 Les PDF s'ouvrent dans un nouvel onglet.
             </p>
         </div>
@@ -787,13 +731,13 @@
         </div>
 
         <!-- ==========================================
-        PIED DE PAGE
+        PIED DE PAGE (colophon)
         ========================================== -->
         <footer>
             <span>Portfolio Data-Too · Consolidation IFRS 2026</span>
             <span>
-                <span class="dot"></span>
-                <a href="https://github.com/Data-Too/Portfolio" target="_blank">GitHub</a>
+                <span class="colophon">✧ édition limitée</span>
+                <a href="https://github.com/Data-Too/Portfolio" target="_blank" style="margin-left: 16px;">GitHub</a>
             </span>
         </footer>
 
