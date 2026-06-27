@@ -429,8 +429,14 @@
         }
 
         /* ============================================================
-                   VIDÉO
+                   VIDÉOS
                 ============================================================ */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
         .video-card {
             background: #FFFFFF;
             border: 1px solid rgba(26, 42, 58, 0.04);
@@ -438,8 +444,6 @@
             overflow: hidden;
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .video-card:hover {
@@ -810,6 +814,9 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
             .cert-grid {
                 grid-template-columns: 1fr;
             }
@@ -826,9 +833,6 @@
             }
             .skills-grid {
                 grid-template-columns: 1fr 1fr;
-            }
-            .video-card {
-                max-width: 100%;
             }
         }
 
@@ -912,6 +916,9 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
             .cert-grid {
                 grid-template-columns: 1fr;
             }
@@ -947,7 +954,7 @@
         <a href="#" class="logo">The <span>Alpha</span> Report</a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#projects">Projets</a></li>
-            <li><a href="#video">Vidéo</a></li>
+            <li><a href="#videos">Vidéos</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#languages">Langues</a></li>
             <li><a href="#data">Data Room</a></li>
@@ -986,7 +993,7 @@
             </div>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">Voir les projets</a>
-                <a href="#video" class="btn btn-outline">Voir la vidéo</a>
+                <a href="#videos" class="btn btn-outline">Voir les vidéos</a>
             </div>
         </div>
         <div class="hero-visual">
@@ -1113,32 +1120,58 @@
     <hr class="section-divider" />
 
     <!-- ============================================================
-    VIDÉO
+    VIDÉOS
     ============================================================ -->
-    <section class="section" id="video">
+    <section class="section" id="videos">
         <div class="section-header">
-            <h2>🎥 Vidéo</h2>
-            <span class="count">1 démonstration</span>
+            <h2>🎥 Vidéos</h2>
+            <span class="count">2 démonstrations</span>
         </div>
 
-        <div class="video-card">
-            <div class="video-wrapper">
-                <iframe 
-                    src="https://go.screenpal.com/player/cO1T3mnuWhl?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" 
-                    allowfullscreen="true"
-                    scrolling="no"
-                    title="Démonstration Consolidation IFRS">
-                </iframe>
-            </div>
-            <div class="video-info">
-                <span class="video-label">Démonstration</span>
-                <h4>Consolidation IFRS</h4>
-                <p>Présentation de la méthodologie de consolidation et des retraitements.</p>
-                <div class="btn-group">
-                    <a href="https://go.screenpal.com/player/cO1T3mnuWhl?download=1" target="_blank" class="btn btn-primary btn-sm">⬇️ Télécharger la vidéo</a>
-                    <a href="https://go.screenpal.com/player/cO1T3mnuWhl" target="_blank" class="btn btn-outline btn-sm">🔗 Ouvrir dans ScreenPal</a>
+        <div class="video-grid">
+
+            <!-- Vidéo 1 : Consolidation IFRS -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://go.screenpal.com/player/cO1T3mnuWhl?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" 
+                        allowfullscreen="true"
+                        scrolling="no"
+                        title="Démonstration Consolidation IFRS">
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-label">Démonstration 1</span>
+                    <h4>Consolidation IFRS</h4>
+                    <p>Présentation de la méthodologie de consolidation et des retraitements.</p>
+                    <div class="btn-group">
+                        <a href="https://go.screenpal.com/player/cO1T3mnuWhl?download=1" target="_blank" class="btn btn-primary btn-sm">⬇️ Télécharger</a>
+                        <a href="https://go.screenpal.com/player/cO1T3mnuWhl" target="_blank" class="btn btn-outline btn-sm">🔗 Ouvrir</a>
+                    </div>
                 </div>
             </div>
+
+            <!-- Vidéo 2 : Modélisation financière -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://go.screenpal.com/player/cO1t6qnUVGM?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" 
+                        allowfullscreen="true"
+                        scrolling="no"
+                        title="Démonstration Modélisation financière">
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-label">Démonstration 2</span>
+                    <h4>Modélisation financière</h4>
+                    <p>Présentation des scénarios, de l'analyse de sensibilité et des résultats.</p>
+                    <div class="btn-group">
+                        <a href="https://go.screenpal.com/player/cO1t6qnUVGM?download=1" target="_blank" class="btn btn-primary btn-sm">⬇️ Télécharger</a>
+                        <a href="https://go.screenpal.com/player/cO1t6qnUVGM" target="_blank" class="btn btn-outline btn-sm">🔗 Ouvrir</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1204,7 +1237,7 @@
             <div class="lang-card">
                 <span class="lang-icon">🇫🇷</span>
                 <div class="lang-name">Français</div>
-                <span class="lang-level">Courant · Niveau C1</span>
+                <span class="lang-level">Langue maternelle</span>
             </div>
 
             <div class="lang-card">
@@ -1346,7 +1379,8 @@
                 <a href="assets/documents/cohort-analysis%20exp.xlsx" target="_blank">cohort-analysis-exp.xlsx</a>
                 <a href="assets/documents/Mod%C3%A9lisation_dettes.xlsx" target="_blank">Modélisation_dettes.xlsx</a>
                 <a href="assets/documents/l'oral%C3%A9%20DCF.xlsx" target="_blank">L'Oréal DCF.xlsx</a>
-                <a href="https://go.screenpal.com/player/cO1T3mnuWhl" target="_blank">Vidéo ScreenPal</a>
+                <a href="https://go.screenpal.com/player/cO1T3mnuWhl" target="_blank">Vidéo 1</a>
+                <a href="https://go.screenpal.com/player/cO1t6qnUVGM" target="_blank">Vidéo 2</a>
                 <span>⚠️ Vérifiez les chemins sur GitHub</span>
             </p>
         </div>
