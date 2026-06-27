@@ -27,9 +27,6 @@
             line-height: 1.6;
         }
 
-        /* ============================================================
-                   NAVIGATION
-                ============================================================ */
         .navbar {
             position: fixed;
             top: 0;
@@ -90,9 +87,6 @@
             color: #1A2A3A;
         }
 
-        /* ============================================================
-                   HERO
-                ============================================================ */
         .hero {
             padding: 120px 40px 60px;
             max-width: 1120px;
@@ -243,9 +237,6 @@
             color: #2A6A8A;
         }
 
-        /* ============================================================
-                   SECTIONS
-                ============================================================ */
         .section {
             max-width: 1120px;
             margin: 0 auto;
@@ -283,9 +274,6 @@
             margin: 0;
         }
 
-        /* ============================================================
-                   PROJETS EXCEL
-                ============================================================ */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -428,9 +416,6 @@
             border-radius: 6px;
         }
 
-        /* ============================================================
-                   VIDÉOS
-                ============================================================ */
         .video-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -502,9 +487,6 @@
             border: 0;
         }
 
-        /* ============================================================
-                   CERTIFICATIONS
-                ============================================================ */
         .cert-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -556,9 +538,6 @@
             margin-top: 4px;
         }
 
-        /* ============================================================
-                   LANGUES
-                ============================================================ */
         .lang-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -603,9 +582,6 @@
             margin-top: 4px;
         }
 
-        /* ============================================================
-                   DATA ROOM
-                ============================================================ */
         .data-room {
             background: #FFFFFF;
             border: 1px solid rgba(26, 42, 58, 0.04);
@@ -674,9 +650,6 @@
             text-transform: uppercase;
         }
 
-        /* ============================================================
-                   COMPÉTENCES
-                ============================================================ */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -721,9 +694,6 @@
             color: #5A6A7A;
         }
 
-        /* ============================================================
-                   TEST
-                ============================================================ */
         .test-bar {
             max-width: 1120px;
             margin: 0 auto;
@@ -760,9 +730,6 @@
             border-bottom-color: #2A6A8A;
         }
 
-        /* ============================================================
-                   FOOTER
-                ============================================================ */
         footer {
             max-width: 1120px;
             margin: 0 auto;
@@ -787,9 +754,6 @@
             color: #2A6A8A;
         }
 
-        /* ============================================================
-                   RESPONSIVE
-                ============================================================ */
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -1035,15 +999,11 @@
 
         <div class="projects-grid">
 
-            <!-- Projet 1 : Analyse de cohortes -->
             <div class="project-card">
                 <span class="card-label">Excel · SaaS</span>
                 <span class="icon">📈</span>
                 <h3>Analyse de cohortes</h3>
-                <p class="desc">
-                    Modèle SaaS d'analyse de rétention client et de croissance du MRR sur 36 mois.
-                    Dashboard interactif avec vue cohorte et indicateurs de performance.
-                </p>
+                <p class="desc">Modèle SaaS d'analyse de rétention client et de croissance du MRR sur 36 mois. Dashboard interactif avec vue cohorte.</p>
                 <div class="metrics">
                     <span>Taux de rétention <strong class="highlight">78%</strong></span>
                     <span>Churn mensuel <strong>7%</strong></span>
@@ -1061,15 +1021,11 @@
                 </div>
             </div>
 
-            <!-- Projet 2 : Modélisation des dettes -->
             <div class="project-card">
                 <span class="card-label">Excel · LBO</span>
                 <span class="icon">📉</span>
                 <h3>Modélisation des dettes</h3>
-                <p class="desc">
-                    Modèle de structure financière d'une entreprise industrielle (LBO) avec
-                    dette senior, Term Loan B, mezzanine et ligne de crédit renouvelable.
-                </p>
+                <p class="desc">Modèle de structure financière d'une entreprise industrielle (LBO) avec dette senior, Term Loan B, mezzanine et ligne de crédit.</p>
                 <div class="metrics">
                     <span>Dettes/EBITDA <strong class="highlight">2.8x</strong></span>
                     <span>Couverture intérêts <strong>4.2x</strong></span>
@@ -1087,16 +1043,11 @@
                 </div>
             </div>
 
-            <!-- Projet 3 : Étude de cas L'Oréal -->
             <div class="project-card" style="grid-column: span 2;">
                 <span class="card-label">Excel · DCF</span>
                 <span class="icon">💄</span>
                 <h3>Étude de cas L'Oréal · Valorisation DCF</h3>
-                <p class="desc">
-                    Modèle de valorisation par Discounted Cash Flow (DCF) de L'Oréal,
-                    avec analyse des flux de trésorerie, coût du capital, et estimation
-                    de la valeur d'entreprise.
-                </p>
+                <p class="desc">Modèle de valorisation par Discounted Cash Flow (DCF) de L'Oréal, avec analyse des flux de trésorerie, coût du capital, et estimation de la valeur d'entreprise.</p>
                 <div class="metrics">
                     <span>Valorisation <strong class="highlight">~220 Mds €</strong></span>
                     <span>WACC <strong>6.2%</strong></span>
@@ -1130,7 +1081,7 @@
 
         <div class="video-grid">
 
-            <!-- Vidéo 1 : Logiciel de Consolidation IFRS -->
+            <!-- Vidéo 1 -->
             <div class="video-card">
                 <div class="video-wrapper">
                     <iframe 
@@ -1144,12 +1095,9 @@
                     <span class="video-label">Démonstration 1</span>
                     <h4>Logiciel de Consolidation IFRS</h4>
                     <p>
-                        Logiciel de consolidation de comptes en normes IFRS. Ce démonstrateur 
-                        couvre l'ensemble des normes IFRS 3, 10, 11 et 12 (regroupements 
-                        d'entreprises, états financiers consolidés, partenariats, informations 
-                        à fournir). L'outil permet l'automatisation des retraitements de 
-                        consolidation, la gestion des périmètres et le pilotage des cycles 
-                        de consolidation.
+                        Logiciel de consolidation de comptes en normes IFRS couvrant IFRS 3, 10, 11 et 12. 
+                        Automatisation des retraitements de consolidation, gestion des périmètres et pilotage 
+                        des cycles de consolidation.
                     </p>
                     <div class="btn-group">
                         <a href="https://go.screenpal.com/player/cO1T3mnuWhl?download=1" target="_blank" class="btn btn-primary btn-sm">⬇️ Télécharger</a>
@@ -1158,7 +1106,7 @@
                 </div>
             </div>
 
-            <!-- Vidéo 2 : Data Room pour Levée de Fonds -->
+            <!-- Vidéo 2 -->
             <div class="video-card">
                 <div class="video-wrapper">
                     <iframe 
@@ -1172,11 +1120,8 @@
                     <span class="video-label">Démonstration 2</span>
                     <h4>Data Room pour Levée de Fonds</h4>
                     <p>
-                        Data room structurée et sécurisée pour une levée de fonds. Présentation 
-                        de l'organisation des documents financiers, juridiques et commerciaux 
-                        par thématique. L'outil facilite la due diligence des investisseurs 
-                        en centralisant l'ensemble des informations nécessaires à l'évaluation 
-                        du projet.
+                        Data room structurée et sécurisée pour une levée de fonds. Centralisation des documents 
+                        financiers, juridiques et commerciaux pour faciliter la due diligence des investisseurs.
                     </p>
                     <div class="btn-group">
                         <a href="https://go.screenpal.com/player/cO1t6qnUVGM?download=1" target="_blank" class="btn btn-primary btn-sm">⬇️ Télécharger</a>
@@ -1201,7 +1146,6 @@
 
         <div class="cert-grid">
 
-            <!-- Cert 1 : Trainy M&A -->
             <div class="cert-card">
                 <span class="cert-icon">📜</span>
                 <div class="cert-info">
@@ -1211,7 +1155,6 @@
                 </div>
             </div>
 
-            <!-- Cert 2 : Excel VBA Avancé -->
             <div class="cert-card">
                 <span class="cert-icon">📊</span>
                 <div class="cert-info">
@@ -1221,7 +1164,6 @@
                 </div>
             </div>
 
-            <!-- Cert 3 : Oddo CRM -->
             <div class="cert-card">
                 <span class="cert-icon">💼</span>
                 <div class="cert-info">
@@ -1350,31 +1292,19 @@
 
         <div class="skills-grid">
             <div class="skill-card">
-                <div class="skill-name">
-                    Consolidation IFRS
-                    <span class="level">Expert</span>
-                </div>
+                <div class="skill-name">Consolidation IFRS <span class="level">Expert</span></div>
                 <p class="skill-desc">IFRS 10, 11, 12 · Périmètres · Retraitements</p>
             </div>
             <div class="skill-card">
-                <div class="skill-name">
-                    Analyse de cohortes
-                    <span class="level">Avancé</span>
-                </div>
+                <div class="skill-name">Analyse de cohortes <span class="level">Avancé</span></div>
                 <p class="skill-desc">KPI · Suivi des performances · Tendances</p>
             </div>
             <div class="skill-card">
-                <div class="skill-name">
-                    Modélisation financière
-                    <span class="level">Expert</span>
-                </div>
+                <div class="skill-name">Modélisation financière <span class="level">Expert</span></div>
                 <p class="skill-desc">LBO · DCF · Scénarios · Sensibilité</p>
             </div>
             <div class="skill-card">
-                <div class="skill-name">
-                    Excel &amp; VBA
-                    <span class="level">Avancé</span>
-                </div>
+                <div class="skill-name">Excel &amp; VBA <span class="level">Avancé</span></div>
                 <p class="skill-desc">Power Query · VBA · Tableaux de bord · Automatisation</p>
             </div>
         </div>
